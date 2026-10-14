@@ -84,9 +84,69 @@ func _ready() -> void:
 	for index in range(42):
 		GameManager.advance_period()
 	_check(_teleports == 0 and _endgames == 1, "all dead boundary stays valid")
+	_test_reset_notifications_and_reentry()
+	_test_final_day_settlement()
 	if _failures == 0:
 		print("PASS: GameManager time, players, inventory, health and teleport tests")
 	get_tree().quit(0 if _failures == 0 else 1)
+
+
+func _test_reset_notifications_and_reentry() -> void:
+	var observed: Dictionary = {"starts": 0, "health": {}, "inventory": {}, "advance": true}
+	GameManager.start_new_game()
+	GameManager.damage_player(0, 20)
+	GameManager.add_item(0, "wood", 3)
+	var on_start := func():
+		observed["starts"] += 1
+		# Limit recursion in the regression test if the guard is removed.
+		if observed["starts"] == 1:
+			GameManager.start_new_game()
+		observed["advance"] = GameManager.advance_period()
+	var on_health := func(id, health, maximum):
+		observed["health"][id] = [health, maximum]
+		GameManager.start_new_game()
+	var on_inventory := func(id, inventory):
+		observed["inventory"][id] = inventory
+	var on_period := func(_day, _period): GameManager.advance_period()
+	GameManager.game_started.connect(on_start)
+	GameManager.health_changed.connect(on_health)
+	GameManager.inventory_changed.connect(on_inventory)
+	GameManager.period_changed.connect(on_period)
+	GameManager.start_new_game()
+	GameManager.game_started.disconnect(on_start)
+	GameManager.health_changed.disconnect(on_health)
+	GameManager.inventory_changed.disconnect(on_inventory)
+	GameManager.period_changed.disconnect(on_period)
+	_check(observed["starts"] == 1 and not observed["advance"], "reset reentry blocked")
+	_check(GameManager.current_day == 1 and GameManager.current_period == GameManager.Period.MORNING, "reset callbacks cannot skip morning")
+	_check(observed["health"].size() == 6 and observed["inventory"].size() == 6, "reset notifies every player's UI")
+	_check(observed["health"].get(0) == [100, 100] and observed["inventory"].get(0, {"missing": true}).is_empty(), "reset UI receives restored values")
+	_check(GameManager.advance_period(), "reset lock released")
+
+
+func _test_final_day_settlement() -> void:
+	GameManager.start_new_game()
+	_teleports = 0
+	var settled_days: Array[int] = []
+	var events: Array[String] = []
+	var on_day := func(day):
+		settled_days.append(day)
+		_check(GameManager.current_day == day and GameManager.current_period == GameManager.Period.EVENING, "settlement observes ending day")
+		if day == 14:
+			events.append("settlement")
+			_check(GameManager.phase == GameManager.Phase.SURVIVAL and _teleports == 0, "settlement before endgame")
+			GameManager.damage_player(5, 100)
+	var on_end := func(): events.append("endgame")
+	GameManager.day_finished.connect(on_day)
+	GameManager.endgame_started.connect(on_end)
+	for index in range(42):
+		GameManager.advance_period()
+	GameManager.day_finished.disconnect(on_day)
+	GameManager.endgame_started.disconnect(on_end)
+	_check(settled_days.size() == 14 and settled_days[0] == 1 and settled_days[13] == 14, "each day settles exactly once")
+	_check(events == ["settlement", "endgame"], "final day event order")
+	_check(_teleports == 5 and not GameManager.get_player(5)["alive"], "final day death excluded from teleport")
+	_check(GameManager.get_player(5)["continent_id"] != GameManager.END_CONTINENT_ID, "final day victim remains home")
 
 
 func _check(condition: bool, message: String) -> void:

@@ -41,6 +41,7 @@ var phase: Phase = Phase.SURVIVAL
 var _players: Dictionary = {}
 var _bodies: Dictionary = {}
 var _advancing: bool = false
+var _initializing: bool = false
 
 
 func _ready() -> void:
@@ -49,8 +50,9 @@ func _ready() -> void:
 
 func start_new_game() -> void:
 	# Reject synchronous reset attempts from transition signal listeners.
-	if _advancing:
+	if _advancing or _initializing:
 		return
+	_initializing = true
 	current_day = 1
 	current_period = Period.MORNING
 	phase = Phase.SURVIVAL
@@ -68,21 +70,26 @@ func start_new_game() -> void:
 		_place_registered_body(id, continent["spawn"])
 	game_started.emit()
 	period_changed.emit(current_day, current_period)
+	for id in range(PLAYER_COUNT):
+		health_changed.emit(id, _players[id]["health"], _players[id]["max_health"])
+		inventory_changed.emit(id, _players[id]["inventory"].duplicate(true))
+		player_changed.emit(id)
+	_initializing = false
 
 
 func advance_period() -> bool:
-	if phase != Phase.SURVIVAL or _advancing:
+	if phase != Phase.SURVIVAL or _advancing or _initializing:
 		return false
 	_advancing = true
 	if current_period == Period.EVENING:
 		var finished_day: int = current_day
+		# Synchronous listeners finish hunger/damage settlement before teleport.
+		day_finished.emit(finished_day)
 		if current_day == TOTAL_DAYS:
 			_enter_endgame()
-			day_finished.emit(finished_day)
 		else:
 			current_day += 1
 			current_period = Period.MORNING
-			day_finished.emit(finished_day)
 			period_changed.emit(current_day, current_period)
 	else:
 		current_period = Period.NOON if current_period == Period.MORNING else Period.EVENING
