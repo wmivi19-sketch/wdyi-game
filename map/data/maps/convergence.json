@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "id": "convergence",
+  "name": "交汇大陆",
+  "tile_size": 48,
+  "width": 20,
+  "height": 12,
+  "spawn": [
+    2,
+    1
+  ],
+  "terrain_types": {
+    ".": {
+      "id": 0,
+      "name": "草地",
+      "color": "639455",
+      "solid": false
+    },
+    "~": {
+      "id": 1,
+      "name": "水域",
+      "color": "356b99",
+      "solid": true
+    },
+    "^": {
+      "id": 2,
+      "name": "山脉",
+      "color": "747582",
+      "solid": true
+    },
+    "s": {
+      "id": 3,
+      "name": "沙地",
+      "color": "c6ad70",
+      "solid": false
+    },
+    "f": {
+      "id": 4,
+      "name": "森林",
+      "color": "315d42",
+      "solid": false
+    },
+    "i": {
+      "id": 5,
+      "name": "冰原",
+      "color": "a6cedb",
+      "solid": false
+    },
+    "v": {
+      "id": 6,
+      "name": "熔岩",
+      "color": "b95137",
+      "solid": true
+    }
+  },
+  "terrain_rows": [
+    "~~~~~~~~~~~~~~~~~~~~",
+    "~~....iiii....ffff~~",
+    "~..^^.iiii....fffff~",
+    "~..^^.......ssfffff~",
+    "~..........sssfffff~",
+    "~..fff.............~",
+    "~..fff....^^..iiiii~",
+    "~.........^^..iiiii~",
+    "~...ssss...........~",
+    "~...ssss....fff....~",
+    "~~................~~",
+    "~~~~~~~~~~~~~~~~~~~~"
+  ],
+  "resources": [
+    {
+      "id": "convergence_ore",
+      "kind": "ore",
+      "name": "矿石",
+      "cell": [
+        6,
+        4
+      ],
+      "amount": 12
+    },
+    {
+      "id": "convergence_herb",
+      "kind": "herb",
+      "name": "药草",
+      "cell": [
+        8,
+        7
+      ],
+      "amount": 8
+    },
+    {
+      "id": "convergence_wood",
+      "kind": "wood",
+      "name": "木材",
+      "cell": [
+        15,
+        8
+      ],
+      "amount": 15
+    }
+  ],
+  "special_locations": [
+    {
+      "id": "convergence_artifact",
+      "kind": "artifact",
+      "name": "神器埋藏点",
+      "cell": [
+        3,
+        8
+      ],
+      "radius": 18
+    },
+    {
+      "id": "convergence_altar",
+      "kind": "altar",
+      "name": "仪式祭坛",
+      "cell": [
+        10,
+        5
+      ],
+      "radius": 20
+    },
+    {
+      "id": "convergence_market",
+      "kind": "market",
+      "name": "交易所",
+      "cell": [
+        16,
+        2
+      ],
+      "radius": 20
+    }
+  ]
+}
