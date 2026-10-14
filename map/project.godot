@@ -18,6 +18,10 @@ config/name="六大陆 · 数据驱动地图"
 run/main_scene="res://scenes/MapDemo.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+GameManager="*res://scripts/GameManager.gd"
+
 [display]
 
 window/size/viewport_width=1080

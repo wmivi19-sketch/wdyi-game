@@ -14,6 +14,71 @@ var current_data: Dictionary = {}
 var spawn_position := Vector2.ZERO
 var _map_root: Node2D
 
+func _ready() -> void:
+	GameManager.continent_switched.connect(_on_continent_switched)
+	load_map_from_json(GameManager.current_continent_id)
+
+func _on_continent_switched(continent_id: int) -> void:
+	call_deferred("load_map_from_json", continent_id)
+
+func load_map_from_json(continent_id: int) -> bool:
+	if continent_id < 0 or continent_id > 5:
+		return _fail("Continent ID must be in 0..5")
+	return load_json(MAP_DIRECTORY + "continent_%d.json" % continent_id)
+
+func _convert_continent(data: Dictionary) -> Dictionary:
+	if not data.get("terrain") is Array or data.terrain.is_empty():
+		return {}
+	var grid: Array = data.terrain
+	if not grid[0] is Array or grid[0].is_empty():
+		return {}
+	var width: int = grid[0].size()
+	var height: int = grid.size()
+	if width > 256 or height > 256:
+		return {}
+	if not data.get("collision_points") is Array or not data.get("resource_spots") is Array:
+		return {}
+	var blocked: Dictionary = {}
+	for cell in data.collision_points:
+		if not _valid_cell(cell, width, height):
+			return {}
+		blocked[Vector2i(int(cell[0]), int(cell[1]))] = true
+	var symbols := [".", "~", "^"]
+	var solid_symbols := ["A", "B", "C"]
+	var colors: Variant = data.get("colors", ["639455", "356b99", "91785c"])
+	if not colors is Array or colors.size() != 3:
+		return {}
+	var types: Dictionary = {}
+	for i in range(3):
+		types[symbols[i]] = {"id": i, "solid": false, "color": colors[i]}
+		types[solid_symbols[i]] = {"id": i + 3, "solid": true, "color": colors[i]}
+	var rows: Array = []
+	for y in range(height):
+		if not grid[y] is Array or grid[y].size() != width:
+			return {}
+		var row := ""
+		for x in range(width):
+			var value: Variant = grid[y][x]
+			if not _integer(value) or value < 0 or value > 2:
+				return {}
+			row += solid_symbols[int(value)] if blocked.has(Vector2i(x, y)) else symbols[int(value)]
+		rows.append(row)
+	var resources: Array = []
+	for i in range(data.resource_spots.size()):
+		var cell: Variant = data.resource_spots[i]
+		if not _valid_cell(cell, width, height):
+			return {}
+		resources.append({"id": "resource_%d" % i, "kind": "herb", "name": "资源", "cell": cell, "amount": 1})
+	return {"schema_version": 1, "id": str(data.get("id", "continent")),
+		"name": str(data.get("name", "大陆")), "tile_size": data.get("tile_size", 10),
+		"width": width, "height": height, "spawn": data.get("spawn", [1, 1]),
+		"terrain_types": types, "terrain_rows": rows,
+		"resources": resources, "special_locations": []}
+
+func _valid_cell(cell: Variant, width: int, height: int) -> bool:
+	return cell is Array and cell.size() == 2 and _integer(cell[0]) and _integer(cell[1]) \
+		and cell[0] >= 0 and cell[1] >= 0 and cell[0] < width and cell[1] < height
+
 func load_map(map_id: String) -> bool:
 	if map_id.is_empty() or not map_id.is_valid_identifier():
 		return _fail("Invalid map identifier: " + map_id)
@@ -31,6 +96,10 @@ func load_json(path: String) -> bool:
 	if not parser.data is Dictionary:
 		return _fail("Map root must be an object")
 	var data: Dictionary = parser.data
+	if data.has("terrain"):
+		data = _convert_continent(data)
+		if data.is_empty():
+			return _fail("Invalid continent terrain or coordinates")
 	var error := _validate(data)
 	if not error.is_empty():
 		return _fail(error)
@@ -57,6 +126,7 @@ func load_json(path: String) -> bool:
 	for entry in data.special_locations:
 		_add_marker(next_locations, entry, int(data.tile_size), true)
 	if is_instance_valid(_map_root):
+		terrain_layer.clear()
 		remove_child(_map_root)
 		_map_root.queue_free()
 	add_child(next_root)

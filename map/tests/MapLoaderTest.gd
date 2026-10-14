@@ -1,13 +1,13 @@
-extends SceneTree
+extends Node
 
 const Loader = preload("res://scripts/MapLoader.gd")
 
-func _initialize() -> void:
+func _ready() -> void:
 	call_deferred("_run")
 
 func _run() -> void:
 	var loader := Loader.new()
-	root.add_child(loader)
+	add_child(loader)
 	for map_id in ["emerald", "sun_sands", "frost_crown", "ancient_woods", "ember", "convergence"]:
 		assert(loader.load_map(map_id), "Map load failed: " + map_id)
 		assert(loader.terrain_layer.get_used_cells().size() == 240)
@@ -21,8 +21,8 @@ func _run() -> void:
 			var tile := atlas.get_tile_data(Vector2i(int(terrain.id), 0), 0)
 			assert(tile.get_collision_polygons_count(0) == (1 if terrain.solid else 0))
 		print("PASS ", map_id)
-		await process_frame
+		await get_tree().process_frame
 	loader.queue_free()
-	await process_frame
+	await get_tree().process_frame
 	print("All six deterministic maps passed.")
-	quit(0)
+	get_tree().quit(0)

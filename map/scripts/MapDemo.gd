@@ -10,7 +10,7 @@ var status: Label
 func _ready() -> void:
 	loader = Loader.new()
 	loader.position = Vector2(60, 110)
-	add_child(loader)
+	call_deferred("_attach_loader")
 	var ui := CanvasLayer.new()
 	add_child(ui)
 	var title := Label.new()
@@ -31,26 +31,47 @@ func _ready() -> void:
 	player.collision_mask = 1
 	var shape := CollisionShape2D.new()
 	var circle := CircleShape2D.new()
-	circle.radius = 12
+	circle.radius = 3
 	shape.shape = circle
 	player.add_child(shape)
 	var visual := Polygon2D.new()
-	visual.polygon = PackedVector2Array([Vector2(-10, -10), Vector2(10, -10), Vector2(10, 10), Vector2(-10, 10)])
+	visual.polygon = PackedVector2Array([Vector2(-3, -3), Vector2(3, -3), Vector2(3, 3), Vector2(-3, 3)])
 	visual.color = Color.WHITE
 	player.add_child(visual)
 	add_child(player)
 	loader.location_entered.connect(func(id: String, kind: String, _body: Node2D): status.text = "进入特殊地点：%s (%s)" % [id, kind])
 	loader.location_exited.connect(func(_id: String, _kind: String, _body: Node2D): status.text = "继续探索")
-	_select_map(0)
+	GameManager.time_updated.connect(func(_day: int, _period: int): _update_status())
+
+func _attach_loader() -> void:
+	loader.map_loaded.connect(_on_map_loaded)
+	loader.load_failed.connect(func(message: String): status.text = "加载失败：" + message)
+	add_child(loader)
+
+func _on_map_loaded(_id: String) -> void:
+	player.position = loader.to_global(loader.spawn_position)
+	player.velocity = Vector2.ZERO
+	_update_status()
+
+func _update_status() -> void:
+	status.text = "大陆 %d · 第 %d 天 · %s · 1–6 切换，空格推进时间" % [
+		GameManager.current_continent_id, GameManager.current_day,
+		GameManager.PERIOD_NAMES[GameManager.current_period]]
 
 func _select_map(index: int) -> void:
-	if loader.load_map(MAP_IDS[index]):
-		player.position = loader.position + loader.spawn_position
-		status.text = "当前大陆：" + MAP_NAMES[index]
+	GameManager.switch_to_continent(index)
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if not event is InputEventKey or not event.pressed or event.echo:
+		return
+	if event.keycode >= KEY_1 and event.keycode <= KEY_6:
+		GameManager.switch_to_continent(event.keycode - KEY_1)
+	elif event.keycode == KEY_SPACE:
+		GameManager.next_time_period()
 
 func _physics_process(_delta: float) -> void:
 	if not is_instance_valid(player):
 		return
 	var direction := Vector2(float(Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT)) - float(Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT)), float(Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN)) - float(Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP)))
-	player.velocity = direction.normalized() * 180.0
+	player.velocity = direction.normalized() * 80.0
 	player.move_and_slide()

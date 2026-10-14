@@ -1,3 +1,5 @@
+全局管理与按键切换接入说明、完整源码索引及编辑器设置见 [INTEGRATION.md](INTEGRATION.md)。当前默认演示使用 continent_0 至 continent_5：1–6 切换，空格推进时间。
+
 # 六大陆数据驱动地图系统
 
 使用 Godot 4.3 或更高版本打开本目录的 `project.godot`，按 F6/F5 运行演示。选择大陆后，用 WASD 或方向键移动白色角色。水域、山脉、熔岩阻挡移动。
@@ -28,5 +30,5 @@ if loader.load_map("emerald"):
 
 ```text
 godot --headless --path . --editor --quit
-godot --headless --path . --script res://tests/MapLoaderTest.gd
+godot --headless --path . res://tests/MapLoaderTest.tscn
 ```
