@@ -32,3 +32,32 @@ if loader.load_map("emerald"):
 godot --headless --path . --editor --quit
 godot --headless --path . res://tests/MapLoaderTest.tscn
 ```
+
+
+## 可移动角色与模块化外观
+
+`scenes/Player.tscn` 可直接实例化。角色使用 16×16 Sprite2D 纯色占位图、12×12 固定碰撞体、WASD/方向键移动与 Camera2D 平滑跟随。换装不会改变碰撞范围或速度。地图演示已使用此场景，大陆切换会重置相机平滑，避免跨大陆缓慢漂移。
+
+三个视觉层 `BaseBody`、`Outfit`、`Accessory` 按顺序叠加。`scripts/AppearanceManager.gd` 读取 `data/skins.json`。示例职业为 default、warrior、mage、ranger；将图片放到相应 `assets/skins/<职业>/` 目录，配置各层的 path、hframes 和 vframes 即可。静态图设置 1×1；动画图默认 4 列×4 行，各行为下、左、右、上，可修改 direction_rows。每一层使用自身帧数，建议同职业各层保持相同帧布局和画布尺寸，透明背景，角色中心对齐。图片尺寸必须能被行列数整除。
+
+缺失身体图片时显示默认方块；缺失衣服或配饰时隐藏该层，保留身体。未知职业回退 default。缺失配置、无效层数据也不会使角色消失。`test_sheet.svg` 是自动测试的图集样本，默认职业不使用它。
+
+`AnimationPlayer` 中由配置创建 walk_down、walk_left、walk_right、walk_up 四段帧动画，移动播放、停止后保留对应方向的第一帧。1×1 占位图同样兼容。物理层沿用地图：角色 layer=2、mask=1。
+
+转职仪式成功后调用：
+
+```gdscript
+player.complete_job_ritual("mage")
+# 或仅更新外观：
+player.update_skin("warrior")
+# 也可以直接调用角色下的 AppearanceManager.update_skin(job_name)
+```
+
+仪式消耗、任务条件与职业数值由业务系统判定；此处提供完成后的换装入口和 job_changed 信号，不会在进入祭坛时自动转职。
+
+验证命令：
+
+```text
+godot --headless --path . --import
+godot --headless --path . --script res://tests/PlayerTest.gd
+```
