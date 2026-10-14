@@ -1,0 +1,19 @@
+; 逐神终焉 — independent Godot 4.x project
+config_version=5
+
+[application]
+config/name="逐神终焉"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.0", "GL Compatibility")
+
+[autoload]
+GameManager="*res://scripts/GameManager.gd"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
