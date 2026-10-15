@@ -8,6 +8,7 @@ var player: CharacterBody2D
 var status: Label
 var progression_world: Node
 var character_info_ui: CanvasLayer
+var nearby_locations: Dictionary = {}
 
 func _ready() -> void:
 	loader = Loader.new()
@@ -26,6 +27,7 @@ func _ready() -> void:
 	for map_name in MAP_NAMES:
 		selector.add_item(map_name)
 	selector.item_selected.connect(_select_map)
+	GameManager.continent_switched.connect(func(id: int): selector.select(id))
 	ui.add_child(selector)
 	status = Label.new()
 	status.position = Vector2(260, 52)
@@ -40,8 +42,8 @@ func _ready() -> void:
 	progression_world.setup(loader, player)
 	var progression_panel: VBoxContainer = ui.get_node("CharacterInfoPanel/ProgressionPanel")
 	progression_panel.setup(progression_world)
-	loader.location_entered.connect(func(id: String, kind: String, _body: Node2D): status.text = "进入特殊地点：%s (%s)" % [id, kind])
-	loader.location_exited.connect(func(_id: String, _kind: String, _body: Node2D): status.text = "继续探索")
+	loader.location_entered.connect(_on_location_entered)
+	loader.location_exited.connect(_on_location_exited)
 	GameManager.time_updated.connect(func(_day: int, _period: int): _update_status())
 
 func _attach_loader() -> void:
@@ -50,13 +52,31 @@ func _attach_loader() -> void:
 	add_child(loader)
 
 func _on_map_loaded(_id: String) -> void:
+	nearby_locations.clear()
 	player.teleport_to(loader.to_global(loader.spawn_position))
+	_update_status()
+
+func _on_location_entered(id: String, kind: String, body: Node2D) -> void:
+	if body != player:
+		return
+	nearby_locations[id] = kind
+	_update_status()
+
+func _on_location_exited(id: String, _kind: String, body: Node2D) -> void:
+	if body != player:
+		return
+	nearby_locations.erase(id)
 	_update_status()
 
 func _update_status() -> void:
 	status.text = "大陆 %d · 第 %d 天 · %s · 1–6 切换，空格推进时间" % [
 		GameManager.current_continent_id, GameManager.current_day,
 		GameManager.PERIOD_NAMES[GameManager.current_period]]
+	if not nearby_locations.is_empty():
+		var names: Array[String] = []
+		for id in nearby_locations:
+			names.append(String(id))
+		status.text += "\n附近地点：" + "、".join(names)
 
 func _select_map(index: int) -> void:
 	GameManager.switch_to_continent(index)

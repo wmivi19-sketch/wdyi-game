@@ -17,6 +17,7 @@ var replicated_rituals: Dictionary = {}
 
 func _ready() -> void:
 	preload("res://progression/catalog.gd").configure(self)
+	GameManager.time_updated.connect(_on_time_updated)
 
 class PlayerState:
 	extends RefCounted
@@ -30,6 +31,8 @@ func register_player(id: int, actor: ProgressionPlayer, inventory: ProgressionIn
 		base_stats: Dictionary, base_class_id: String) -> bool:
 	if not multiplayer.is_server() or players.has(id) or not classes.has(base_class_id):
 		return false
+	if not is_instance_valid(actor) or inventory == null:
+		return false
 	var state := PlayerState.new()
 	state.actor = actor
 	state.inventory = inventory
@@ -37,8 +40,26 @@ func register_player(id: int, actor: ProgressionPlayer, inventory: ProgressionIn
 	state.base_stats["max_hp"] = float(base_stats.get("max_hp", 100.0))
 	state.class_ids.append(base_class_id)
 	players[id] = state
+	actor.tree_exiting.connect(_on_actor_exiting.bind(id, actor), CONNECT_ONE_SHOT)
 	_rebuild(id)
 	return true
+
+func _on_actor_exiting(id: int, actor: ProgressionPlayer) -> void:
+	var state := players.get(id) as PlayerState
+	if state != null and state.actor == actor:
+		unregister_player(id)
+
+func _on_time_updated(_day: int, _period: int) -> void:
+	if not multiplayer.is_server():
+		return
+	# Validate every transition, even if several periods advance in one frame.
+	for id in active.keys():
+		if not active.has(id) or active[id]["committing"]:
+			continue
+		var entry: Dictionary = active[id]
+		var error := _validate(id, entry["requirement"], entry["altar_id"])
+		if not error.is_empty():
+			_end(id, false, error)
 
 func unregister_player(id: int) -> void:
 	if not multiplayer.is_server():
@@ -149,6 +170,8 @@ func _physics_process(delta: float) -> void:
 	if not multiplayer.is_server():
 		return
 	for id in active.keys():
+		if not active.has(id):
+			continue
 		var entry: Dictionary = active[id]
 		if entry["committing"]:
 			continue
@@ -209,10 +232,15 @@ func interrupt_ritual(target_player_id: int) -> void:
 		_end(target_player_id, false, "仪式被打断")
 
 func apply_confirmed_damage(target_id: int, damage: float) -> void:
-	if not multiplayer.is_server() or damage <= 0.0:
+	if not multiplayer.is_server() or not is_finite(damage) or damage <= 0.0:
 		return
 	var state := players.get(target_id) as PlayerState
-	if state == null or state.actor.hp <= 0.0:
+	if state == null:
+		return
+	if not is_instance_valid(state.actor):
+		unregister_player(target_id)
+		return
+	if state.actor.hp <= 0.0:
 		return
 	state.actor.hp = maxf(0.0, state.actor.hp - damage)
 	state.actor.health_changed.emit(state.actor.hp, float(state.actor.stats["max_hp"]))

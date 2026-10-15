@@ -122,6 +122,7 @@ func _run() -> void:
 	demo.add_child(enemy)
 	enemy.set_physics_process(false)
 	enemy.position = actor.position + Vector2(30, 0)
+	enemy.current_area_tag = actor.current_area_tag
 	manager.register_player(2, enemy, ProgressionInventory.new(), {}, "warrior")
 	check(world.cast_sun_burst() and enemy.hp == 50.0, "divine skill damages registered target in range")
 	check(not world.cast_sun_burst() and enemy.hp == 50.0, "divine cooldown prevents repeated damage")

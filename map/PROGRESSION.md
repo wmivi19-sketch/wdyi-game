@@ -43,6 +43,7 @@
 godot --headless --path map --editor --quit
 godot --headless --path map --script res://tests/ProgressionIntegrationTest.gd
 godot --headless --path map --script res://tests/CharacterInfoUITest.gd
+godot --headless --path map --script res://tests/GameBugRegressionTest.gd
 godot --headless --path map res://tests/ContinentIntegrationTest.tscn
 godot --headless --path map res://tests/MapLoaderTest.tscn
 godot --headless --path map --script res://tests/PlayerTest.gd

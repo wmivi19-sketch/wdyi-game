@@ -117,7 +117,11 @@ func cast_sun_burst() -> bool:
 		if id == LOCAL_PLAYER_ID:
 			continue
 		var state = ClassManager.players[id]
-		if is_instance_valid(state.actor) and player.global_position.distance_to(state.actor.global_position) <= 120.0:
+		if not is_instance_valid(state.actor) or state.actor.hp <= 0.0:
+			continue
+		if state.actor.current_area_tag != player.current_area_tag:
+			continue
+		if player.global_position.distance_to(state.actor.global_position) <= 120.0:
 			ClassManager.apply_confirmed_damage(id, 50.0)
 	var ring := Polygon2D.new()
 	var points := PackedVector2Array()
