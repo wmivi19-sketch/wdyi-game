@@ -1,0 +1,12 @@
+config_version=5
+
+[application]
+config/name="Class Progression & Deity Ascension"
+run/main_scene="res://demo/main.tscn"
+
+[autoload]
+TimeManager="*res://systems/time_manager.gd"
+ClassManager="*res://systems/class_manager.gd"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"

@@ -1,0 +1,22 @@
+name: Class progression regression
+on:
+  push:
+    paths: ['class-progression/**', '.github/workflows/class-progression.yml']
+  pull_request:
+    paths: ['class-progression/**', '.github/workflows/class-progression.yml']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Godot 4.3
+        run: |
+          curl --fail --location --retry 3 -o /tmp/godot.zip https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
+          unzip /tmp/godot.zip -d /tmp/godot
+          chmod +x /tmp/godot/Godot_v4.3-stable_linux.x86_64
+      - name: Import scripts
+        run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path class-progression --editor --quit
+      - name: Run regression tests
+        run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path class-progression --script res://tests/run.gd
