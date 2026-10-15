@@ -7,6 +7,7 @@
 ## 实际操作
 
 1. 初始拥有战士一个职业。WASD/方向键移动，1～6 切换大陆，空格推进早→中→晚。
+   人物信息面板默认隐藏，按 Tab 打开/关闭，包含实时职业、血量、技能、材料和印记。合成和调试按钮也在面板内。
 2. 靠近绿色资源按 E，采集矿石、药草、木材，每处 6 个。切图不会刷新已经采集的资源。
 3. 右侧面板合成法师印记（矿石3+药草2）和游侠印记（木材3+药草2）。合成只授予资格。
 4. 在大陆1出生点的法师祭坛，夜晚按 E 并停留8秒，获得法师；大陆2出生点的游侠祭坛同样授予游侠。
@@ -41,6 +42,7 @@
 ```shell
 godot --headless --path map --editor --quit
 godot --headless --path map --script res://tests/ProgressionIntegrationTest.gd
+godot --headless --path map --script res://tests/CharacterInfoUITest.gd
 godot --headless --path map res://tests/ContinentIntegrationTest.tscn
 godot --headless --path map res://tests/MapLoaderTest.tscn
 godot --headless --path map --script res://tests/PlayerTest.gd

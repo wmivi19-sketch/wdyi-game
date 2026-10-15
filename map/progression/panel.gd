@@ -10,10 +10,9 @@ var running: bool = false
 
 func setup(progression_world: Node) -> void:
 	world = progression_world
-	position = Vector2(720, 100)
 	custom_minimum_size = Vector2(335, 0)
 	var title := Label.new()
-	title.text = "职业进阶 · E 交互 / Q 神力"
+	title.text = "人物信息 · Tab关闭"
 	add_child(title)
 	summary = Label.new()
 	summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -50,6 +49,8 @@ func setup(progression_world: Node) -> void:
 
 func _button(text: String, action: Callable) -> void:
 	var button := Button.new()
+	# Tab belongs to the information toggle, not keyboard focus traversal.
+	button.focus_mode = Control.FOCUS_NONE
 	button.text = text
 	button.pressed.connect(action)
 	add_child(button)
@@ -60,8 +61,13 @@ func refresh() -> void:
 	for id in form.get("class_ids", []):
 		names.append(ClassManager.classes[id].display_name)
 	var status := "神明" if form.get("is_deity", false) else ("半神" if form.get("is_demigod", false) else "凡人")
-	summary.text = "%s · %s\nHP %.0f / %.0f\n矿石%d 药草%d 木材%d\n法师印%d 游侠印%d 神印%d" % [
+	var skills: Array[String] = []
+	var skill_names := {"slash": "斩击", "fireball": "火球", "arrow": "箭矢", "sun_burst": "太阳爆发"}
+	for skill_id in world.player.skill_ids:
+		skills.append(String(skill_names.get(skill_id, skill_id)))
+	summary.text = "%s · %s\nHP %.0f / %.0f\n技能：%s\n矿石%d 药草%d 木材%d\n法师印%d 游侠印%d 神印%d" % [
 		" + ".join(names), status, world.player.hp, world.player.stats["max_hp"],
+		"、".join(skills),
 		world.inventory.count_item("ore"), world.inventory.count_item("herb"),
 		world.inventory.count_item("wood"), world.inventory.count_item("mage_mark"),
 		world.inventory.count_item("ranger_mark"), world.inventory.count_item("sun_mark")]

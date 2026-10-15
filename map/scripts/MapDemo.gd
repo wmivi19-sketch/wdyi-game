@@ -7,18 +7,21 @@ var loader: Node2D
 var player: CharacterBody2D
 var status: Label
 var progression_world: Node
+var character_info_ui: CanvasLayer
 
 func _ready() -> void:
 	loader = Loader.new()
 	loader.position = Vector2(60, 110)
 	call_deferred("_attach_loader")
-	var ui := CanvasLayer.new()
+	character_info_ui = preload("res://scenes/CharacterInfoUI.tscn").instantiate()
+	var ui: CanvasLayer = character_info_ui
 	add_child(ui)
 	var title := Label.new()
-	title.text = "六大陆地图 · WASD / 方向键移动 · 金色：特殊地点 · 绿色：资源"
+	title.text = "六大陆地图 · WASD移动 · Tab人物信息 · E交互 · Q神力 · 金色地点 / 绿色资源"
 	title.position = Vector2(60, 12)
 	ui.add_child(title)
 	var selector := OptionButton.new()
+	selector.focus_mode = Control.FOCUS_NONE
 	selector.position = Vector2(60, 46)
 	for map_name in MAP_NAMES:
 		selector.add_item(map_name)
@@ -29,18 +32,13 @@ func _ready() -> void:
 	ui.add_child(status)
 	player = preload("res://scenes/Player.tscn").instantiate()
 	add_child(player)
-	# Reserve the right side for progression controls while following the player.
-	player.camera.offset = Vector2(180, 0)
+	# Keep the player clear of the sidebar only while it is open.
+	character_info_ui.panel_toggled.connect(func(is_visible: bool):
+		player.camera.offset = Vector2(180, 0) if is_visible else Vector2.ZERO)
 	progression_world = preload("res://progression/world.gd").new()
 	add_child(progression_world)
 	progression_world.setup(loader, player)
-	var panel_background := ColorRect.new()
-	panel_background.position = Vector2(700, 90)
-	panel_background.size = Vector2(365, 640)
-	panel_background.color = Color(0.08, 0.10, 0.12, 0.97)
-	ui.add_child(panel_background)
-	var progression_panel := preload("res://progression/panel.gd").new()
-	ui.add_child(progression_panel)
+	var progression_panel: VBoxContainer = ui.get_node("CharacterInfoPanel/ProgressionPanel")
 	progression_panel.setup(progression_world)
 	loader.location_entered.connect(func(id: String, kind: String, _body: Node2D): status.text = "进入特殊地点：%s (%s)" % [id, kind])
 	loader.location_exited.connect(func(_id: String, _kind: String, _body: Node2D): status.text = "继续探索")

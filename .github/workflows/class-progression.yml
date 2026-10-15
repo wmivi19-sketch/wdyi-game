@@ -24,6 +24,8 @@ jobs:
         run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map --editor --quit
       - name: Run map progression integration
         run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map --script res://tests/ProgressionIntegrationTest.gd
+      - name: Run character info UI input regression
+        run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map --script res://tests/CharacterInfoUITest.gd
       - name: Run existing map and player regressions
         run: |
           /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map res://tests/ContinentIntegrationTest.tscn
