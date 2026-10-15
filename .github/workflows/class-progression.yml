@@ -1,9 +1,9 @@
 name: Class progression regression
 on:
   push:
-    paths: ['class-progression/**', '.github/workflows/class-progression.yml']
+    paths: ['class-progression/**', 'map/**', '.github/workflows/class-progression.yml']
   pull_request:
-    paths: ['class-progression/**', '.github/workflows/class-progression.yml']
+    paths: ['class-progression/**', 'map/**', '.github/workflows/class-progression.yml']
 permissions:
   contents: read
 jobs:
@@ -20,3 +20,12 @@ jobs:
         run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path class-progression --editor --quit
       - name: Run regression tests
         run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path class-progression --script res://tests/run.gd
+      - name: Import existing map game
+        run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map --editor --quit
+      - name: Run map progression integration
+        run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map --script res://tests/ProgressionIntegrationTest.gd
+      - name: Run existing map and player regressions
+        run: |
+          /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map res://tests/ContinentIntegrationTest.tscn
+          /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map res://tests/MapLoaderTest.tscn
+          /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map --script res://tests/PlayerTest.gd

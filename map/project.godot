@@ -21,6 +21,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 [autoload]
 
 GameManager="*res://scripts/GameManager.gd"
+ClassManager="*res://progression/systems/class_manager.gd"
 
 [display]
 

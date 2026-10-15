@@ -6,6 +6,7 @@ const MAP_NAMES := ["翠绿大陆", "烈日沙洲", "霜冠大陆", "古木大�
 var loader: Node2D
 var player: CharacterBody2D
 var status: Label
+var progression_world: Node
 
 func _ready() -> void:
 	loader = Loader.new()
@@ -28,6 +29,19 @@ func _ready() -> void:
 	ui.add_child(status)
 	player = preload("res://scenes/Player.tscn").instantiate()
 	add_child(player)
+	# Reserve the right side for progression controls while following the player.
+	player.camera.offset = Vector2(180, 0)
+	progression_world = preload("res://progression/world.gd").new()
+	add_child(progression_world)
+	progression_world.setup(loader, player)
+	var panel_background := ColorRect.new()
+	panel_background.position = Vector2(700, 90)
+	panel_background.size = Vector2(365, 640)
+	panel_background.color = Color(0.08, 0.10, 0.12, 0.97)
+	ui.add_child(panel_background)
+	var progression_panel := preload("res://progression/panel.gd").new()
+	ui.add_child(progression_panel)
+	progression_panel.setup(progression_world)
 	loader.location_entered.connect(func(id: String, kind: String, _body: Node2D): status.text = "进入特殊地点：%s (%s)" % [id, kind])
 	loader.location_exited.connect(func(_id: String, _kind: String, _body: Node2D): status.text = "继续探索")
 	GameManager.time_updated.connect(func(_day: int, _period: int): _update_status())
@@ -56,3 +70,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		GameManager.switch_to_continent(event.keycode - KEY_1)
 	elif event.keycode == KEY_SPACE:
 		GameManager.next_time_period()
+	elif event.keycode == KEY_E:
+		progression_world.interact()
+	elif event.keycode == KEY_Q:
+		progression_world.cast_sun_burst()

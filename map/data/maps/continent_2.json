@@ -3516,5 +3516,27 @@
       40,
       25
     ]
+  ],
+  "special_locations": [
+    {
+      "id": "continent_2_altar",
+      "kind": "altar",
+      "name": "古代祭坛",
+      "cell": [
+        3,
+        3
+      ],
+      "radius": 10
+    },
+    {
+      "id": "sun_relic",
+      "kind": "artifact",
+      "name": "太阳神遗物：E领取印记",
+      "cell": [
+        1,
+        1
+      ],
+      "radius": 10
+    }
   ]
 }

@@ -7,6 +7,12 @@ var current_day: int = 1
 var current_period: int = Period.MORNING
 var current_continent_id: int = 0
 
+func get_current_day() -> int:
+	return current_day
+
+func get_current_phase() -> String:
+	return ["morning", "noon", "night"][current_period]
+
 func switch_to_continent(continent_id: int) -> void:
 	if continent_id < 0 or continent_id > 5:
 		push_warning("大陆 ID 必须为 0..5")
