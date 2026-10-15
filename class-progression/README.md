@@ -55,3 +55,6 @@ godot --headless --path class-progression --script res://tests/run.gd
 ```
 
 第一条先生成全局类缓存。测试失败返回非零退出码。
+
+已在本机 Godot 4.7.2 Steam 版完成脚本导入、19 项回归检查及演示场景启动检查。
+GitHub Actions 另配置 Godot 4.3；其运行结果以仓库 Actions 页面为准。
