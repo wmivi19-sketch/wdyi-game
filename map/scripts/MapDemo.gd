@@ -37,8 +37,9 @@ func _ready() -> void:
 	status = Label.new()
 	status.position = Vector2(260, 52)
 	ui.add_child(status)
-	player = preload("res://scenes/Player.tscn").instantiate()
+	player = preload("res://scenes/player/player.tscn").instantiate()
 	add_child(player)
+	player.camera.follow_node(player)
 	# Keep the player clear of the sidebar only while it is open.
 	character_info_ui.panel_toggled.connect(func(is_visible: bool):
 		player.camera.offset = Vector2(180, 0) if is_visible else Vector2.ZERO)
@@ -68,6 +69,13 @@ func _attach_loader() -> void:
 
 func _on_map_loaded(_id: String) -> void:
 	nearby_locations.clear()
+	# Use the loaded terrain extent, including loader translation/scale/rotation.
+	var data: Dictionary = loader.current_data
+	var extent := Vector2(float(data.width), float(data.height)) * float(data.tile_size)
+	var rect := Rect2(loader.to_global(Vector2.ZERO), Vector2.ZERO)
+	for corner in [extent, Vector2(extent.x, 0), Vector2(0, extent.y)]:
+		rect = rect.expand(loader.to_global(corner))
+	player.camera.set_mode("gameplay", {"begin": rect.position, "end": rect.end})
 	player.teleport_to(loader.to_global(loader.spawn_position))
 	_update_status()
 

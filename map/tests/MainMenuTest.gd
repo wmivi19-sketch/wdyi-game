@@ -23,6 +23,9 @@ func check(condition: bool, message: String) -> void:
 ## 安全写入测试档，完全隔离真实存档和偏好；path/text为测试数据。
 func write_text(path: String, text: String) -> void:
  var file := FileAccess.open(path,FileAccess.WRITE)
+ if file == null:
+  check(false,"测试文件无法写入：%s（%s）" % [path,error_string(FileAccess.get_open_error())])
+  return
  file.store_string(text)
  file.close()
 ## 等待实际场景变化；path为预期场景资源路径。
@@ -38,7 +41,17 @@ func run() -> void:
  root.size = Vector2i(1080,740)
  session = root.get_node("GameSession")
  session.storage_override = {"save_path":PROFILE+"save.json","preferences_path":PROFILE+"settings.cfg"}
- DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(PROFILE))
+ if not session.prepare_storage(PROFILE+"probe.txt"):
+  check(false,session.last_error)
+  finish()
+  return
+ var probe := FileAccess.open(PROFILE+"probe.txt",FileAccess.WRITE)
+ if probe == null:
+  check(false,"测试用户目录不可写：%s（%s）" % [ProjectSettings.globalize_path(PROFILE),error_string(FileAccess.get_open_error())])
+  finish()
+  return
+ probe.close()
+ DirAccess.remove_absolute(ProjectSettings.globalize_path(PROFILE+"probe.txt"))
  for name in ["save.json","settings.cfg"]:
   if FileAccess.file_exists(PROFILE+name): DirAccess.remove_absolute(ProjectSettings.globalize_path(PROFILE+name))
  menu = load("res://scenes/ui/main_menu.tscn").instantiate()
@@ -64,6 +77,13 @@ func run() -> void:
  menu.modal.set_bgm(0.35)
  menu.modal.set_sfx(0.45)
  check(is_equal_approx(float(session.preferences.bgm),0.35) and FileAccess.file_exists(PROFILE+"settings.cfg"),"音量偏好可保存")
+ var preferences_path: String = session.options.storage.preferences_path
+ session.options.storage.preferences_path = "res://forbidden-settings.cfg"
+ menu.modal.set_bgm(0.4)
+ check(not menu.status.text.is_empty() and menu.status.text == session.last_error,"设置保存失败向界面显示原因")
+ session.options.storage.preferences_path = preferences_path
+ menu.modal.set_bgm(0.35)
+ check(menu.status.text.is_empty() and session.last_error.is_empty(),"保存恢复后清除过期错误提示")
  menu.modal.close()
  await process_frame
  menu._on_button_pressed("show_credits")
@@ -132,6 +152,7 @@ func run() -> void:
  var classes: Node = root.get_node("ClassManager")
  var clock: Node = root.get_node("GameManager")
  check(classes.players[1].class_ids == ["warrior"],"新游戏真实角色初始职业")
+ check(world.player.scene_file_path == "res://scenes/player/player.tscn" and world.player.get_node("BaseBody").texture.resource_path == "res://assets/characters/player/sprites/warrior.png","新游戏接入透明战士主角场景")
  bridge.inventory.add_item("ore",3)
  bridge.inventory.add_item("herb",2)
  bridge.merchant.remove_item("ore",2)
@@ -148,6 +169,7 @@ func run() -> void:
  bridge.depleted[key] = true
  world.progression_world.claimed_events["test_story"] = true
  check(session.save_game(),"保存真实背包职业时钟和地图数据")
+ check(not session.save_game("res://forbidden-save.json") and not session.last_error.is_empty(),"非法存档路径返回明确错误")
  var before_hash := FileAccess.get_sha256(session.save_path())
  root.get_node("CraftingSystem").busy[bridge.inventory] = true
  check(not session.save_game() and before_hash == FileAccess.get_sha256(session.save_path()),"合成进行中拒绝保存并保留原存档")

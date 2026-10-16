@@ -22,6 +22,17 @@ func save_path() -> String:
 ## 仅允许用户数据目录中的路径。
 func safe_user_path(path: String) -> bool:
  return path.begins_with("user://") and not ".." in path and path.length() > "user://".length()
+## 创建保存目录并保留可供界面显示的失败原因。
+func prepare_storage(path: String) -> bool:
+ if not safe_user_path(path):
+  last_error = "保存路径无效，必须位于用户数据目录"
+  return false
+ var directory := ProjectSettings.globalize_path(path.get_base_dir())
+ var error := DirAccess.make_dir_recursive_absolute(directory)
+ if error != OK:
+  last_error = "无法创建保存目录：%s（%s）" % [directory, error_string(error)]
+  return false
+ return true
 ## 读取可选偏好，类型非法时保留安全默认值；无参数。
 func load_preferences() -> void:
  preferences = {"enabled":true,"bgm":1.0,"sfx":1.0,"fullscreen":false}
@@ -35,11 +46,15 @@ func load_preferences() -> void:
 ## 保存声音/全屏偏好；无参数。
 func save_preferences() -> bool:
  var path := str(options.storage.preferences_path)
- if not safe_user_path(path): return false
- DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(path.get_base_dir()))
+ if not prepare_storage(path): return false
  var file := ConfigFile.new()
  for key in preferences: file.set_value("menu", key, preferences[key])
- return file.save(path) == OK
+ var error := file.save(path)
+ if error != OK:
+  last_error = "设置无法保存：%s（%s），本次设置仅在当前运行期间生效" % [ProjectSettings.globalize_path(path), error_string(error)]
+  return false
+ last_error = ""
+ return true
 ## 新开一局，清理旧局运行态，不删除既有磁盘存档；无参数。
 func initialize_new_game() -> void:
  pending.clear()
@@ -182,14 +197,15 @@ func save_game(path: String = "") -> bool:
   last_error = "当前状态无法写入有效存档"
   return false
  if path.is_empty(): path = save_path()
- if not safe_user_path(path): return false
+ if not prepare_storage(path): return false
  var text := JSON.stringify(data, "  ")
- if text.to_utf8_buffer().size() > int(options.storage.max_save_bytes): return false
- DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(path.get_base_dir()))
+ if text.to_utf8_buffer().size() > int(options.storage.max_save_bytes):
+  last_error = "存档超出大小限制"
+  return false
  var temporary := path + ".tmp"
  var file := FileAccess.open(temporary, FileAccess.WRITE)
  if file == null:
-  last_error = "无法创建存档临时文件"
+  last_error = "无法创建存档临时文件：%s（%s）" % [ProjectSettings.globalize_path(temporary), error_string(FileAccess.get_open_error())]
   return false
  file.store_string(text)
  file.flush()

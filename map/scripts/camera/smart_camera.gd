@@ -7,6 +7,7 @@ extends Camera2D
 var target_position: Vector2 = Vector2.ZERO
 var world_bounds: Dictionary = {}
 var _explicit_target: bool = false
+var follow_target: Node2D
 var _zoom_tween: Tween
 
 func _ready() -> void:
@@ -19,11 +20,23 @@ func _ready() -> void:
  _update_zoom()
 
 func _process(_delta: float) -> void:
- if _explicit_target:
+ if is_instance_valid(follow_target):
+  global_position = follow_target.global_position
+ elif _explicit_target:
   global_position = target_position
  _clamp_to_bounds()
 
+func follow_node(actor: Node2D) -> void:
+ follow_target = actor
+ _explicit_target = false
+
+func snap_to_target() -> void:
+ _process(0.0)
+ reset_smoothing()
+ force_update_scroll()
+
 func set_target(point: Vector2) -> void:
+ follow_target = null
  target_position = point
  _explicit_target = true
 

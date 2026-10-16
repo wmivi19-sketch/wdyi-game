@@ -1,7 +1,7 @@
 # 主角图片接入
 
 Godot 项目根目录是 `map`，打开此目录的 `project.godot`。
-现有地图使用的 `scenes/Player.tscn` 已接入战士图；新路径 `scenes/player/player.tscn` 继承同一场景，可直接拖入其他关卡或按 F6 运行。
+实际游戏地图使用 `scenes/player/player.tscn`，新游戏与继续游戏都通过该主角场景进入地图。此场景继承 `scenes/Player.tscn`，可直接拖入其他关卡或按 F6 运行。
 
 节点树：
 ```text

@@ -65,4 +65,7 @@ func teleport_to(world_position: Vector2) -> void:
 	global_position = world_position
 	get_node("/root/GameState").update_player_position(global_position)
 	velocity = Vector2.ZERO
-	camera.reset_smoothing()
+	if camera.has_method("snap_to_target"):
+		camera.snap_to_target()
+	else:
+		camera.reset_smoothing()
