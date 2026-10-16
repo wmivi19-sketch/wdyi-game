@@ -3516,5 +3516,17 @@
       40,
       25
     ]
+  ],
+  "special_locations": [
+    {
+      "id": "continent_1_altar",
+      "kind": "altar",
+      "name": "游侠祭坛",
+      "cell": [
+        3,
+        3
+      ],
+      "radius": 10
+    }
   ]
 }

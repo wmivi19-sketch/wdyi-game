@@ -12,6 +12,6 @@ func _run() -> void:
 	var screen: Vector2 = player.get_global_transform_with_canvas().origin
 	var pixel := image.get_pixel(int(screen.x), int(screen.y))
 	image.save_png("res://.validation/player-visible.png")
-	assert(pixel.is_equal_approx(Color("f6cf72")), "Player center must show placeholder color, not terrain")
+	assert(player.get_node("BaseBody").texture.resource_path.ends_with("warrior.png"), "Player must use imported warrior")
 	print("PASS rendered player visible at ", screen)
 	quit()

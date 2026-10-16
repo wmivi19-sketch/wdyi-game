@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ClassRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://progression/resources/class_recipe.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+recipe_id = "ranger_recipe"
+materials = {"wood": 3, "herb": 2}
+output_mark_id = "ranger_mark"

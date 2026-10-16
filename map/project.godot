@@ -15,18 +15,46 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="六大陆 · 数据驱动地图"
-run/main_scene="res://scenes/MapDemo.tscn"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+run/main_scene="res://scenes/ui/main_menu.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
 
+Config="*res://shop-and-object/scripts/utils/config.gd"
+AssetManager="*res://shop-and-object/scripts/utils/asset_manager.gd"
+ItemDatabase="*res://shop-and-object/scripts/items/item_database.gd"
+GameState="*res://shop-and-object/scripts/game/game_state.gd"
+CraftingSystem="*res://shop-and-object/scripts/crafting/crafting_system.gd"
+TradeManager="*res://shop-and-object/scripts/trading/trade_manager.gd"
 GameManager="*res://scripts/GameManager.gd"
+ClassManager="*res://progression/systems/class_manager.gd"
+ProfessionDatabase="*res://scripts/professions/profession_database.gd"
+MapDatabase="*res://scripts/data/map_database.gd"
+GameSession="*res://scripts/game/game_session.gd"
 
 [display]
 
 window/size/viewport_width=1080
 window/size/viewport_height=740
-window/stretch/mode="canvas_items"
+
+[input]
+
+open_player_panel={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":66,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+toggle_continent_map={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":89,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+toggle_local_map={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":77,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [rendering]
 

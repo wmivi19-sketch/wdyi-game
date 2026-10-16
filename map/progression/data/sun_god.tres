@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DeityInfo" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://progression/resources/deity_info.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+deity_id = "sun_god"
+display_name = "太阳神"
+base_hp_multiplier = 2.0
+divine_skill_ids = Array[String](["sun_burst"])

@@ -1,0 +1,16 @@
+{
+  "world_seed": 42,
+  "regions": [
+    {"name":"北冥","position":[530,130],"terrain":"ice"},
+    {"name":"艾兰岛大陆","position":[550,280],"terrain":"forest"},
+    {"name":"索坦瑞大陆","position":[1040,290],"terrain":"ice"},
+    {"name":"神赐山脉","position":[1110,210],"terrain":"mountain"},
+    {"name":"瓦尔斯卡","position":[180,430],"terrain":"desert"},
+    {"name":"法恩科大陆","position":[1320,490],"terrain":"forest"},
+    {"name":"维洛斯大陆","position":[450,735],"terrain":"mystic"},
+    {"name":"斩魔池","position":[315,815],"terrain":"marsh"},
+    {"name":"方丈","position":[1005,765],"terrain":"mystic"},
+    {"name":"南冥","position":[980,855],"terrain":"marsh"}
+  ],
+  "preview_polygon": [[0.12,0.23],[0.35,0.08],[0.55,0.14],[0.75,0.08],[0.93,0.35],[0.82,0.59],[0.91,0.8],[0.65,0.91],[0.43,0.82],[0.19,0.94],[0.06,0.64],[0.15,0.46]]
+}

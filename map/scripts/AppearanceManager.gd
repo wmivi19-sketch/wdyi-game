@@ -48,7 +48,7 @@ func update_skin(job_name: String) -> void:
 			var path: Variant = entry.get("path", "")
 			var h: Variant = entry.get("hframes", 1)
 			var v: Variant = entry.get("vframes", 1)
-			if path is String and path.begins_with("res://assets/skins/") and not ".." in path and _whole(h) and _whole(v) and h >= 1 and h <= 64 and v >= 1 and v <= 64:
+			if path is String and (path.begins_with("res://assets/skins/") or path.begins_with("res://assets/characters/player/sprites/")) and not ".." in path and _whole(h) and _whole(v) and h >= 1 and h <= 64 and v >= 1 and v <= 64:
 				if not path.is_empty() and ResourceLoader.exists(path, "Texture2D"):
 					texture = ResourceLoader.load(path, "Texture2D") as Texture2D
 					columns = int(h)
@@ -63,9 +63,19 @@ func update_skin(job_name: String) -> void:
 		if texture != null:
 			sprite.hframes = columns
 			sprite.vframes = rows
+		var desired := CoordinateConverter.vector(CoordinateConverter.config().player.sprite_size)
+		sprite.scale = desired / Vector2(sprite.texture.get_width() / sprite.hframes, sprite.texture.get_height() / sprite.vframes)
+		if texture != null and texture.resource_path.begins_with("res://assets/characters/player/"):
+			var factor := desired.y / float(texture.get_height() / sprite.vframes)
+			sprite.scale = Vector2.ONE * factor
 	_build_animations()
 	set_motion(Vector2.ZERO)
 	skin_updated.emit(job_name)
+
+## Replace a single-frame appearance at runtime; invalid paths use the placeholder.
+func replace_image(path: String) -> void:
+	jobs["custom"] = {"BaseBody": {"path": path, "hframes": 1, "vframes": 1}}
+	update_skin("custom")
 
 func _whole(value: Variant) -> bool:
 	return (value is float or value is int) and is_finite(float(value)) and float(value) == floor(float(value))

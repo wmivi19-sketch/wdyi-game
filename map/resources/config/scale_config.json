@@ -1,0 +1,63 @@
+{
+  "world_unit": 32.0,
+  "player": {
+    "sprite_size": [
+      32,
+      32
+    ],
+    "collision_size": [
+      32,
+      32
+    ]
+  },
+  "maps": {
+    "continent": {
+      "texture_size": [
+        2048,
+        2048
+      ],
+      "world_bounds": {
+        "begin": [
+          -5000,
+          -5000
+        ],
+        "end": [
+          5000,
+          5000
+        ]
+      },
+      "marker_size": [
+        16,
+        16
+      ],
+      "fit_margin": 0.9
+    },
+    "local": {
+      "texture_size": [
+        4096,
+        4096
+      ],
+      "world_bounds": {
+        "begin": [
+          -1000,
+          -1000
+        ],
+        "end": [
+          1000,
+          1000
+        ]
+      },
+      "marker_size": [
+        24,
+        24
+      ],
+      "fit_margin": 0.95
+    }
+  },
+  "camera": {
+    "default_zoom": 1.0,
+    "smooth_follow": true,
+    "follow_speed": 5.0,
+    "transition_seconds": 0.3
+  }
+}

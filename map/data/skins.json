@@ -9,36 +9,16 @@
   "jobs": {
     "default": {
       "BaseBody": {
-        "path": "res://assets/skins/default/body.png",
-        "hframes": 1,
-        "vframes": 1
-      },
-      "Outfit": {
-        "path": "res://assets/skins/default/outfit.png",
-        "hframes": 1,
-        "vframes": 1
-      },
-      "Accessory": {
-        "path": "res://assets/skins/default/accessory.png",
+        "path": "res://assets/characters/player/sprites/warrior.png",
         "hframes": 1,
         "vframes": 1
       }
     },
     "warrior": {
       "BaseBody": {
-        "path": "res://assets/skins/warrior/body.png",
-        "hframes": 4,
-        "vframes": 4
-      },
-      "Outfit": {
-        "path": "res://assets/skins/warrior/outfit.png",
-        "hframes": 4,
-        "vframes": 4
-      },
-      "Accessory": {
-        "path": "res://assets/skins/warrior/accessory.png",
-        "hframes": 4,
-        "vframes": 4
+        "path": "res://assets/characters/player/sprites/warrior.png",
+        "hframes": 1,
+        "vframes": 1
       }
     },
     "mage": {

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ClassInfo" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://progression/resources/class_info.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+class_id = "warrior"
+display_name = "战士"
+stat_bonuses = {"max_hp": 20.0, "attack": 5.0}
+skill_ids = Array[String](["slash"])

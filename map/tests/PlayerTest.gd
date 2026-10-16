@@ -8,7 +8,11 @@ func _run() -> void:
 	var manager = player.get_node("AppearanceManager")
 	var body: Sprite2D = player.get_node("BaseBody")
 	assert(player.z_index > 0, "Player must draw above terrain")
-	assert(body.texture.get_size() == Vector2(16, 16) and body.visible)
+	assert(body.texture.resource_path == "res://assets/characters/player/sprites/warrior.png" and body.visible)
+	assert(is_equal_approx(body.scale.x, body.scale.y), "Single image must preserve aspect ratio")
+	manager.replace_image("res://assets/characters/player/sprites/missing.png")
+	assert(body.texture.get_size() == Vector2(16, 16), "Missing image must use placeholder")
+	player.update_skin("default")
 	assert(not player.get_node("Outfit").visible)
 	for job in ["warrior", "mage", "ranger", "unknown"]:
 		player.complete_job_ritual(job)
@@ -41,7 +45,7 @@ func _run() -> void:
 		await physics_frame
 	assert(player.position.x > 0 and player.position.x <= 26.1)
 	player.update_skin("default")
-	assert(body.hframes == 1 and body.texture.get_size() == Vector2(16, 16))
+	assert(body.hframes == 1 and body.texture.resource_path.ends_with("warrior.png"))
 	player.queue_free()
 	wall.queue_free()
 	await process_frame

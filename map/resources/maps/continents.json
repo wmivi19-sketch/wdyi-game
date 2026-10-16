@@ -1,0 +1,287 @@
+{
+  "continent_0": {
+    "name": "翠绿大陆",
+    "map_id": "continent_0",
+    "default_area": "area_0",
+    "texture_path": "res://assets/maps/continents/continent_0.png",
+    "placeholder_path": "res://assets/maps/placeholders/continent_0_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "pois": [
+      {
+        "id": "continent_0_altar",
+        "type": "altar",
+        "name": "法师祭坛",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_1_exchange",
+        "type": "exchange",
+        "name": "交易所",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_0_portal_preview",
+        "type": "portal",
+        "name": "传送门（规划）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "continent_1": {
+    "name": "烈日沙洲",
+    "map_id": "continent_1",
+    "default_area": "area_1",
+    "texture_path": "res://assets/maps/continents/continent_1.png",
+    "placeholder_path": "res://assets/maps/placeholders/continent_1_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "pois": [
+      {
+        "id": "continent_1_altar",
+        "type": "altar",
+        "name": "游侠祭坛",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_2_exchange",
+        "type": "exchange",
+        "name": "交易所",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_1_portal_preview",
+        "type": "portal",
+        "name": "传送门（规划）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "continent_2": {
+    "name": "霜冠大陆",
+    "map_id": "continent_2",
+    "default_area": "area_2",
+    "texture_path": "res://assets/maps/continents/continent_2.png",
+    "placeholder_path": "res://assets/maps/placeholders/continent_2_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "pois": [
+      {
+        "id": "continent_2_altar",
+        "type": "altar",
+        "name": "古代祭坛",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "sun_relic",
+        "type": "artifact",
+        "name": "太阳神遗物：E领取印记",
+        "position": {
+          "x": 15.0,
+          "y": 15.0
+        }
+      },
+      {
+        "id": "continent_3_exchange",
+        "type": "exchange",
+        "name": "交易所",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_2_portal_preview",
+        "type": "portal",
+        "name": "传送门（规划）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "continent_3": {
+    "name": "古木大陆",
+    "map_id": "continent_3",
+    "default_area": "area_3",
+    "texture_path": "res://assets/maps/continents/continent_3.png",
+    "placeholder_path": "res://assets/maps/placeholders/continent_3_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "pois": [
+      {
+        "id": "continent_3_altar",
+        "type": "altar",
+        "name": "古代祭坛",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_4_exchange",
+        "type": "exchange",
+        "name": "交易所",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_3_portal_preview",
+        "type": "portal",
+        "name": "传送门（规划）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "continent_4": {
+    "name": "余烬大陆",
+    "map_id": "continent_4",
+    "default_area": "area_4",
+    "texture_path": "res://assets/maps/continents/continent_4.png",
+    "placeholder_path": "res://assets/maps/placeholders/continent_4_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "pois": [
+      {
+        "id": "continent_4_altar",
+        "type": "altar",
+        "name": "古代祭坛",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_5_exchange",
+        "type": "exchange",
+        "name": "交易所",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_4_portal_preview",
+        "type": "portal",
+        "name": "传送门（规划）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "continent_5": {
+    "name": "交汇大陆",
+    "map_id": "continent_5",
+    "default_area": "area_5",
+    "texture_path": "res://assets/maps/continents/continent_5.png",
+    "placeholder_path": "res://assets/maps/placeholders/continent_5_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "pois": [
+      {
+        "id": "continent_5_altar",
+        "type": "altar",
+        "name": "太阳神祭坛",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_6_exchange",
+        "type": "exchange",
+        "name": "交易所",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      },
+      {
+        "id": "continent_5_portal_preview",
+        "type": "portal",
+        "name": "传送门（规划）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  }
+}

@@ -68,12 +68,14 @@ func _convert_continent(data: Dictionary) -> Dictionary:
 		var cell: Variant = data.resource_spots[i]
 		if not _valid_cell(cell, width, height):
 			return {}
-		resources.append({"id": "resource_%d" % i, "kind": "herb", "name": "资源", "cell": cell, "amount": 1})
+		var kind: String = ["ore", "herb", "wood"][i % 3]
+		var resource_name: String = {"ore": "矿石", "herb": "药草", "wood": "木材"}[kind]
+		resources.append({"id": "resource_%d" % i, "kind": kind, "name": resource_name, "cell": cell, "amount": 6})
 	return {"schema_version": 1, "id": str(data.get("id", "continent")),
 		"name": str(data.get("name", "大陆")), "tile_size": data.get("tile_size", 10),
 		"width": width, "height": height, "spawn": data.get("spawn", [1, 1]),
 		"terrain_types": types, "terrain_rows": rows,
-		"resources": resources, "special_locations": []}
+		"resources": resources, "special_locations": data.get("special_locations", [])}
 
 func _valid_cell(cell: Variant, width: int, height: int) -> bool:
 	return cell is Array and cell.size() == 2 and _integer(cell[0]) and _integer(cell[1]) \

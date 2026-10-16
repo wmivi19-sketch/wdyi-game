@@ -1,0 +1,117 @@
+{
+  "visual": {
+    "background_image": "res://assets/ui/main_menu/background.png",
+    "logo_image": "res://assets/ui/main_menu/logo.png",
+    "title_text": "诸神终焉",
+    "subtitle_text": "六神之战 · 十四日轮回",
+    "background_color_fallback": {
+      "r": 0.1,
+      "g": 0.05,
+      "b": 0.15,
+      "a": 1
+    },
+    "logo_fallback_color": {
+      "r": 0.8,
+      "g": 0.6,
+      "b": 1,
+      "a": 1
+    },
+    "button_theme_path": "res://resources/themes/menu_button_theme.tres",
+    "button_textures": {
+      "normal": "",
+      "hover": "",
+      "pressed": "",
+      "disabled": ""
+    }
+  },
+  "audio": {
+    "bgm_path": "res://audio/music/main_menu_bgm.ogg",
+    "bgm_volume": 0.8,
+    "hover_sound": "res://audio/sfx/button_hover.wav",
+    "click_sound": "res://audio/sfx/button_click.wav",
+    "enable_audio": true,
+    "sfx_volume": 0.7,
+    "pool_size": 5,
+    "bgm_bus": "BGM",
+    "sfx_bus": "SFX",
+    "generate_placeholders": false,
+    "sample_rate": 22050,
+    "hover_hz": 740,
+    "click_hz": 520,
+    "tone_seconds": 0.06,
+    "tone_amplitude": 0.12
+  },
+  "buttons": [
+    {
+      "id": "new_game",
+      "text": "新游戏",
+      "action": "start_new_game"
+    },
+    {
+      "id": "continue",
+      "text": "继续游戏",
+      "action": "load_game"
+    },
+    {
+      "id": "settings",
+      "text": "设置",
+      "action": "open_settings"
+    },
+    {
+      "id": "credits",
+      "text": "制作人员",
+      "action": "show_credits"
+    },
+    {
+      "id": "quit",
+      "text": "退出游戏",
+      "action": "quit_game"
+    }
+  ],
+  "version": "0.1.0",
+  "copyright": "© 2026 Your Studio Name. All rights reserved.",
+  "navigation": {
+    "game_scene": "res://scenes/MapDemo.tscn",
+    "menu_scene": "res://scenes/ui/main_menu.tscn",
+    "settings_scene": "res://scenes/ui/settings_menu.tscn",
+    "credits_scene": "res://scenes/ui/credits_screen.tscn"
+  },
+  "storage": {
+    "save_path": "user://save_game.json",
+    "preferences_path": "user://menu_settings.cfg",
+    "max_save_bytes": 1048576,
+    "max_day": 10000,
+    "new_game_continent": 0
+  },
+  "layout": {
+    "max_width": 480,
+    "logo_height": 112,
+    "button_height": 48,
+    "spacing": 10,
+    "margin": 24,
+    "poll_seconds": 1.0,
+    "transition_seconds": 0.5,
+    "hover_scale": 1.035,
+    "hover_seconds": 0.12
+  },
+  "style": {
+    "font_name": "Microsoft YaHei",
+    "font_size": 20,
+    "border_color": "#9970bb",
+    "normal_color": "#30243d",
+    "hover_color": "#493454",
+    "pressed_color": "#63466e",
+    "disabled_color": "#24202c",
+    "font_color": "#fff4ed",
+    "border_width": 2,
+    "corner_radius": 8
+  },
+  "credits": {
+    "title": "制作人员",
+    "lines": [
+      "制作团队：待填写",
+      "开发引擎：Godot 4.x",
+      "感谢每一位参与测试的玩家。"
+    ]
+  }
+}

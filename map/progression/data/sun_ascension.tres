@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RitualRequirement" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://progression/resources/ritual_requirement.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+ritual_id = "sun_ascension"
+kind = 1
+required_mark_id = "sun_mark"
+start_day = 12
+end_day = 14
+allowed_phases = Array[String](["night"])
+allowed_area_tags = Array[String](["continent_5"])
+duration_seconds = 12.0
+granted_deity_id = "sun_god"
