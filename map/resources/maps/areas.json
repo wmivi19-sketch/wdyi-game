@@ -1,0 +1,316 @@
+{
+  "area_0": {
+    "name": "翠绿大陆 · 当前区域",
+    "continent_id": "continent_0",
+    "texture_path": "res://assets/maps/local/area_0.png",
+    "placeholder_path": "res://assets/maps/placeholders/area_0_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "npcs": [
+      {
+        "id": "merchant_continent_0",
+        "name": "交易所商人",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      }
+    ],
+    "enemies": [
+      {
+        "id": "preview_enemy_continent_0",
+        "name": "敌人（配置示例）",
+        "position": {
+          "x": 255.0,
+          "y": 155.0
+        }
+      }
+    ],
+    "chests": [
+      {
+        "id": "preview_chest_continent_0",
+        "name": "宝箱（配置示例）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "area_1": {
+    "name": "烈日沙洲 · 当前区域",
+    "continent_id": "continent_1",
+    "texture_path": "res://assets/maps/local/area_1.png",
+    "placeholder_path": "res://assets/maps/placeholders/area_1_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "npcs": [
+      {
+        "id": "merchant_continent_1",
+        "name": "交易所商人",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      }
+    ],
+    "enemies": [
+      {
+        "id": "preview_enemy_continent_1",
+        "name": "敌人（配置示例）",
+        "position": {
+          "x": 255.0,
+          "y": 155.0
+        }
+      }
+    ],
+    "chests": [
+      {
+        "id": "preview_chest_continent_1",
+        "name": "宝箱（配置示例）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "area_2": {
+    "name": "霜冠大陆 · 当前区域",
+    "continent_id": "continent_2",
+    "texture_path": "res://assets/maps/local/area_2.png",
+    "placeholder_path": "res://assets/maps/placeholders/area_2_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "npcs": [
+      {
+        "id": "merchant_continent_2",
+        "name": "交易所商人",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      }
+    ],
+    "enemies": [
+      {
+        "id": "preview_enemy_continent_2",
+        "name": "敌人（配置示例）",
+        "position": {
+          "x": 255.0,
+          "y": 155.0
+        }
+      }
+    ],
+    "chests": [
+      {
+        "id": "preview_chest_continent_2",
+        "name": "宝箱（配置示例）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "area_3": {
+    "name": "古木大陆 · 当前区域",
+    "continent_id": "continent_3",
+    "texture_path": "res://assets/maps/local/area_3.png",
+    "placeholder_path": "res://assets/maps/placeholders/area_3_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "npcs": [
+      {
+        "id": "merchant_continent_3",
+        "name": "交易所商人",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      }
+    ],
+    "enemies": [
+      {
+        "id": "preview_enemy_continent_3",
+        "name": "敌人（配置示例）",
+        "position": {
+          "x": 255.0,
+          "y": 155.0
+        }
+      }
+    ],
+    "chests": [
+      {
+        "id": "preview_chest_continent_3",
+        "name": "宝箱（配置示例）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "area_4": {
+    "name": "余烬大陆 · 当前区域",
+    "continent_id": "continent_4",
+    "texture_path": "res://assets/maps/local/area_4.png",
+    "placeholder_path": "res://assets/maps/placeholders/area_4_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "npcs": [
+      {
+        "id": "merchant_continent_4",
+        "name": "交易所商人",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      }
+    ],
+    "enemies": [
+      {
+        "id": "preview_enemy_continent_4",
+        "name": "敌人（配置示例）",
+        "position": {
+          "x": 255.0,
+          "y": 155.0
+        }
+      }
+    ],
+    "chests": [
+      {
+        "id": "preview_chest_continent_4",
+        "name": "宝箱（配置示例）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "area_5": {
+    "name": "交汇大陆 · 当前区域",
+    "continent_id": "continent_5",
+    "texture_path": "res://assets/maps/local/area_5.png",
+    "placeholder_path": "res://assets/maps/placeholders/area_5_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 0,
+        "y": 0
+      },
+      "end": {
+        "x": 500,
+        "y": 500
+      }
+    },
+    "npcs": [
+      {
+        "id": "merchant_continent_5",
+        "name": "交易所商人",
+        "position": {
+          "x": 35.0,
+          "y": 35.0
+        }
+      }
+    ],
+    "enemies": [
+      {
+        "id": "preview_enemy_continent_5",
+        "name": "敌人（配置示例）",
+        "position": {
+          "x": 255.0,
+          "y": 155.0
+        }
+      }
+    ],
+    "chests": [
+      {
+        "id": "preview_chest_continent_5",
+        "name": "宝箱（配置示例）",
+        "position": {
+          "x": 405.0,
+          "y": 255.0
+        }
+      }
+    ]
+  },
+  "area_volcano": {
+    "name": "火山口",
+    "continent_id": "continent_4",
+    "texture_path": "res://assets/maps/local/area_volcano.png",
+    "placeholder_path": "res://assets/maps/placeholders/area_volcano_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 120,
+        "y": 120
+      },
+      "end": {
+        "x": 320,
+        "y": 320
+      }
+    },
+    "npcs": [],
+    "enemies": [],
+    "chests": []
+  },
+  "area_forest": {
+    "name": "林间密道",
+    "continent_id": "continent_3",
+    "texture_path": "res://assets/maps/local/area_forest.png",
+    "placeholder_path": "res://assets/maps/placeholders/area_forest_placeholder.png",
+    "bounds": {
+      "begin": {
+        "x": 120,
+        "y": 120
+      },
+      "end": {
+        "x": 320,
+        "y": 320
+      }
+    },
+    "npcs": [],
+    "enemies": [],
+    "chests": []
+  }
+}

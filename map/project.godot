@@ -31,6 +31,7 @@ TradeManager="*res://shop-and-object/scripts/trading/trade_manager.gd"
 GameManager="*res://scripts/GameManager.gd"
 ClassManager="*res://progression/systems/class_manager.gd"
 ProfessionDatabase="*res://scripts/professions/profession_database.gd"
+MapDatabase="*res://scripts/data/map_database.gd"
 
 [display]
 
@@ -47,4 +48,13 @@ renderer/rendering_method.mobile="gl_compatibility"
 open_player_panel={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"physical_keycode":4194306), Object(InputEventKey,"physical_keycode":66)]
+}
+
+toggle_continent_map={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":89)]
+}
+toggle_local_map={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":77)]
 }

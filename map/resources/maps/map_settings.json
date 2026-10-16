@@ -1,0 +1,42 @@
+{
+  "min_zoom": 0.5,
+  "max_zoom": 4.0,
+  "zoom_step": 0.2,
+  "overview_size": 1024,
+  "local_size": 2048,
+  "icon_size": 32,
+  "marker_pixels": 14,
+  "label_size": 16,
+  "overview_stride": 4,
+  "detail_refresh_seconds": 0.25,
+  "poll_seconds": 1.0,
+  "texture_cache_limit": 8,
+  "fit_margin": 0.88,
+  "min_visible_pixels": 40,
+  "terrain_opacity": 0.92,
+  "overview_color": "#354361",
+  "local_color": "#365245",
+  "grid_color": "#222e37",
+  "marker_paths": {
+    "player": "res://assets/icons/markers/player_marker.png",
+    "npc": "res://assets/icons/markers/npc_marker.png",
+    "enemy": "res://assets/icons/markers/enemy_marker.png",
+    "chest": "res://assets/icons/markers/chest_marker.png",
+    "exchange": "res://assets/icons/markers/exchange_marker.png",
+    "altar": "res://assets/icons/markers/altar_marker.png",
+    "portal": "res://assets/icons/markers/portal_marker.png",
+    "artifact": "res://assets/icons/markers/artifact_marker.png",
+    "continent": ""
+  },
+  "marker_colors": {
+    "player": "#ff5050",
+    "npc": "#ffe273",
+    "enemy": "#f16b6b",
+    "chest": "#e9ad46",
+    "exchange": "#65adff",
+    "altar": "#c891ed",
+    "portal": "#63df9b",
+    "artifact": "#eac979",
+    "continent": "#fff1cf"
+  }
+}

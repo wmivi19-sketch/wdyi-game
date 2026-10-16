@@ -66,3 +66,13 @@ godot --headless --path . --script res://tests/PlayerTest.gd
 ## 统一背包与职业面板
 
 Tab / B 打开统一窗口，左右按钮或鼠标/触摸水平滑动切页，Esc 关闭。完整使用、文件结构和测试命令见 [PLAYER_PANEL.md](PLAYER_PANEL.md)。旧职业与成神功能、共享背包和商店均已保留。
+
+
+## 双地图系统
+
+Y 查看大陆概览，M 查看当前区域细节；支持滚轮缩放、鼠标/单指拖动、实时玩家位置和NPC/敌人/宝箱标记。缺失美术时自动生成色块与文字占位。资源替换、坐标规范与测试说明见 [DUAL_MAPS.md](DUAL_MAPS.md)。
+
+
+## 上传的六大陆世界原图
+
+Y已改为显示上传的六大陆世界原图，M保留区域细图。直接运行 `scenes/test/test_world_atlas.tscn` 查看，Esc返回原游戏。校准配置见 `resources/maps/atlas.json`；代码检查与本地验证记录见 [ATLAS_VALIDATION.md](ATLAS_VALIDATION.md)。

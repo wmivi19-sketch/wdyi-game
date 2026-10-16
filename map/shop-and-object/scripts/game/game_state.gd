@@ -47,3 +47,27 @@ func next_day() -> void:
 func change_location(new_location: String) -> void:
  player_location = new_location
  state_changed.emit()
+
+# 地图区域与合成/交易的 player_location 分离，避免把祭坛位置替换成区域名。
+signal map_context_changed
+signal player_position_changed(position: Vector2)
+var player_world_position: Vector2 = Vector2.ZERO
+var current_continent: String = ""
+var current_area: String = ""
+var current_map_bounds: Dictionary = {}
+var current_area_bounds: Dictionary = {}
+## position_value 是实际场景全局坐标；只在位置改变时发信号。
+func update_player_position(position_value: Vector2) -> void:
+ if player_world_position == position_value: return
+ player_world_position = position_value
+ player_position_changed.emit(position_value)
+## continent_id 来自实际加载地图；不会请求或执行传送。
+func change_continent(continent_id: String) -> void:
+ if current_continent == continent_id: return
+ current_continent = continent_id
+ map_context_changed.emit()
+## area_id 是地图区域 ID，不覆盖用于合成/交易的 player_location。
+func change_area(area_id: String) -> void:
+ if current_area == area_id: return
+ current_area = area_id
+ map_context_changed.emit()

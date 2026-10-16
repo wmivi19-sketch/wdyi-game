@@ -1,0 +1,82 @@
+{
+  "enabled": true,
+  "name": "六大陆世界地图",
+  "texture_path": "res://assets/maps/world/world_atlas.png",
+  "width": 1536,
+  "height": 1024,
+  "source_sha256": "ca2aae8b5ea0094d98e0ad4be4078952a8ee174588578f5078993c5f679e577e",
+  "regions": {
+    "continent_0": {
+      "rect": {
+        "x": 870,
+        "y": 680,
+        "width": 360,
+        "height": 250
+      },
+      "label_position": {
+        "x": 1050.0,
+        "y": 805.0
+      }
+    },
+    "continent_1": {
+      "rect": {
+        "x": 130,
+        "y": 400,
+        "width": 290,
+        "height": 200
+      },
+      "label_position": {
+        "x": 275.0,
+        "y": 500.0
+      }
+    },
+    "continent_2": {
+      "rect": {
+        "x": 960,
+        "y": 110,
+        "width": 300,
+        "height": 210
+      },
+      "label_position": {
+        "x": 1110.0,
+        "y": 215.0
+      }
+    },
+    "continent_3": {
+      "rect": {
+        "x": 1010,
+        "y": 455,
+        "width": 390,
+        "height": 220
+      },
+      "label_position": {
+        "x": 1205.0,
+        "y": 565.0
+      }
+    },
+    "continent_4": {
+      "rect": {
+        "x": 275,
+        "y": 120,
+        "width": 380,
+        "height": 240
+      },
+      "label_position": {
+        "x": 465.0,
+        "y": 240.0
+      }
+    },
+    "continent_5": {
+      "rect": {
+        "x": 290,
+        "y": 700,
+        "width": 370,
+        "height": 205
+      },
+      "label_position": {
+        "x": 475.0,
+        "y": 802.5
+      }
+    }
+  }
+}

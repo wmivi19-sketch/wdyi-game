@@ -29,7 +29,8 @@ func apply_progression(new_stats: Dictionary, new_skills: Array[String]) -> void
 
 func _physics_process(_delta: float) -> void:
 	var ui := get_parent().get_node_or_null("GameUI/PlayerPanel")
-	if hp <= 0.0 or (ui != null and ui.visible):
+	var maps := get_parent().get_node_or_null("MapUI/MapSystem")
+	if hp <= 0.0 or (ui != null and ui.visible) or (maps != null and maps.any_open()):
 		velocity = Vector2.ZERO
 		appearance.set_motion(Vector2.ZERO)
 		return

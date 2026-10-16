@@ -8,6 +8,7 @@ var player: CharacterBody2D
 var status: Label
 var progression_world: Node
 var character_info_ui: CanvasLayer
+var map_system: MapSystem
 var nearby_locations: Dictionary = {}
 
 func _ready() -> void:
@@ -18,7 +19,7 @@ func _ready() -> void:
 	var ui: CanvasLayer = character_info_ui
 	add_child(ui)
 	var title := Label.new()
-	title.text = "六大陆地图 · WASD移动 · Tab/B玩家面板 · E交互 · Q神力 · 金色地点 / 绿色资源"
+	title.text = "六大陆地图 · WASD移动 · Tab/B玩家面板 · Y大陆图 / M区域图 · E交互 · Q神力 · 金色地点 / 绿色资源"
 	title.position = Vector2(60, 12)
 	ui.add_child(title)
 	var selector := OptionButton.new()
@@ -47,6 +48,14 @@ func _ready() -> void:
 	var item_ui := preload("res://shop-and-object/scripts/integration/world_items.gd").new()
 	item_ui.name = "WorldItems"
 	add_child(item_ui)
+
+	var map_ui := CanvasLayer.new()
+	map_ui.name = "MapUI"
+	map_ui.layer = 20
+	add_child(map_ui)
+	map_system = preload("res://scenes/ui/map_system.tscn").instantiate()
+	map_ui.add_child(map_system)
+	map_system.setup(self)
 
 func _attach_loader() -> void:
 	loader.map_loaded.connect(_on_map_loaded)
