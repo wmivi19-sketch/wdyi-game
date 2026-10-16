@@ -1,0 +1,28 @@
+{
+  "slots": 24,
+  "max_weight": 50.0,
+  "days": 14,
+  "initial_day": 1,
+  "initial_time": "06:00",
+  "initial_location": "central_altar",
+  "initial_professions": [
+    "creator"
+  ],
+  "minutes_per_day": 1440,
+  "minutes_per_hour": 60,
+  "poll_seconds": 1.0,
+  "icon_size": 32,
+  "rarity_colors": [
+    "#808080",
+    "#4dcc4d",
+    "#3366e6",
+    "#9933cc",
+    "#ffcc00"
+  ],
+  "test_item": "mat_fire_01",
+  "test_count": 1,
+  "gm_max_count": 9999,
+  "seed": 12345,
+  "probability_trials": 1000,
+  "probability_tolerance": 0.08
+}

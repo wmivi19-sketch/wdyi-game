@@ -1,0 +1,13 @@
+config_version=5
+[application]
+config/name="物品与交易系统"
+run/main_scene="res://scenes/test/test_inventory.tscn"
+[autoload]
+Config="*res://scripts/utils/config.gd"
+AssetManager="*res://scripts/utils/asset_manager.gd"
+ItemDatabase="*res://scripts/items/item_database.gd"
+GameState="*res://scripts/game/game_state.gd"
+CraftingSystem="*res://scripts/crafting/crafting_system.gd"
+TradeManager="*res://scripts/trading/trade_manager.gd"
+[rendering]
+renderer/rendering_method="gl_compatibility"

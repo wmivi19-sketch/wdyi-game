@@ -1,0 +1,23 @@
+name: Item trading regression
+on:
+  push:
+    paths: ['item-trading/**', '.github/workflows/item-trading.yml']
+  pull_request:
+    paths: ['item-trading/**', '.github/workflows/item-trading.yml']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Godot 4.3
+        run: |
+          curl --fail --location --retry 3 -o /tmp/godot.zip https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
+          unzip /tmp/godot.zip -d /tmp/godot
+          chmod +x /tmp/godot/Godot_v4.3-stable_linux.x86_64
+      - name: Import project
+        run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path item-trading --editor --import --quit
+      - name: Run item trading regressions
+        run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path item-trading res://tests/test_item_system.tscn

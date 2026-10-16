@@ -1,0 +1,17 @@
+{
+  "trade_days": [
+    5,
+    11,
+    14
+  ],
+  "trade_hours": {
+    "start": 10,
+    "end": 22
+  },
+  "exchange_locations": [
+    "continent_1_exchange",
+    "continent_2_exchange"
+  ],
+  "currency_item_id": "faith_point",
+  "trade_timeout_seconds": 300
+}

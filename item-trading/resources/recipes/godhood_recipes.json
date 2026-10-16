@@ -1,0 +1,117 @@
+{
+  "recipes": [
+    {
+      "id": "god_material",
+      "name": "物质之神合成",
+      "output_item_id": "god_mat_creator",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item_id": "creator_core",
+          "count": 1
+        },
+        {
+          "item_id": "mat_fragment",
+          "count": 10
+        },
+        {
+          "item_id": "earth_essence",
+          "count": 5
+        }
+      ],
+      "catalyst_id": "catalyst_awakening",
+      "required_day": 3,
+      "time_start": "06:00",
+      "time_end": "08:00",
+      "required_location": "central_altar",
+      "required_profession": "creator",
+      "success_rate": 0.7,
+      "failure_output_id": "craft_fail_common",
+      "craft_time": 5.0
+    },
+    {
+      "id": "fire_fragment",
+      "name": "火焰分解",
+      "output_item_id": "mat_fragment",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item_id": "mat_fire_01",
+          "count": 1
+        }
+      ],
+      "catalyst_id": "",
+      "required_day": 0,
+      "time_start": "00:00",
+      "time_end": "23:59",
+      "required_location": "",
+      "required_profession": "",
+      "success_rate": 1.0,
+      "failure_output_id": "craft_fail_common",
+      "craft_time": 0.0
+    },
+    {
+      "id": "water_fragment",
+      "name": "水精华分解",
+      "output_item_id": "mat_fragment",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item_id": "water_essence",
+          "count": 1
+        }
+      ],
+      "catalyst_id": "",
+      "required_day": 0,
+      "time_start": "00:00",
+      "time_end": "23:59",
+      "required_location": "",
+      "required_profession": "",
+      "success_rate": 1.0,
+      "failure_output_id": "craft_fail_common",
+      "craft_time": 0.0
+    },
+    {
+      "id": "wind_fragment",
+      "name": "风精华分解",
+      "output_item_id": "mat_fragment",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item_id": "wind_essence",
+          "count": 1
+        }
+      ],
+      "catalyst_id": "",
+      "required_day": 0,
+      "time_start": "00:00",
+      "time_end": "23:59",
+      "required_location": "",
+      "required_profession": "",
+      "success_rate": 0.7,
+      "failure_output_id": "craft_fail_common",
+      "craft_time": 0.0
+    },
+    {
+      "id": "forge_sword",
+      "name": "锻造铁剑",
+      "output_item_id": "iron_sword",
+      "output_count": 1,
+      "inputs": [
+        {
+          "item_id": "mat_fragment",
+          "count": 1
+        }
+      ],
+      "catalyst_id": "",
+      "required_day": 0,
+      "time_start": "00:00",
+      "time_end": "23:59",
+      "required_location": "",
+      "required_profession": "",
+      "success_rate": 1.0,
+      "failure_output_id": "craft_fail_common",
+      "craft_time": 0.0
+    }
+  ]
+}
