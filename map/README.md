@@ -76,3 +76,8 @@ Y 查看大陆概览，M 查看当前区域细节；支持滚轮缩放、鼠标/
 ## 上传的六大陆世界原图
 
 Y已改为显示上传的六大陆世界原图，M保留区域细图。直接运行 `scenes/test/test_world_atlas.tscn` 查看，Esc返回原游戏。校准配置见 `resources/maps/atlas.json`；代码检查与本地验证记录见 [ATLAS_VALIDATION.md](ATLAS_VALIDATION.md)。
+
+
+## 游戏开始界面
+
+项目入口已接入可配置主菜单，包含新游戏、真实存档继续、设置、制作人员与退出。游戏中 F5 保存，F10 保存并返回菜单。封面、Logo、按钮样式和音效通过 JSON 替换，缺资源使用占位或静音。详见 [主菜单与资源替换指南](MAIN_MENU.md)。

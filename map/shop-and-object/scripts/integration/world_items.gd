@@ -184,6 +184,8 @@ func build_ui() -> void:
  add_button(body, "向商人购买（单价=基础价值）", trade_selected.bind(true))
  add_button(body, "向商人出售（单价=基础价值）", trade_selected.bind(false))
  add_button(body, "GM 调试 [F3]", open_gm)
+ add_button(body, "保存游戏 [F5]", GameSession.quick_save_feedback)
+ add_button(body, "保存并返回主菜单 [F10]", GameSession.return_to_menu)
  world.character_info_ui.setup(self)
 ## 添加按钮；parent 为容器，text 为标题，action 为回调。
 func add_button(parent: Node, text: String, action: Callable) -> void:

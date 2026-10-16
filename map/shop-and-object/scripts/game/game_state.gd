@@ -71,3 +71,10 @@ func change_area(area_id: String) -> void:
  if current_area == area_id: return
  current_area = area_id
  map_context_changed.emit()
+
+## 主菜单的新游戏入口；保留磁盘存档，由GameSession重置运行状态。
+func initialize_new_game() -> void:
+ GameSession.initialize_new_game()
+## 主菜单继续入口；path为空使用菜单配置的存档路径。
+func load_game(path: String = "") -> bool:
+ return GameSession.load_game(path)

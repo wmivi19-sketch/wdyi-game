@@ -65,6 +65,10 @@ func _input(event: InputEvent) -> void:
   _toggle_continent()
  elif event.is_action_pressed("toggle_local_map"):
   _toggle_local()
+ elif any_open() and event.keycode == KEY_F5:
+  GameSession.quick_save_feedback()
+ elif any_open() and event.keycode == KEY_F10:
+  GameSession.return_to_menu()
  elif any_open() and event.is_action_pressed("open_player_panel"):
   close_all()
   world.character_info_ui.character_info_panel.show()

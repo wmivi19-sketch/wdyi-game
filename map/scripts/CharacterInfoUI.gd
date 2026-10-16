@@ -11,7 +11,13 @@ func setup(items: Node) -> void:
 ## 保留 Tab/B 并支持 Esc 关闭；event 为实际输入事件。
 func _input(event: InputEvent) -> void:
  if not event is InputEventKey or not event.pressed or event.echo: return
- if event.is_action_pressed("open_player_panel"):
+ if character_info_panel.visible and event.keycode == KEY_F5:
+  GameSession.quick_save_feedback()
+  get_viewport().set_input_as_handled()
+ elif character_info_panel.visible and event.keycode == KEY_F10:
+  GameSession.return_to_menu()
+  get_viewport().set_input_as_handled()
+ elif event.is_action_pressed("open_player_panel"):
   character_info_panel.visible = not character_info_panel.visible
   get_viewport().set_input_as_handled()
  elif event.keycode == KEY_ESCAPE and character_info_panel.visible:

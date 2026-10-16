@@ -14,6 +14,8 @@ var nearby_locations: Dictionary = {}
 func _ready() -> void:
 	loader = Loader.new()
 	loader.position = Vector2(60, 110)
+	# Initialize the spawn before the save-restoration listener runs.
+	loader.map_loaded.connect(_on_map_loaded)
 	call_deferred("_attach_loader")
 	character_info_ui = preload("res://scenes/CharacterInfoUI.tscn").instantiate()
 	var ui: CanvasLayer = character_info_ui
@@ -27,6 +29,8 @@ func _ready() -> void:
 	selector.position = Vector2(60, 46)
 	for map_name in MAP_NAMES:
 		selector.add_item(map_name)
+	# Loading a save sets the continent before this scene is created.
+	selector.select(GameManager.current_continent_id)
 	selector.item_selected.connect(_select_map)
 	GameManager.continent_switched.connect(func(id: int): selector.select(id))
 	ui.add_child(selector)
@@ -56,9 +60,9 @@ func _ready() -> void:
 	map_system = preload("res://scenes/ui/map_system.tscn").instantiate()
 	map_ui.add_child(map_system)
 	map_system.setup(self)
+	GameSession.attach_world(self)
 
 func _attach_loader() -> void:
-	loader.map_loaded.connect(_on_map_loaded)
 	loader.load_failed.connect(func(message: String): status.text = "加载失败：" + message)
 	add_child(loader)
 
@@ -97,6 +101,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		return
 	if event.keycode >= KEY_1 and event.keycode <= KEY_6:
 		GameManager.switch_to_continent(event.keycode - KEY_1)
+	elif event.keycode == KEY_F5:
+		GameSession.quick_save_feedback()
+	elif event.keycode == KEY_F10:
+		GameSession.return_to_menu()
 	elif event.keycode == KEY_SPACE:
 		GameManager.next_time_period()
 	elif event.keycode == KEY_E:
