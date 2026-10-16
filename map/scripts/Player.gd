@@ -28,7 +28,8 @@ func apply_progression(new_stats: Dictionary, new_skills: Array[String]) -> void
 	health_changed.emit(hp, float(stats["max_hp"]))
 
 func _physics_process(_delta: float) -> void:
-	if hp <= 0.0:
+	var ui := get_parent().get_node_or_null("GameUI/PlayerPanel")
+	if hp <= 0.0 or (ui != null and ui.visible):
 		velocity = Vector2.ZERO
 		appearance.set_motion(Vector2.ZERO)
 		return

@@ -18,7 +18,7 @@ func _ready() -> void:
 	var ui: CanvasLayer = character_info_ui
 	add_child(ui)
 	var title := Label.new()
-	title.text = "六大陆地图 · WASD移动 · Tab人物信息 · E交互 · Q神力 · 金色地点 / 绿色资源"
+	title.text = "六大陆地图 · WASD移动 · Tab/B玩家面板 · E交互 · Q神力 · 金色地点 / 绿色资源"
 	title.position = Vector2(60, 12)
 	ui.add_child(title)
 	var selector := OptionButton.new()
@@ -40,11 +40,13 @@ func _ready() -> void:
 	progression_world = preload("res://progression/world.gd").new()
 	add_child(progression_world)
 	progression_world.setup(loader, player)
-	var progression_panel: VBoxContainer = ui.get_node("CharacterInfoPanel/ProgressionPanel")
-	progression_panel.setup(progression_world)
 	loader.location_entered.connect(_on_location_entered)
 	loader.location_exited.connect(_on_location_exited)
 	GameManager.time_updated.connect(func(_day: int, _period: int): _update_status())
+
+	var item_ui := preload("res://shop-and-object/scripts/integration/world_items.gd").new()
+	item_ui.name = "WorldItems"
+	add_child(item_ui)
 
 func _attach_loader() -> void:
 	loader.map_loaded.connect(_on_map_loaded)

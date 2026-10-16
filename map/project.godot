@@ -20,16 +20,31 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [autoload]
 
+
+Config="*res://shop-and-object/scripts/utils/config.gd"
+AssetManager="*res://shop-and-object/scripts/utils/asset_manager.gd"
+ItemDatabase="*res://shop-and-object/scripts/items/item_database.gd"
+GameState="*res://shop-and-object/scripts/game/game_state.gd"
+CraftingSystem="*res://shop-and-object/scripts/crafting/crafting_system.gd"
+TradeManager="*res://shop-and-object/scripts/trading/trade_manager.gd"
+
 GameManager="*res://scripts/GameManager.gd"
 ClassManager="*res://progression/systems/class_manager.gd"
+ProfessionDatabase="*res://scripts/professions/profession_database.gd"
 
 [display]
 
 window/size/viewport_width=1080
 window/size/viewport_height=740
-window/stretch/mode="canvas_items"
+window/stretch/mode="disabled"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[input]
+open_player_panel={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":4194306), Object(InputEventKey,"physical_keycode":66)]
+}

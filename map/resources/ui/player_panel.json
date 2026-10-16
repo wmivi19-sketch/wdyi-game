@@ -1,0 +1,48 @@
+{
+  "transition_seconds": 0.3,
+  "swipe_threshold": 50.0,
+  "hover_scale": 1.1,
+  "slot_size": 72,
+  "weight_warning_ratio": 0.8,
+  "profession_slots": 3,
+  "curse_definitions": {
+    "fatigue": {
+      "name": "疲惫",
+      "description": "示例诅咒条目；本 UI 不修改角色属性。"
+    }
+  },
+  "page_titles": [
+    "背包",
+    "职业"
+  ],
+  "demo_items": {
+    "ore": 6,
+    "herb": 6,
+    "wood": 6,
+    "mat_fire_01": 3,
+    "water_essence": 2
+  },
+  "skill_names": {
+    "slash": "斩击",
+    "fireball": "火球",
+    "arrow": "箭矢",
+    "sun_burst": "太阳爆发"
+  },
+  "power_names": {
+    "physical": "体术",
+    "arcane": "奥术",
+    "nature": "自然",
+    "divine": "神力"
+  },
+  "stat_names": {
+    "attack": "攻击",
+    "max_hp": "最大生命"
+  },
+  "rarity_names": [
+    "普通",
+    "稀有",
+    "史诗",
+    "传说",
+    "神器"
+  ]
+}

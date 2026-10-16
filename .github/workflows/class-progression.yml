@@ -33,3 +33,9 @@ jobs:
           /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map res://tests/ContinentIntegrationTest.tscn
           /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map res://tests/MapLoaderTest.tscn
           /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map --script res://tests/PlayerTest.gd
+      - name: Run unified player panel regression
+        run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map res://tests/PlayerPanelTest.tscn
+      - name: Run map item and shop integration
+        run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map res://tests/ItemWorldIntegrationTest.tscn
+      - name: Run integrated item system regression
+        run: /tmp/godot/Godot_v4.3-stable_linux.x86_64 --headless --path map res://shop-and-object/tests/test_item_system.tscn

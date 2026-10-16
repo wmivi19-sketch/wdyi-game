@@ -38,6 +38,8 @@ func _run() -> void:
 	actor = demo.player
 	actor.set_physics_process(false)
 	var state = manager.players[1]
+	var shared = demo.get_node("WorldItems").inventory
+	check(world.inventory.shared == shared, "profession and item UI share one inventory")
 	check(state.class_ids == ["warrior"], "existing player starts with exactly one class")
 	check(actor.appearance.current_job == "warrior", "initial class updates existing appearance")
 	check(actor.stats.max_hp == 120.0, "existing player receives class HP")
@@ -49,6 +51,7 @@ func _run() -> void:
 	world.interact()
 	check(world.inventory.count_item("wood") == 6, "resource cannot be harvested twice")
 	check(world.craft("mage_recipe") and world.craft("ranger_recipe"), "existing inventory crafts both marks")
+	check(shared.get_item_count("mage_mark") == 1 and shared.get_item_count("ranger_mark") == 1, "profession marks appear in common backpack")
 	check(state.class_ids.size() == 1, "crafting does not directly grant classes")
 	var altar: RitualAltar = world.current_altars[0]
 	actor.teleport_to(altar.global_position)
@@ -73,6 +76,7 @@ func _run() -> void:
 	manager.form_changed.disconnect(interrupt_on_form)
 	check(state.class_ids == ["warrior", "mage"] and world.inventory.count_item("mage_mark") == 0, "successful channel consumes exactly one mark")
 	check(actor.appearance.current_job == "mage", "ritual updates real AppearanceManager")
+	check(shared.get_item_count("mage_mark") == 0, "ritual consumes common backpack mark")
 	# Verify map reload does not regenerate collected resources.
 	await switch_map(1)
 	await switch_map(0)

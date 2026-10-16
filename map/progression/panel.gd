@@ -12,7 +12,7 @@ func setup(progression_world: Node) -> void:
 	world = progression_world
 	custom_minimum_size = Vector2(335, 0)
 	var title := Label.new()
-	title.text = "人物信息 · Tab关闭"
+	title.text = "仪式与神力"
 	add_child(title)
 	summary = Label.new()
 	summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -52,10 +52,12 @@ func _button(text: String, action: Callable) -> void:
 	# Tab belongs to the information toggle, not keyboard focus traversal.
 	button.focus_mode = Control.FOCUS_NONE
 	button.text = text
+	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	button.pressed.connect(action)
 	add_child(button)
 
 func refresh() -> void:
+	if not is_visible_in_tree(): return
 	var form: Dictionary = ClassManager.replicated_forms.get(1, {})
 	var names: Array[String] = []
 	for id in form.get("class_ids", []):

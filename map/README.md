@@ -1,9 +1,5 @@
 全局管理与按键切换接入说明、完整源码索引及编辑器设置见 [INTEGRATION.md](INTEGRATION.md)。当前默认演示使用 continent_0 至 continent_5：1–6 切换，空格推进时间。
 
-职业进阶与成神已接入当前地图主场景。完整操作步骤与接口见 [PROGRESSION.md](PROGRESSION.md)。按 E 采集、领取剧情印记或在祭坛开始仪式；按 Q 释放神力。右侧面板显示职业、半神/神明状态、HP、材料及印记。
-
-人物信息面板默认隐藏，按 Tab 显示/隐藏。控制脚本 `scripts/CharacterInfoUI.gd` 挂载在 `scenes/CharacterInfoUI.tscn` 的 GameUI（CanvasLayer）节点上，通过 `$CharacterInfoPanel` 引用面板；输入使用 `_unhandled_input`，忽略长按重复事件。现有按钮设置为不获取键盘焦点，避免 Tab 被焦点导航消费。
-
 # 六大陆数据驱动地图系统
 
 使用 Godot 4.3 或更高版本打开本目录的 `project.godot`，按 F6/F5 运行演示。选择大陆后，用 WASD 或方向键移动白色角色。水域、山脉、熔岩阻挡移动。
@@ -65,3 +61,8 @@ player.update_skin("warrior")
 godot --headless --path . --import
 godot --headless --path . --script res://tests/PlayerTest.gd
 ```
+
+
+## 统一背包与职业面板
+
+Tab / B 打开统一窗口，左右按钮或鼠标/触摸水平滑动切页，Esc 关闭。完整使用、文件结构和测试命令见 [PLAYER_PANEL.md](PLAYER_PANEL.md)。旧职业与成神功能、共享背包和商店均已保留。

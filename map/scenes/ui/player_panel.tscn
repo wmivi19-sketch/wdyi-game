@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3]
+[ext_resource type="Script" path="res://scripts/ui/player_panel.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/ui/backpack_page.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/ui/profession_page.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/utils/swipe_detector.gd" id="4"]
+[ext_resource type="Theme" path="res://resources/themes/player_panel_theme.tres" id="5"]
+[ext_resource type="Texture2D" path="res://assets/ui/prev.svg" id="6"]
+[ext_resource type="Texture2D" path="res://assets/ui/next.svg" id="7"]
+[ext_resource type="Texture2D" path="res://assets/ui/close.svg" id="8"]
+[sub_resource type="SystemFont" id="Bold"]
+font_names = PackedStringArray("Microsoft YaHei", "Noto Sans CJK SC", "sans-serif")
+font_weight = 700
+[node name="PlayerPanel" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 80.0
+offset_right = -20.0
+offset_bottom = -12.0
+theme = ExtResource("5")
+script = ExtResource("1")
+[node name="Background" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+[node name="HeaderBar" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+offset_left = 18.0
+offset_top = 12.0
+offset_right = -18.0
+offset_bottom = 52.0
+[node name="TitleLabel" type="Label" parent="HeaderBar"]
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("Bold")
+text = "背包"
+[node name="CloseButton" type="TextureButton" parent="HeaderBar"]
+custom_minimum_size = Vector2(40, 40)
+texture_normal = ExtResource("8")
+ignore_texture_size = true
+stretch_mode = 5
+focus_mode = 0
+tooltip_text = "关闭（Tab / B / Esc）"
+[node name="PageContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 64.0
+offset_right = -18.0
+offset_bottom = -66.0
+clip_contents = true
+[node name="Pages" type="Control" parent="PageContainer"]
+mouse_filter = 2
+[node name="BackpackPage" type="ScrollContainer" parent="PageContainer/Pages"]
+horizontal_scroll_mode = 3
+script = ExtResource("2")
+[node name="Layout" type="VBoxContainer" parent="PageContainer/Pages/BackpackPage"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+[node name="WeightLabel" type="Label" parent="PageContainer/Pages/BackpackPage/Layout"]
+text = "承重"
+[node name="WeightBar" type="ProgressBar" parent="PageContainer/Pages/BackpackPage/Layout"]
+custom_minimum_size = Vector2(0, 16)
+show_percentage = false
+[node name="GridContainer" type="GridContainer" parent="PageContainer/Pages/BackpackPage/Layout"]
+columns = 6
+[node name="ItemDetailPanel" type="PanelContainer" parent="PageContainer/Pages/BackpackPage/Layout"]
+[node name="Detail" type="Label" parent="PageContainer/Pages/BackpackPage/Layout/ItemDetailPanel"]
+custom_minimum_size = Vector2(0, 90)
+autowrap_mode = 3
+text = "选择一个物品查看详情"
+[node name="Actions" type="VBoxContainer" parent="PageContainer/Pages/BackpackPage/Layout"]
+[node name="ProfessionPage" type="ScrollContainer" parent="PageContainer/Pages"]
+horizontal_scroll_mode = 3
+script = ExtResource("3")
+[node name="Layout" type="VBoxContainer" parent="PageContainer/Pages/ProfessionPage"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+[node name="ProfessionList" type="VBoxContainer" parent="PageContainer/Pages/ProfessionPage/Layout"]
+[node name="CurseList" type="VBoxContainer" parent="PageContainer/Pages/ProfessionPage/Layout"]
+[node name="ProfessionDetailPanel" type="PanelContainer" parent="PageContainer/Pages/ProfessionPage/Layout"]
+[node name="Detail" type="Label" parent="PageContainer/Pages/ProfessionPage/Layout/ProfessionDetailPanel"]
+custom_minimum_size = Vector2(0, 80)
+autowrap_mode = 3
+text = "选择职业查看技能与属性加成"
+[node name="SwipeDetector" type="Control" parent="PageContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("4")
+[node name="NavigationBar" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+offset_bottom = -12.0
+alignment = 1
+theme_override_constants/separation = 26
+[node name="PrevButton" type="TextureButton" parent="NavigationBar"]
+custom_minimum_size = Vector2(40, 40)
+texture_normal = ExtResource("6")
+ignore_texture_size = true
+stretch_mode = 5
+focus_mode = 0
+tooltip_text = "上一页"
+[node name="PageIndicator" type="Label" parent="NavigationBar"]
+text = "1/2"
+[node name="NextButton" type="TextureButton" parent="NavigationBar"]
+custom_minimum_size = Vector2(40, 40)
+texture_normal = ExtResource("7")
+ignore_texture_size = true
+stretch_mode = 5
+focus_mode = 0
+tooltip_text = "下一页"

@@ -78,22 +78,30 @@ func interact() -> void:
 			continue
 		var key: String = map_id + ":" + String(data.id)
 		if not claimed_events.has(key):
+			if not inventory.add_item("sun_mark", 1):
+				message.emit("背包已满，剧情奖励未领取")
+				return
 			claimed_events[key] = true
-			inventory.add_item("sun_mark", 1)
 			message.emit("剧情奖励：获得太阳神印记")
 			inventory_changed.emit()
 			return
-	for marker in loader.resource_points.get_children():
-		var data: Dictionary = marker.get_meta("map_data")
-		var key: String = map_id + ":" + String(data.id)
-		if harvested.has(key) or player.global_position.distance_to(marker.global_position) > 24.0:
-			continue
-		harvested[key] = true
-		inventory.add_item(String(data.kind), int(data.amount))
-		marker.hide()
-		message.emit("采集 %s × %s" % [data.kind, data.amount])
-		inventory_changed.emit()
-		return
+	var bridge := get_parent().get_node_or_null("WorldItems")
+	if bridge != null:
+		if bridge.collect_nearest():
+			inventory_changed.emit()
+			return
+	else:
+		for marker in loader.resource_points.get_children():
+			var data: Dictionary = marker.get_meta("map_data")
+			var key: String = map_id + ":" + String(data.id)
+			if harvested.has(key) or player.global_position.distance_to(marker.global_position) > 24.0:
+				continue
+			harvested[key] = true
+			inventory.add_item(String(data.kind), int(data.amount))
+			marker.hide()
+			message.emit("采集 %s × %s" % [data.kind, data.amount])
+			inventory_changed.emit()
+			return
 	for altar in current_altars:
 		if not altar.ritual_ids.is_empty() and altar.permits(player, altar.ritual_ids[0]):
 			ClassManager.start_ritual(altar.ritual_ids[0], altar.altar_id)
