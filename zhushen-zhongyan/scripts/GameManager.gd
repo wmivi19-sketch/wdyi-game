@@ -11,6 +11,8 @@ signal player_died(player_id: int)
 signal inventory_changed(player_id: int, inventory: Dictionary)
 signal endgame_started
 signal player_teleported(player_id: int, continent_id: String, position: Vector2)
+signal resource_changed(player_id: int, kind: StringName, value: float, maximum: float)
+signal skill_cast(player_id: int, slot: StringName, reason: String)
 
 enum Period { MORNING, NOON, EVENING }
 enum Phase { SURVIVAL, ENDGAME }
@@ -42,6 +44,8 @@ var _players: Dictionary = {}
 var _bodies: Dictionary = {}
 var _advancing: bool = false
 var _initializing: bool = false
+var _combatants: Dictionary = {}
+var _combat_mutating: bool = false
 
 
 func _ready() -> void:
@@ -50,12 +54,15 @@ func _ready() -> void:
 
 func start_new_game() -> void:
 	# Reject synchronous reset attempts from transition signal listeners.
-	if _advancing or _initializing:
+	if _advancing or _initializing or _combat_mutating:
 		return
 	_initializing = true
 	current_day = 1
 	current_period = Period.MORNING
 	phase = Phase.SURVIVAL
+	for actor in _combatants.values():
+		actor.free()
+	_combatants.clear()
 	_players.clear()
 	for id in range(PLAYER_COUNT):
 		var continent: Dictionary = CONTINENTS[id]
@@ -67,6 +74,7 @@ func start_new_game() -> void:
 			"profession": Profession.UNASSIGNED, "profession_status": {},
 			"max_health": 100, "health": 100, "alive": true, "inventory": {},
 		}
+		_create_combatant(id)
 		_place_registered_body(id, continent["spawn"])
 	game_started.emit()
 	period_changed.emit(current_day, current_period)
@@ -78,7 +86,7 @@ func start_new_game() -> void:
 
 
 func advance_period() -> bool:
-	if phase != Phase.SURVIVAL or _advancing or _initializing:
+	if phase != Phase.SURVIVAL or _advancing or _initializing or _combat_mutating:
 		return false
 	_advancing = true
 	if current_period == Period.EVENING:
@@ -119,7 +127,10 @@ func _enter_endgame() -> void:
 func get_player(player_id: int) -> Dictionary:
 	if not _players.has(player_id):
 		return {}
-	return _players[player_id].duplicate(true)
+	var snapshot: Dictionary = _players[player_id].duplicate(true)
+	if _combatants.has(player_id):
+		snapshot["resources"] = get_combat_state(player_id)
+	return snapshot
 
 
 func get_players() -> Array[Dictionary]:
@@ -140,11 +151,15 @@ func get_time_label() -> String:
 
 
 func set_profession(player_id: int, profession: Profession) -> bool:
-	if not _is_alive(player_id) or profession < 0 or profession >= PROFESSION_NAMES.size():
+	if _combat_mutating or _initializing or not _is_alive(player_id) or profession < 0 or profession >= PROFESSION_NAMES.size():
 		return false
+	# 不允许切职业绕过冷却或清除 Debuff；活跃冷却与效果按角色保留。
+	_combat_mutating = true
 	_players[player_id]["profession"] = profession
 	_players[player_id]["profession_status"] = {}
+	_configure_loadout(player_id, profession)
 	player_changed.emit(player_id)
+	_combat_mutating = false
 	return true
 
 
@@ -160,25 +175,20 @@ func set_profession_status(player_id: int, status_name: String, value: Variant) 
 
 
 func damage_player(player_id: int, amount: int) -> bool:
-	if not _is_alive(player_id) or amount <= 0:
+	if _combat_mutating or _initializing or not _is_alive(player_id) or amount <= 0:
 		return false
-	_players[player_id]["health"] = maxi(0, _players[player_id]["health"] - amount)
-	var died: bool = _players[player_id]["health"] == 0
-	if died:
-		_players[player_id]["alive"] = false
-	health_changed.emit(player_id, _players[player_id]["health"], _players[player_id]["max_health"])
-	player_changed.emit(player_id)
-	if died:
-		player_died.emit(player_id)
+	_combat_mutating = true
+	_combatants[player_id].take_damage(float(amount))
+	_combat_mutating = false
 	return true
 
 
 func heal_player(player_id: int, amount: int) -> bool:
-	if not _is_alive(player_id) or amount <= 0:
+	if _combat_mutating or _initializing or not _is_alive(player_id) or amount <= 0:
 		return false
-	_players[player_id]["health"] = mini(_players[player_id]["max_health"], _players[player_id]["health"] + amount)
-	health_changed.emit(player_id, _players[player_id]["health"], _players[player_id]["max_health"])
-	player_changed.emit(player_id)
+	_combat_mutating = true
+	_combatants[player_id].resources.heal(float(amount))
+	_combat_mutating = false
 	return true
 
 
@@ -225,6 +235,7 @@ func update_player_position(player_id: int, position: Vector2) -> bool:
 	if not _is_alive(player_id) or not position.is_finite():
 		return false
 	_players[player_id]["position"] = position
+	_combatants[player_id].global_position = position
 	return true
 
 
@@ -233,6 +244,12 @@ func _is_alive(player_id: int) -> bool:
 
 
 func _place_registered_body(player_id: int, position: Vector2) -> void:
+	if _combatants.has(player_id):
+		var actor: ARPGCharacter = _combatants[player_id]
+		actor.global_position = position
+		actor.velocity = Vector2.ZERO
+		actor.dash_left = 0.0
+		actor.move_input = Vector2.ZERO
 	if not _bodies.has(player_id):
 		return
 	var body: Node2D = _bodies[player_id].get_ref() as Node2D
@@ -242,3 +259,141 @@ func _place_registered_body(player_id: int, position: Vector2) -> void:
 	body.global_position = position
 	if body is CharacterBody2D:
 		(body as CharacterBody2D).velocity = Vector2.ZERO
+
+
+func _create_combatant(player_id: int) -> void:
+	var actor := ARPGHeroes.create(false)
+	actor.name = "Combatant%d" % player_id
+	actor.visible = false
+	actor.collision_layer = 0
+	actor.collision_mask = 0
+	_combatants[player_id] = actor
+	add_child(actor)
+	actor.set_physics_process(false) # 统一由管理器推进，避免双重恢复/移动。
+	actor.resources.max_hp = 100.0
+	_configure_loadout(player_id, Profession.UNASSIGNED)
+	actor.resources.reset()
+	actor.resources.changed.connect(_on_resource_changed.bind(player_id))
+	actor.died.connect(_on_combatant_died.bind(player_id))
+	actor.cast_result.connect(func(slot, reason): skill_cast.emit(player_id, slot, reason))
+
+
+func _configure_loadout(player_id: int, profession: Profession) -> void:
+	var actor: ARPGCharacter = _combatants[player_id]
+	actor.passive = null
+	actor.q = null
+	actor.w = null
+	actor.e = null
+	actor.r = null
+	var pool := actor.resources
+	pool.max_stamina = 100.0
+	pool.max_mana = 100.0
+	pool.stamina_regen = 30.0
+	pool.mana_regen = 5.0
+	actor.tint = Color.GRAY
+	if profession in [Profession.WARRIOR, Profession.MAGE]:
+		var template := ARPGHeroes.create(profession == Profession.MAGE)
+		actor.passive = template.passive
+		actor.q = template.q
+		actor.w = template.w
+		actor.e = template.e
+		actor.r = template.r
+		actor.tint = template.tint
+		var template_pool: ARPGResources = template.get_node("Resources")
+		pool.max_stamina = template_pool.max_stamina
+		pool.max_mana = template_pool.max_mana
+		pool.mana_regen = template_pool.mana_regen
+		template.free()
+	# 切职业不治疗、不补充资源；仅对降低的上限进行截断。
+	pool.stamina = minf(pool.stamina, pool.max_stamina)
+	pool.mana = minf(pool.mana, pool.max_mana)
+	pool.publish()
+	actor.queue_redraw()
+
+
+func _on_resource_changed(kind: StringName, value: float, maximum: float, player_id: int) -> void:
+	if kind == &"hp":
+		_sync_health(player_id)
+	if not _initializing:
+		resource_changed.emit(player_id, kind, value, maximum)
+
+
+func _sync_health(player_id: int) -> void:
+	var actor: ARPGCharacter = _combatants[player_id]
+	# 状态提交与资源事件分离，死亡回调不重复发布 resource_changed。
+	var health := ceili(actor.resources.hp)
+	var maximum := ceili(actor.resources.max_hp)
+	var changed: bool = _players[player_id]["health"] != health or _players[player_id]["alive"] == actor.dead or _players[player_id]["max_health"] != maximum
+	_players[player_id]["health"] = health
+	_players[player_id]["max_health"] = maximum
+	_players[player_id]["alive"] = not actor.dead
+	if changed and not _initializing:
+		health_changed.emit(player_id, health, maximum)
+		player_changed.emit(player_id)
+
+
+func _on_combatant_died(player_id: int) -> void:
+	_sync_health(player_id)
+	player_died.emit(player_id)
+
+
+func get_combatant(player_id: int) -> ARPGCharacter:
+	return _combatants.get(player_id) as ARPGCharacter
+
+
+func get_combat_state(player_id: int) -> Dictionary:
+	if not _combatants.has(player_id):
+		return {}
+	var actor: ARPGCharacter = _combatants[player_id]
+	var pool := actor.resources
+	return {"hp": pool.hp, "max_hp": pool.max_hp,
+		"stamina": pool.stamina, "max_stamina": pool.max_stamina,
+		"mana": pool.mana, "max_mana": pool.max_mana,
+		"dead": actor.dead, "stunned": actor.is_stunned(),
+		"cooldowns": actor.cooldowns.duplicate(true)}
+
+
+func try_cast_skill(player_id: int, slot: StringName, target_id: int = -1) -> bool:
+	if _combat_mutating or _initializing or not _is_alive(player_id):
+		return false
+	var actor: ARPGCharacter = _combatants[player_id]
+	var target: ARPGCharacter = null
+	if target_id != -1:
+		if not _is_alive(target_id) or _players[player_id]["continent_id"] != _players[target_id]["continent_id"]:
+			skill_cast.emit(player_id, slot, "目标已死亡、无效或不在同一大陆")
+			return false
+		target = _combatants[target_id]
+	_combat_mutating = true
+	var success := actor.try_cast(slot, target)
+	_combat_mutating = false
+	return success
+
+
+func set_move_input(player_id: int, direction: Vector2) -> void:
+	if _is_alive(player_id) and direction.is_finite():
+		_combatants[player_id].move_input = direction.limit_length()
+
+
+func _physics_process(delta: float) -> void:
+	tick_combat(delta)
+
+
+func tick_combat(delta: float) -> void:
+	# 实时战斗不推进策略时段；也不在通知回调内重复结算。
+	if _initializing or _combat_mutating or delta <= 0.0 or not is_finite(delta):
+		return
+	_combat_mutating = true
+	for id in _combatants:
+		var actor: ARPGCharacter = _combatants[id]
+		var body: Node2D = null
+		if _bodies.has(id):
+			body = _bodies[id].get_ref() as Node2D
+			if not is_instance_valid(body) or not body.is_inside_tree():
+				_bodies.erase(id)
+				body = null
+			else:
+				actor.global_position = body.global_position
+		actor.tick(delta, body)
+		if not actor.dead:
+			_players[id]["position"] = actor.global_position
+	_combat_mutating = false

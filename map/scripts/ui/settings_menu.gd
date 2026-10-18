@@ -38,7 +38,7 @@ func set_fullscreen(value: bool) -> void:
 ## 应用音频并保存偏好；无参数。
 func apply() -> void:
  menu.apply_audio_preferences()
- menu.status.text = "" if GameSession.save_preferences() else GameSession.last_error
+ GameSession.save_preferences()
 ## 关闭并清除主菜单的模态引用；无参数。
 func close() -> void:
  menu.modal = null

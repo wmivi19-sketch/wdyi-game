@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3]
 [ext_resource type="Script" path="res://scripts/ui/map_system.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/maps/map_renderer.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/ui/map_canvas.gd" id="2"]
 [ext_resource type="Script" path="res://scripts/ui/map_terrain.gd" id="3"]
 [ext_resource type="Theme" path="res://resources/themes/player_panel_theme.tres" id="4"]
 [sub_resource type="World2D" id="ContinentWorld"]

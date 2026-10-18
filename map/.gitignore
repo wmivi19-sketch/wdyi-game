@@ -1,2 +1,4 @@
 .godot/
 .validation/
+arpg_core/*.log
+shop-and-object/backups/

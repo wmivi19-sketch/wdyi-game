@@ -10,6 +10,7 @@ var progression_world: Node
 var character_info_ui: CanvasLayer
 var map_system: MapSystem
 var nearby_locations: Dictionary = {}
+var _map_selector: OptionButton
 
 func _ready() -> void:
 	loader = Loader.new()
@@ -21,10 +22,11 @@ func _ready() -> void:
 	var ui: CanvasLayer = character_info_ui
 	add_child(ui)
 	var title := Label.new()
-	title.text = "六大陆地图 · WASD移动 · Tab/B玩家面板 · Y大陆图 / M区域图 · E交互 · Q神力 · 金色地点 / 绿色资源"
+	title.text = "逐神终焉 · WASD移动 · Tab/B面板 · Y/M地图 · E交互 · Q神力 · Shift+QWER技能 · T选目标"
 	title.position = Vector2(60, 12)
 	ui.add_child(title)
 	var selector := OptionButton.new()
+	_map_selector = selector
 	selector.focus_mode = Control.FOCUS_NONE
 	selector.position = Vector2(60, 46)
 	for map_name in MAP_NAMES:
@@ -32,14 +34,14 @@ func _ready() -> void:
 	# Loading a save sets the continent before this scene is created.
 	selector.select(GameManager.current_continent_id)
 	selector.item_selected.connect(_select_map)
-	GameManager.continent_switched.connect(func(id: int): selector.select(id))
+	GameManager.continent_switched.connect(_on_continent_selected)
 	ui.add_child(selector)
 	status = Label.new()
 	status.position = Vector2(260, 52)
 	ui.add_child(status)
-	player = preload("res://scenes/player/player.tscn").instantiate()
+	player = preload("res://scenes/Player.tscn").instantiate()
 	add_child(player)
-	player.camera.follow_node(player)
+	player.enable_combat()
 	# Keep the player clear of the sidebar only while it is open.
 	character_info_ui.panel_toggled.connect(func(is_visible: bool):
 		player.camera.offset = Vector2(180, 0) if is_visible else Vector2.ZERO)
@@ -61,6 +63,10 @@ func _ready() -> void:
 	map_system = preload("res://scenes/ui/map_system.tscn").instantiate()
 	map_ui.add_child(map_system)
 	map_system.setup(self)
+	var combat := preload("res://scripts/game/map_combat.gd").new()
+	combat.name = "MapCombat"
+	add_child(combat)
+	combat.setup(self)
 	GameSession.attach_world(self)
 
 func _attach_loader() -> void:
@@ -69,14 +75,8 @@ func _attach_loader() -> void:
 
 func _on_map_loaded(_id: String) -> void:
 	nearby_locations.clear()
-	# Use the loaded terrain extent, including loader translation/scale/rotation.
-	var data: Dictionary = loader.current_data
-	var extent := Vector2(float(data.width), float(data.height)) * float(data.tile_size)
-	var rect := Rect2(loader.to_global(Vector2.ZERO), Vector2.ZERO)
-	for corner in [extent, Vector2(extent.x, 0), Vector2(0, extent.y)]:
-		rect = rect.expand(loader.to_global(corner))
-	player.camera.set_mode("gameplay", {"begin": rect.position, "end": rect.end})
-	player.teleport_to(loader.to_global(loader.spawn_position))
+	if GameManager.phase != GameManager.Phase.ENDGAME or player.hp > 0.0:
+		player.teleport_to(loader.to_global(loader.spawn_position))
 	_update_status()
 
 func _on_location_entered(id: String, kind: String, body: Node2D) -> void:
@@ -104,9 +104,14 @@ func _update_status() -> void:
 func _select_map(index: int) -> void:
 	GameManager.switch_to_continent(index)
 
+func _on_continent_selected(index: int) -> void:
+	_map_selector.select(index)
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo:
 		return
+	if event.shift_pressed and event.keycode in [KEY_Q, KEY_W, KEY_E, KEY_R]:
+		return # 由 MapCombat 分派，不能同时触发旧交互或神力。
 	if event.keycode >= KEY_1 and event.keycode <= KEY_6:
 		GameManager.switch_to_continent(event.keycode - KEY_1)
 	elif event.keycode == KEY_F5:

@@ -28,6 +28,10 @@ func _ready() -> void:
 	_button(controls, "获得木材", func(): GameManager.add_item(0, "wood"))
 	_button(controls, "消耗木材", func(): GameManager.remove_item(0, "wood"))
 	_button(controls, "选择战士", func(): GameManager.set_profession(0, GameManager.Profession.WARRIOR))
+	var combat_controls := HBoxContainer.new()
+	panel.add_child(combat_controls)
+	_button(combat_controls, "选择法师", func(): GameManager.set_profession(0, GameManager.Profession.MAGE))
+	_button(combat_controls, "进入 ARPG 战斗", func(): get_tree().change_scene_to_file("res://scenes/CombatArena.tscn"))
 	var hint := Label.new()
 	hint.text = "回合制：早 → 中 → 晚；推进 42 次后进入终焉大陆。死亡角色不传送。"
 	panel.add_child(hint)
@@ -59,10 +63,16 @@ func _refresh() -> void:
 	_advance.disabled = GameManager.phase == GameManager.Phase.ENDGAME
 	for id in range(GameManager.PLAYER_COUNT):
 		var player: Dictionary = GameManager.get_player(id)
-		_rows[id].text = "%s | %s | 职业：%s | %s | 位置 %s | 物品 %s" % [
+		_rows[id].text = "%s | %s | 职业：%s | %s | 位置 %s | 物品 %s | 耐力 %.0f/%.0f 法力 %.0f/%.0f" % [
 			player["name"], player["continent_id"],
 			GameManager.PROFESSION_NAMES[player["profession"]],
 			"存活" if player["alive"] else "死亡", player["position"], player["inventory"],
+			player["resources"]["stamina"], player["resources"]["max_stamina"],
+			player["resources"]["mana"], player["resources"]["max_mana"],
 		]
 		_bars[id].max_value = player["max_health"]
 		_bars[id].value = player["health"]
+
+
+func _process(_delta: float) -> void:
+	_refresh()

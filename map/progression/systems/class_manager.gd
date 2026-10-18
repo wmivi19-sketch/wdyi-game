@@ -242,8 +242,7 @@ func apply_confirmed_damage(target_id: int, damage: float) -> void:
 		return
 	if state.actor.hp <= 0.0:
 		return
-	state.actor.hp = maxf(0.0, state.actor.hp - damage)
-	state.actor.health_changed.emit(state.actor.hp, float(state.actor.stats["max_hp"]))
+	state.actor.take_damage(damage)
 	interrupt_ritual(target_id)
 	if state.actor.hp <= 0.0:
 		on_player_died(target_id)

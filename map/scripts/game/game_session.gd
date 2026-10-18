@@ -22,17 +22,6 @@ func save_path() -> String:
 ## 仅允许用户数据目录中的路径。
 func safe_user_path(path: String) -> bool:
  return path.begins_with("user://") and not ".." in path and path.length() > "user://".length()
-## 创建保存目录并保留可供界面显示的失败原因。
-func prepare_storage(path: String) -> bool:
- if not safe_user_path(path):
-  last_error = "保存路径无效，必须位于用户数据目录"
-  return false
- var directory := ProjectSettings.globalize_path(path.get_base_dir())
- var error := DirAccess.make_dir_recursive_absolute(directory)
- if error != OK:
-  last_error = "无法创建保存目录：%s（%s）" % [directory, error_string(error)]
-  return false
- return true
 ## 读取可选偏好，类型非法时保留安全默认值；无参数。
 func load_preferences() -> void:
  preferences = {"enabled":true,"bgm":1.0,"sfx":1.0,"fullscreen":false}
@@ -46,18 +35,15 @@ func load_preferences() -> void:
 ## 保存声音/全屏偏好；无参数。
 func save_preferences() -> bool:
  var path := str(options.storage.preferences_path)
- if not prepare_storage(path): return false
+ if not safe_user_path(path): return false
+ DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(path.get_base_dir()))
  var file := ConfigFile.new()
  for key in preferences: file.set_value("menu", key, preferences[key])
- var error := file.save(path)
- if error != OK:
-  last_error = "设置无法保存：%s（%s），本次设置仅在当前运行期间生效" % [ProjectSettings.globalize_path(path), error_string(error)]
-  return false
- last_error = ""
- return true
+ return file.save(path) == OK
 ## 新开一局，清理旧局运行态，不删除既有磁盘存档；无参数。
 func initialize_new_game() -> void:
  pending.clear()
+ GameManager.start_new_game()
  for id in ClassManager.players.keys(): ClassManager.unregister_player(id)
  for id in TradeManager.sessions.keys(): TradeManager.cancel_session(id)
  TradeManager.players.clear()
@@ -145,6 +131,44 @@ func valid_snapshot(data: Variant) -> bool:
  if not valid_flags(data.get("depleted")) or not valid_flags(data.get("claimed_events")) or not data.get("curses") is Array: return false
  for id in data.curses:
   if not id is String or id.is_empty(): return false
+ if data.has("combat") and not valid_combat(data.combat, data, maximum): return false
+ return true
+
+## 可选战斗快照：旧版存档没有此字段仍然有效。
+func valid_combat(combat: Variant, save: Dictionary, maximum: float) -> bool:
+ if not combat is Dictionary or not whole(combat.get("phase")) or combat.phase > 1: return false
+ if not combat.get("players") is Array or combat.players.size() != 6: return false
+ if combat.phase == 1 and (save.day != 14 or save.period != 2 or save.continent != 5): return false
+ for id in range(6):
+  var state = combat.players[id]
+  if not state is Dictionary or not whole(state.get("profession")) or state.profession > 5: return false
+  if not state.get("placed", false) is bool: return false
+  if not state.get("continent_id") is String or state.continent_id not in ["forest","desert","snow","volcano","swamp","mountain","end_continent"]: return false
+  if not state.get("position") is Array or state.position.size() != 2: return false
+  for coordinate in state.position:
+   if not MenuResources.numeric(coordinate) or absf(float(coordinate)) > 100000.0: return false
+  for key in ["hp","max_hp","stamina","mana","delay"]:
+   if not MenuResources.numeric(state.get(key)) or state[key] < 0 or state[key] > 1000000.0: return false
+  if state.max_hp <= 0 or state.hp > state.max_hp: return false
+  var stamina_max := 140.0 if state.profession == 1 else (80.0 if state.profession == 3 else 100.0)
+  var mana_max := 60.0 if state.profession == 1 else (200.0 if state.profession == 3 else 100.0)
+  if state.stamina > stamina_max or state.mana > mana_max: return false
+  if id == 0 and (not is_equal_approx(float(state.hp), float(save.hp)) or not is_equal_approx(float(state.max_hp), maximum)): return false
+  if id == 0:
+   var expected_profession := 3 if save.classes.back() == "mage" else (2 if save.classes.back() == "ranger" else 1)
+   if state.profession != expected_profession: return false
+   var expected_continent: String = "end_continent" if combat.phase == 1 else str(GameManager.CONTINENTS[int(save.continent)].id)
+   if state.hp > 0 and state.continent_id != expected_continent: return false
+  if combat.phase == 1 and state.hp > 0 and state.continent_id != "end_continent": return false
+  if not state.get("cooldowns") is Dictionary: return false
+  for slot in state.cooldowns:
+   if slot not in ["Q","W","E","R"] or not MenuResources.numeric(state.cooldowns[slot]) or state.cooldowns[slot] < 0 or state.cooldowns[slot] > 1000000: return false
+  if not state.get("effects") is Array or state.effects.size() > 64: return false
+  for effect in state.effects:
+   if not effect is Dictionary or not effect.get("id") is String or effect.id.is_empty() or not effect.get("stun") is bool: return false
+   if not MenuResources.numeric(effect.get("remaining")) or effect.remaining <= 0 or effect.remaining > 1000000: return false
+   for property in ["damage_bonus","damage_reduction","speed_bonus","stamina_regen_bonus","mana_regen_bonus"]:
+    if not MenuResources.numeric(effect.get(property)) or absf(float(effect[property])) > 1000000: return false
  return true
 ## 读取校验存档；不会修改当前游戏和pending。
 func read_snapshot(path: String = "") -> Dictionary:
@@ -169,8 +193,9 @@ func has_valid_save(path: String = "") -> bool:
 func load_game(path: String = "") -> bool:
  var data := read_snapshot(path)
  if data.is_empty(): return false
+ GameManager.start_new_game()
  pending = data
- GameManager.current_day = int(data.day)
+ GameManager.current_day = mini(int(data.day), GameManager.TOTAL_DAYS)
  GameManager.current_period = int(data.period)
  GameManager.current_continent_id = int(data.continent)
  return true
@@ -193,19 +218,19 @@ func save_game(path: String = "") -> bool:
  var continent := int(actual.trim_prefix("continent_"))
  var position_value: Vector2 = world.loader.to_local(world.player.global_position)
  var data := {"version":1,"day":GameManager.current_day,"period":GameManager.current_period,"continent":continent,"position":[position_value.x,position_value.y],"inventory":bridge.inventory.snapshot(),"merchant":bridge.merchant.snapshot(),"classes":state.class_ids.duplicate(),"deity":state.deity.deity_id if state.deity != null else "","base_stats":state.base_stats.duplicate(),"hp":world.player.hp,"depleted":bridge.depleted.duplicate(),"claimed_events":world.progression_world.claimed_events.duplicate(),"curses":GameState.player_curses.duplicate()}
+ data["combat"] = GameManager.export_combat()
  if not valid_snapshot(data):
   last_error = "当前状态无法写入有效存档"
   return false
  if path.is_empty(): path = save_path()
- if not prepare_storage(path): return false
+ if not safe_user_path(path): return false
  var text := JSON.stringify(data, "  ")
- if text.to_utf8_buffer().size() > int(options.storage.max_save_bytes):
-  last_error = "存档超出大小限制"
-  return false
+ if text.to_utf8_buffer().size() > int(options.storage.max_save_bytes): return false
+ DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(path.get_base_dir()))
  var temporary := path + ".tmp"
  var file := FileAccess.open(temporary, FileAccess.WRITE)
  if file == null:
-  last_error = "无法创建存档临时文件：%s（%s）" % [ProjectSettings.globalize_path(temporary), error_string(FileAccess.get_open_error())]
+  last_error = "无法创建存档临时文件"
   return false
  file.store_string(text)
  file.flush()
@@ -239,9 +264,11 @@ func restore_world(_map_id: String) -> void:
  ClassManager._rebuild(1)
  world.player.hp = float(data.hp)
  world.player.health_changed.emit(world.player.hp, float(world.player.stats.max_hp))
+ if data.has("combat"): GameManager.restore_combat(data.combat)
  GameState.player_curses.assign(data.curses)
  GameState.curse_added.emit()
  world.player.teleport_to(world.loader.to_global(Vector2(float(data.position[0]),float(data.position[1]))))
+ if world.has_node("MapCombat"): world.get_node("MapCombat").refresh_visibility()
  for marker in world.loader.resource_points.get_children():
   marker.visible = not bridge.depleted.has(str(world.loader.current_data.id) + ":" + str(marker.get_meta("map_data").id))
  bridge.inventory.publish()

@@ -1,0 +1,8 @@
+**/.godot/
+**/.validation/
+**/backups/
+*.log
+*.tmp
+.env
+.env.*
+!.env.example

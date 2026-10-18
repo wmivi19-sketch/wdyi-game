@@ -1,12 +1,10 @@
 extends Node2D
 ## 两种地图共用绘制视图；几何坐标从贴图左上角起算。
-var map_type: String = "continent"
 var bounds: Rect2
 var marker_nodes: Dictionary = {}
 var pixels: Vector2
 ## texture 为背景图；region 为地图局部边界；data 为现有地形。
 func configure(texture: Texture2D, region: Rect2, data: Dictionary, local: bool, atlas: bool = false) -> void:
- map_type = "local" if local else "continent"
  $MapTexture.texture = texture
  $MapTexture.centered = false
  pixels = texture.get_size()
@@ -29,7 +27,7 @@ func clear_markers() -> void:
 ## point 为地图局部坐标；返回未缩放贴图坐标。
 func map_point(point: Vector2) -> Vector2:
  if bounds.size.x <= 0 or bounds.size.y <= 0: return Vector2.ZERO
- return CoordinateConverter.world_to_map(point, {"begin": bounds.position, "end": bounds.end}, pixels)
+ return (point - bounds.position) / bounds.size * pixels
 ## layer/id/kind 为标记身份；point 是地图局部坐标，name_value 是标签。
 func put_marker(layer: String, id: String, kind: String, point: Vector2, name_value: String) -> void:
  var key := layer + ":" + id
@@ -67,17 +65,17 @@ func retain_markers(keys: Array[String]) -> void:
 func update_marker_scale(node: Node2D) -> void:
  var inverse := 1.0 / maxf(scale.x, 0.001)
  var icon: Sprite2D = node.get_node("Icon")
- icon.scale = Vector2.ONE * CoordinateConverter.calculate_marker_size(map_type).x * inverse / icon.texture.get_width()
+ icon.scale = Vector2.ONE * float(MapDatabase.settings.marker_pixels) * inverse / icon.texture.get_width()
  var label: Label = node.get_node("Label")
  label.scale = Vector2.ONE * inverse
- label.position = Vector2(CoordinateConverter.calculate_marker_size(map_type).x, -float(MapDatabase.settings.label_size)) * inverse
+ label.position = Vector2(float(MapDatabase.settings.marker_pixels), -float(MapDatabase.settings.label_size)) * inverse
 ## 更新真实玩家标记；point 是地图局部坐标。
 func update_player(point: Vector2) -> void:
  var marker: Sprite2D = $PlayerMarker
  marker.texture = MapDatabase.marker_texture("player")
  marker.position = map_point(point)
  marker.visible = bounds.has_point(point)
- marker.scale = Vector2.ONE * CoordinateConverter.calculate_marker_size(map_type).x / marker.texture.get_width() / maxf(scale.x, 0.001)
+ marker.scale = Vector2.ONE * float(MapDatabase.settings.marker_pixels) / marker.texture.get_width() / maxf(scale.x, 0.001)
 ## 视图缩放后重算标签大小；无参数。
 func update_all_marker_scales() -> void:
  for node in marker_nodes.values(): update_marker_scale(node)

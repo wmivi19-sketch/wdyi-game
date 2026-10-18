@@ -3,10 +3,6 @@ signal state_changed
 signal profession_changed
 signal curse_added
 signal curse_removed
-## 统一通知外部系统已完成职业同步。
-func notify_profession_changed() -> void:
- profession_changed.emit()
-
 var player_inventory: Inventory
 var player_curses: Array[String] = []
 ## id 为诅咒标识；UI 展示接口，不改变战斗数值。
@@ -39,9 +35,9 @@ func advance_time(minutes_count: int) -> void:
  if minutes_count < 0: return
  var total := minutes(current_time) + minutes_count
  var day_length := int(Config.data.minutes_per_day)
- current_day = mini(current_day + floori(float(total) / day_length), int(Config.data.days))
+ current_day = mini(current_day + total / day_length, int(Config.data.days))
  total %= day_length
- current_time = "%02d:%02d" % [floori(float(total) / int(Config.data.minutes_per_hour)), total % int(Config.data.minutes_per_hour)]
+ current_time = "%02d:%02d" % [total / int(Config.data.minutes_per_hour), total % int(Config.data.minutes_per_hour)]
  state_changed.emit()
 ## 进入下一天，最后一天保持；无参数。
 func next_day() -> void:
@@ -55,7 +51,6 @@ func change_location(new_location: String) -> void:
 # 地图区域与合成/交易的 player_location 分离，避免把祭坛位置替换成区域名。
 signal map_context_changed
 signal player_position_changed(position: Vector2)
-var player_node: Node2D = null
 var player_world_position: Vector2 = Vector2.ZERO
 var current_continent: String = ""
 var current_area: String = ""

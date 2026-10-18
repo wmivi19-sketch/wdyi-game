@@ -1,5 +1,7 @@
 # 全局管理与 JSON 地图连接
 
+职业叠加、印记合成、地图祭坛、成神和死亡逻辑现已接入同一主场景，操作步骤见 [PROGRESSION.md](PROGRESSION.md)。
+
 使用 Godot **4.3 或更高的 4.x 版本**打开本目录的 project.godot。本项目使用 TileMapLayer（4.3 引入）；4.0–4.2 无法直接运行此版本。TileMapLayer 是新版单层 TileMap 节点。
 
 ## 完整源码

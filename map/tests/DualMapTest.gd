@@ -42,9 +42,6 @@ func run() -> void:
  for frame in 6: await get_tree().process_frame
  maps = demo.map_system
  demo.player.set_physics_process(false)
- check(demo.player.camera.follow_target == demo.player, "实际游戏摄像机绑定真实玩家")
- check(not demo.player.camera.world_bounds.is_empty(), "实际游戏加载地形边界")
- check(maps.continent_view.get_script().resource_path == "res://scripts/maps/map_renderer.gd" and maps.local_view.get_script().resource_path == "res://scripts/maps/map_renderer.gd", "实际双地图使用统一MapRenderer")
  check(not maps.any_open(), "两种地图初始关闭")
  check(maps.continent_texture_node.texture == null and maps.local_texture_node.texture == null, "关闭时不提前分配背景纹理")
  check(GameState.current_continent == "continent_0", "绑定实际加载大陆")

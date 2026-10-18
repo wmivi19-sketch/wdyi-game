@@ -290,7 +290,7 @@ func open_modal(path_key: String) -> void:
 ## 声音复选框true为开启；value为用户选择。
 func _on_audio_toggle_toggled(value: bool) -> void:
  GameSession.preferences.enabled = value
- status.text = "" if GameSession.save_preferences() else GameSession.last_error
+ GameSession.save_preferences()
  apply_audio_preferences()
 ## 响应式居中、纵向滚动和等比例封面裁切；无参数。
 func layout_menu() -> void:
