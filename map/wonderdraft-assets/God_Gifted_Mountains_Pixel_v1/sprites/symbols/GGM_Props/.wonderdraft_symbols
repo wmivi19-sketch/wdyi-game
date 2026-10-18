@@ -1,0 +1,44 @@
+{
+  "ggm_props_095": {
+    "name": "ggm props 095",
+    "radius": 20,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_props_096": {
+    "name": "ggm props 096",
+    "radius": 16,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_props_101": {
+    "name": "ggm props 101",
+    "radius": 20,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_props_102": {
+    "name": "ggm props 102",
+    "radius": 18,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_props_108": {
+    "name": "ggm props 108",
+    "radius": 21,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_props_109": {
+    "name": "ggm props 109",
+    "radius": 23,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  }
+}

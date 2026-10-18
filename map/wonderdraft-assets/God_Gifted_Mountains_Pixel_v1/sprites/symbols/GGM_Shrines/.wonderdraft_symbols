@@ -1,0 +1,44 @@
+{
+  "ggm_shrines_093": {
+    "name": "ggm shrines 093",
+    "radius": 58,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_shrines_094": {
+    "name": "ggm shrines 094",
+    "radius": 50,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_shrines_097": {
+    "name": "ggm shrines 097",
+    "radius": 50,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_shrines_098": {
+    "name": "ggm shrines 098",
+    "radius": 51,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_shrines_099": {
+    "name": "ggm shrines 099",
+    "radius": 45,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_shrines_100": {
+    "name": "ggm shrines 100",
+    "radius": 56,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  }
+}

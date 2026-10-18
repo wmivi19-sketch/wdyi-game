@@ -1,0 +1,107 @@
+{
+  "ggm_ground_paths_001": {
+    "name": "ggm ground paths 001",
+    "radius": 26,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_002": {
+    "name": "ggm ground paths 002",
+    "radius": 46,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_003": {
+    "name": "ggm ground paths 003",
+    "radius": 38,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_004": {
+    "name": "ggm ground paths 004",
+    "radius": 40,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_005": {
+    "name": "ggm ground paths 005",
+    "radius": 37,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_006": {
+    "name": "ggm ground paths 006",
+    "radius": 38,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_007": {
+    "name": "ggm ground paths 007",
+    "radius": 38,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_008": {
+    "name": "ggm ground paths 008",
+    "radius": 38,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_009": {
+    "name": "ggm ground paths 009",
+    "radius": 32,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_010": {
+    "name": "ggm ground paths 010",
+    "radius": 32,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_011": {
+    "name": "ggm ground paths 011",
+    "radius": 29,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_012": {
+    "name": "ggm ground paths 012",
+    "radius": 29,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_013": {
+    "name": "ggm ground paths 013",
+    "radius": 33,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_014": {
+    "name": "ggm ground paths 014",
+    "radius": 33,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_ground_paths_015": {
+    "name": "ggm ground paths 015",
+    "radius": 36,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  }
+}

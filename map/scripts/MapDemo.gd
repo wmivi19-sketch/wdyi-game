@@ -2,7 +2,7 @@ extends Node2D
 
 const Loader = preload("res://scripts/MapLoader.gd")
 const MAP_IDS := ["emerald", "sun_sands", "frost_crown", "ancient_woods", "ember", "convergence"]
-const MAP_NAMES := ["翠绿大陆", "烈日沙洲", "霜冠大陆", "古木大陆", "余烬大陆", "交汇大陆"]
+const MAP_NAMES := ["方丈     南冥", "瓦尔卡斯", "索马瑞    神赐山脉", "沃恩科", "北冥    艾兰瑟", "维洛斯           斩魔池"]
 var loader: Node2D
 var player: CharacterBody2D
 var status: Label

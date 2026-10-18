@@ -1,0 +1,51 @@
+{
+  "ggm_village_buildings_085": {
+    "name": "ggm village buildings 085",
+    "radius": 70,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_village_buildings_086": {
+    "name": "ggm village buildings 086",
+    "radius": 61,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_village_buildings_087": {
+    "name": "ggm village buildings 087",
+    "radius": 65,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_village_buildings_088": {
+    "name": "ggm village buildings 088",
+    "radius": 63,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_village_buildings_089": {
+    "name": "ggm village buildings 089",
+    "radius": 53,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_village_buildings_090": {
+    "name": "ggm village buildings 090",
+    "radius": 53,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_village_buildings_091": {
+    "name": "ggm village buildings 091",
+    "radius": 58,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  }
+}

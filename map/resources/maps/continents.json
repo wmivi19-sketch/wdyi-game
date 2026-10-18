@@ -1,6 +1,6 @@
 {
   "continent_0": {
-    "name": "翠绿大陆",
+    "name": "方丈     南冥",
     "map_id": "continent_0",
     "default_area": "area_0",
     "texture_path": "res://assets/maps/continents/continent_0.png",
@@ -46,7 +46,7 @@
     ]
   },
   "continent_1": {
-    "name": "烈日沙洲",
+    "name": "瓦尔卡斯",
     "map_id": "continent_1",
     "default_area": "area_1",
     "texture_path": "res://assets/maps/continents/continent_1.png",
@@ -92,7 +92,7 @@
     ]
   },
   "continent_2": {
-    "name": "霜冠大陆",
+    "name": "索马瑞    神赐山脉",
     "map_id": "continent_2",
     "default_area": "area_2",
     "texture_path": "res://assets/maps/continents/continent_2.png",
@@ -147,7 +147,7 @@
     ]
   },
   "continent_3": {
-    "name": "古木大陆",
+    "name": "沃恩科",
     "map_id": "continent_3",
     "default_area": "area_3",
     "texture_path": "res://assets/maps/continents/continent_3.png",
@@ -193,7 +193,7 @@
     ]
   },
   "continent_4": {
-    "name": "余烬大陆",
+    "name": "北冥    艾兰瑟",
     "map_id": "continent_4",
     "default_area": "area_4",
     "texture_path": "res://assets/maps/continents/continent_4.png",
@@ -239,7 +239,7 @@
     ]
   },
   "continent_5": {
-    "name": "交汇大陆",
+    "name": "维洛斯           斩魔池",
     "map_id": "continent_5",
     "default_area": "area_5",
     "texture_path": "res://assets/maps/continents/continent_5.png",

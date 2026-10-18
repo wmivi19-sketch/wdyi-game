@@ -1,0 +1,100 @@
+{
+  "ggm_cliffs_stairs_020": {
+    "name": "ggm cliffs stairs 020",
+    "radius": 30,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_021": {
+    "name": "ggm cliffs stairs 021",
+    "radius": 47,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_022": {
+    "name": "ggm cliffs stairs 022",
+    "radius": 73,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_023": {
+    "name": "ggm cliffs stairs 023",
+    "radius": 31,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_024": {
+    "name": "ggm cliffs stairs 024",
+    "radius": 70,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_025": {
+    "name": "ggm cliffs stairs 025",
+    "radius": 29,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_026": {
+    "name": "ggm cliffs stairs 026",
+    "radius": 39,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_027": {
+    "name": "ggm cliffs stairs 027",
+    "radius": 28,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_028": {
+    "name": "ggm cliffs stairs 028",
+    "radius": 51,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_029": {
+    "name": "ggm cliffs stairs 029",
+    "radius": 24,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_030": {
+    "name": "ggm cliffs stairs 030",
+    "radius": 65,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_031": {
+    "name": "ggm cliffs stairs 031",
+    "radius": 48,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_032": {
+    "name": "ggm cliffs stairs 032",
+    "radius": 51,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_cliffs_stairs_033": {
+    "name": "ggm cliffs stairs 033",
+    "radius": 49,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  }
+}

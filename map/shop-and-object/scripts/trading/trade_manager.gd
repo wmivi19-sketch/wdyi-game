@@ -26,7 +26,7 @@ func can_trade(current_day: int, current_hour: int, location: String) -> bool:
 func eligible(a: String, b: String) -> bool:
  if not players.has(a) or not players.has(b) or players[a] == players[b]: return false
  var place := str(locations.get(a, ""))
- return place == str(locations.get(b, "")) and can_trade(GameState.current_day, GameState.minutes(GameState.current_time) / int(Config.data.minutes_per_hour), place)
+ return place == str(locations.get(b, "")) and can_trade(GameState.current_day, floori(float(GameState.minutes(GameState.current_time)) / int(Config.data.minutes_per_hour)), place)
 ## 创建会话；无效参与者、已有会话或不在交易窗口返回空字符串。
 func create_trade_session(player_a: String, player_b: String) -> String:
  if player_a == player_b or not eligible(player_a, player_b): return ""

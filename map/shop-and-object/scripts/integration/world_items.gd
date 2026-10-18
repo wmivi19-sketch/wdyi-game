@@ -69,7 +69,7 @@ func on_job_changed(job: String) -> void:
  if not form.is_empty(): GameState.player_professions.assign(form.get("class_ids", []))
  elif job != "default" and not job.is_empty(): GameState.player_professions.append(job)
  GameState.state_changed.emit()
- GameState.profession_changed.emit()
+ GameState.notify_profession_changed()
  if is_instance_valid(summary): refresh()
 ## 地图载入后清除旧地点，并在出生点生成配置对应的交易所。
 func on_map_loaded(_id: String) -> void:

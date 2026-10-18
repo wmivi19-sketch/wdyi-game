@@ -59,8 +59,8 @@ func numeric(value: Variant) -> bool:
 ## 列出目录中的 JSON；folder 为目录路径。
 func files(folder: String) -> Array[String]:
  var result: Array[String] = []
- for name in DirAccess.get_files_at(folder):
-  if name.ends_with(".json"): result.append(folder.path_join(name))
+ for file_name in DirAccess.get_files_at(folder):
+  if file_name.ends_with(".json"): result.append(folder.path_join(file_name))
  result.sort()
  return result
 ## 内容哈希能检测新增、删除和同时间戳修改；无参数。

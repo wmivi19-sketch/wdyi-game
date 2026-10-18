@@ -5,7 +5,7 @@ const ACTIONS := ["start_new_game", "load_game", "open_settings", "show_credits"
 ## 配置全部丢失时仍可启动；资源路径留空，使用占位与静音。
 static func defaults() -> Dictionary:
  return {
-  "visual":{"background_image":"", "logo_image":"", "title_text":"诸神终焉", "subtitle_text":"六神之战 · 十四日轮回", "background_color_fallback":{"r":0.1,"g":0.05,"b":0.15,"a":1.0}, "logo_fallback_color":{"r":0.8,"g":0.6,"b":1.0,"a":1.0}, "button_theme_path":"", "button_textures":{"normal":"","hover":"","pressed":"","disabled":""}},
+  "visual":{"background_image":"", "logo_image":"", "title_text":"逐神终焉", "subtitle_text":"六神之战 · 十四日轮回", "background_color_fallback":{"r":0.1,"g":0.05,"b":0.15,"a":1.0}, "logo_fallback_color":{"r":0.8,"g":0.6,"b":1.0,"a":1.0}, "button_theme_path":"", "button_textures":{"normal":"","hover":"","pressed":"","disabled":""}},
   "audio":{"bgm_path":"","bgm_volume":0.8,"hover_sound":"","click_sound":"","enable_audio":true,"sfx_volume":0.7,"pool_size":5,"bgm_bus":"BGM","sfx_bus":"SFX","generate_placeholders":false,"sample_rate":22050,"hover_hz":740,"click_hz":520,"tone_seconds":0.06,"tone_amplitude":0.12},
   "buttons":[{"id":"new_game","text":"新游戏","action":"start_new_game"},{"id":"continue","text":"继续游戏","action":"load_game"},{"id":"settings","text":"设置","action":"open_settings"},{"id":"credits","text":"制作人员","action":"show_credits"},{"id":"quit","text":"退出游戏","action":"quit_game"}],
   "version":"0.1.0", "copyright":"© 2026 Game Studio",
@@ -93,7 +93,14 @@ static func texture(path: String) -> Texture2D:
  if path.is_empty(): return null
  if FileAccess.file_exists(path) and path.get_extension().to_lower() in ["png","jpg","jpeg","webp","svg"]:
   var image := Image.new()
-  if image.load(path) == OK and not image.is_empty(): return ImageTexture.create_from_image(image)
+  var bytes := FileAccess.get_file_as_bytes(path)
+  var image_error := ERR_FILE_UNRECOGNIZED
+  match path.get_extension().to_lower():
+   "png": image_error = image.load_png_from_buffer(bytes)
+   "jpg", "jpeg": image_error = image.load_jpg_from_buffer(bytes)
+   "webp": image_error = image.load_webp_from_buffer(bytes)
+   "svg": image_error = image.load_svg_from_buffer(bytes)
+  if image_error == OK and not image.is_empty(): return ImageTexture.create_from_image(image)
  if ResourceLoader.exists(path): return ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE) as Texture2D
  return null
 ## 加载OGG/WAV；WAV使用PCM解析，确保Godot4.3支持原文件热替换。
@@ -125,7 +132,7 @@ static func wav(bytes: PackedByteArray) -> AudioStreamWAV:
  var rate := int(format_data.decode_u32(4))
  var bits := int(format_data.decode_u16(14))
  if channels not in [1,2] or bits not in [8,16] or rate <= 0 or rate > 192000: return null
- var frame_bytes := channels * bits / 8
+ var frame_bytes := channels * (bits >> 3)
  if format_data.decode_u16(12) != frame_bytes or sound_data.size() % frame_bytes != 0: return null
  if bits == 8:
   for index in sound_data.size(): sound_data[index] = (int(sound_data[index]) - 128) & 255
@@ -134,7 +141,7 @@ static func wav(bytes: PackedByteArray) -> AudioStreamWAV:
  stream.mix_rate = rate
  stream.stereo = channels == 2
  stream.data = sound_data
- stream.loop_end = sound_data.size() / frame_bytes
+ stream.loop_end = floori(float(sound_data.size()) / frame_bytes)
  return stream
 ## 可选短音占位；values 是audio配置，frequency 为频率。
 static func tone(values: Dictionary, frequency: float) -> AudioStreamWAV:

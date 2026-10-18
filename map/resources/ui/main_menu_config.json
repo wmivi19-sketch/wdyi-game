@@ -1,8 +1,8 @@
 {
   "visual": {
-    "background_image": "res://assets/ui/main_menu/background.png",
+    "background_image": "res://assets/ui/main_menu/cover-v1.png",
     "logo_image": "res://assets/ui/main_menu/logo.png",
-    "title_text": "诸神终焉",
+    "title_text": "逐神终焉",
     "subtitle_text": "六神之战 · 十四日轮回",
     "background_color_fallback": {
       "r": 0.1,
@@ -14,7 +14,7 @@
       "r": 0.8,
       "g": 0.6,
       "b": 1,
-      "a": 1
+      "a": 0
     },
     "button_theme_path": "res://resources/themes/menu_button_theme.tres",
     "button_textures": {

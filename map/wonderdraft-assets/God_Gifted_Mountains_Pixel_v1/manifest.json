@@ -1,0 +1,1241 @@
+{
+  "source": "god-gifted-mountains-tileset-v1.png",
+  "asset_count": 95,
+  "assets": [
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_001.png",
+      "source_box": [
+        1196,
+        21,
+        1264,
+        149
+      ],
+      "size": [
+        68,
+        128
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_002.png",
+      "source_box": [
+        1032,
+        24,
+        1191,
+        147
+      ],
+      "size": [
+        159,
+        123
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_003.png",
+      "source_box": [
+        812,
+        25,
+        914,
+        135
+      ],
+      "size": [
+        102,
+        110
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_004.png",
+      "source_box": [
+        920,
+        25,
+        1027,
+        147
+      ],
+      "size": [
+        107,
+        122
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_005.png",
+      "source_box": [
+        123,
+        30,
+        222,
+        135
+      ],
+      "size": [
+        99,
+        105
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_006.png",
+      "source_box": [
+        20,
+        31,
+        121,
+        136
+      ],
+      "size": [
+        101,
+        105
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_007.png",
+      "source_box": [
+        224,
+        31,
+        326,
+        135
+      ],
+      "size": [
+        102,
+        104
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_008.png",
+      "source_box": [
+        327,
+        31,
+        428,
+        135
+      ],
+      "size": [
+        101,
+        104
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_009.png",
+      "source_box": [
+        430,
+        31,
+        515,
+        136
+      ],
+      "size": [
+        85,
+        105
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_010.png",
+      "source_box": [
+        1269,
+        32,
+        1353,
+        136
+      ],
+      "size": [
+        84,
+        104
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_011.png",
+      "source_box": [
+        1441,
+        33,
+        1518,
+        134
+      ],
+      "size": [
+        77,
+        101
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_012.png",
+      "source_box": [
+        1359,
+        35,
+        1437,
+        133
+      ],
+      "size": [
+        78,
+        98
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_013.png",
+      "source_box": [
+        612,
+        37,
+        699,
+        136
+      ],
+      "size": [
+        87,
+        99
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_014.png",
+      "source_box": [
+        519,
+        40,
+        607,
+        135
+      ],
+      "size": [
+        88,
+        95
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Ground_Paths\\ggm_ground_paths_015.png",
+      "source_box": [
+        709,
+        40,
+        807,
+        136
+      ],
+      "size": [
+        98,
+        96
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_020.png",
+      "source_box": [
+        218,
+        140,
+        297,
+        330
+      ],
+      "size": [
+        79,
+        190
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_021.png",
+      "source_box": [
+        389,
+        140,
+        514,
+        340
+      ],
+      "size": [
+        125,
+        200
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_022.png",
+      "source_box": [
+        11,
+        141,
+        215,
+        335
+      ],
+      "size": [
+        204,
+        194
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_023.png",
+      "source_box": [
+        301,
+        142,
+        384,
+        330
+      ],
+      "size": [
+        83,
+        188
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_024.png",
+      "source_box": [
+        484,
+        148,
+        714,
+        336
+      ],
+      "size": [
+        230,
+        188
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_025.png",
+      "source_box": [
+        1220,
+        148,
+        1300,
+        226
+      ],
+      "size": [
+        80,
+        78
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_026.png",
+      "source_box": [
+        703,
+        150,
+        808,
+        334
+      ],
+      "size": [
+        105,
+        184
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_027.png",
+      "source_box": [
+        1446,
+        150,
+        1527,
+        226
+      ],
+      "size": [
+        81,
+        76
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_028.png",
+      "source_box": [
+        811,
+        151,
+        947,
+        343
+      ],
+      "size": [
+        136,
+        192
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_029.png",
+      "source_box": [
+        1314,
+        151,
+        1381,
+        216
+      ],
+      "size": [
+        67,
+        65
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_030.png",
+      "source_box": [
+        922,
+        157,
+        1111,
+        331
+      ],
+      "size": [
+        189,
+        174
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_031.png",
+      "source_box": [
+        1094,
+        158,
+        1221,
+        336
+      ],
+      "size": [
+        127,
+        178
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_032.png",
+      "source_box": [
+        1358,
+        209,
+        1527,
+        346
+      ],
+      "size": [
+        169,
+        137
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Cliffs_Stairs\\ggm_cliffs_stairs_033.png",
+      "source_box": [
+        1226,
+        212,
+        1356,
+        342
+      ],
+      "size": [
+        130,
+        130
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_035.png",
+      "source_box": [
+        418,
+        332,
+        672,
+        471
+      ],
+      "size": [
+        254,
+        139
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_036.png",
+      "source_box": [
+        216,
+        337,
+        419,
+        439
+      ],
+      "size": [
+        203,
+        102
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_037.png",
+      "source_box": [
+        1189,
+        338,
+        1281,
+        416
+      ],
+      "size": [
+        92,
+        78
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_038.png",
+      "source_box": [
+        674,
+        339,
+        839,
+        446
+      ],
+      "size": [
+        165,
+        107
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_039.png",
+      "source_box": [
+        12,
+        340,
+        203,
+        440
+      ],
+      "size": [
+        191,
+        100
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_040.png",
+      "source_box": [
+        849,
+        344,
+        991,
+        418
+      ],
+      "size": [
+        142,
+        74
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_042.png",
+      "source_box": [
+        1045,
+        345,
+        1132,
+        413
+      ],
+      "size": [
+        87,
+        68
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_043.png",
+      "source_box": [
+        1481,
+        346,
+        1521,
+        433
+      ],
+      "size": [
+        40,
+        87
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_044.png",
+      "source_box": [
+        1129,
+        349,
+        1159,
+        422
+      ],
+      "size": [
+        30,
+        73
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_045.png",
+      "source_box": [
+        1160,
+        350,
+        1190,
+        422
+      ],
+      "size": [
+        30,
+        72
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_046.png",
+      "source_box": [
+        985,
+        353,
+        1015,
+        426
+      ],
+      "size": [
+        30,
+        73
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_047.png",
+      "source_box": [
+        1023,
+        357,
+        1053,
+        426
+      ],
+      "size": [
+        30,
+        69
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_048.png",
+      "source_box": [
+        1407,
+        359,
+        1473,
+        420
+      ],
+      "size": [
+        66,
+        61
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_049.png",
+      "source_box": [
+        1290,
+        360,
+        1397,
+        416
+      ],
+      "size": [
+        107,
+        56
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_050.png",
+      "source_box": [
+        1192,
+        407,
+        1216,
+        458
+      ],
+      "size": [
+        24,
+        51
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_051.png",
+      "source_box": [
+        1229,
+        408,
+        1281,
+        470
+      ],
+      "size": [
+        52,
+        62
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Bridges_Fences\\ggm_bridges_fences_052.png",
+      "source_box": [
+        1294,
+        414,
+        1413,
+        471
+      ],
+      "size": [
+        119,
+        57
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_053.png",
+      "source_box": [
+        921,
+        418,
+        997,
+        490
+      ],
+      "size": [
+        76,
+        72
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_054.png",
+      "source_box": [
+        1424,
+        419,
+        1512,
+        485
+      ],
+      "size": [
+        88,
+        66
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_055.png",
+      "source_box": [
+        847,
+        421,
+        918,
+        485
+      ],
+      "size": [
+        71,
+        64
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_056.png",
+      "source_box": [
+        7,
+        439,
+        95,
+        574
+      ],
+      "size": [
+        88,
+        135
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_057.png",
+      "source_box": [
+        88,
+        439,
+        177,
+        574
+      ],
+      "size": [
+        89,
+        135
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_058.png",
+      "source_box": [
+        207,
+        442,
+        280,
+        556
+      ],
+      "size": [
+        73,
+        114
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_060.png",
+      "source_box": [
+        1140,
+        448,
+        1189,
+        530
+      ],
+      "size": [
+        49,
+        82
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_061.png",
+      "source_box": [
+        1057,
+        449,
+        1129,
+        547
+      ],
+      "size": [
+        72,
+        98
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_062.png",
+      "source_box": [
+        1003,
+        450,
+        1063,
+        501
+      ],
+      "size": [
+        60,
+        51
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_063.png",
+      "source_box": [
+        280,
+        455,
+        392,
+        575
+      ],
+      "size": [
+        112,
+        120
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_064.png",
+      "source_box": [
+        388,
+        460,
+        473,
+        572
+      ],
+      "size": [
+        85,
+        112
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_065.png",
+      "source_box": [
+        762,
+        465,
+        822,
+        514
+      ],
+      "size": [
+        60,
+        49
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_066.png",
+      "source_box": [
+        1192,
+        465,
+        1255,
+        545
+      ],
+      "size": [
+        63,
+        80
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Sacred_Buildings\\ggm_sacred_buildings_067.png",
+      "source_box": [
+        1295,
+        471,
+        1529,
+        747
+      ],
+      "size": [
+        234,
+        276
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_068.png",
+      "source_box": [
+        464,
+        477,
+        539,
+        567
+      ],
+      "size": [
+        75,
+        90
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_069.png",
+      "source_box": [
+        616,
+        478,
+        695,
+        561
+      ],
+      "size": [
+        79,
+        83
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_070.png",
+      "source_box": [
+        1265,
+        482,
+        1334,
+        537
+      ],
+      "size": [
+        69,
+        55
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_071.png",
+      "source_box": [
+        872,
+        483,
+        966,
+        566
+      ],
+      "size": [
+        94,
+        83
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_072.png",
+      "source_box": [
+        828,
+        484,
+        878,
+        524
+      ],
+      "size": [
+        50,
+        40
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_073.png",
+      "source_box": [
+        535,
+        487,
+        615,
+        566
+      ],
+      "size": [
+        80,
+        79
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_074.png",
+      "source_box": [
+        164,
+        488,
+        219,
+        567
+      ],
+      "size": [
+        55,
+        79
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_075.png",
+      "source_box": [
+        696,
+        488,
+        778,
+        562
+      ],
+      "size": [
+        82,
+        74
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_076.png",
+      "source_box": [
+        967,
+        499,
+        1055,
+        568
+      ],
+      "size": [
+        88,
+        69
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_077.png",
+      "source_box": [
+        788,
+        510,
+        859,
+        567
+      ],
+      "size": [
+        71,
+        57
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_079.png",
+      "source_box": [
+        1119,
+        518,
+        1166,
+        556
+      ],
+      "size": [
+        47,
+        38
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_080.png",
+      "source_box": [
+        1163,
+        531,
+        1212,
+        570
+      ],
+      "size": [
+        49,
+        39
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_081.png",
+      "source_box": [
+        1275,
+        533,
+        1329,
+        582
+      ],
+      "size": [
+        54,
+        49
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_082.png",
+      "source_box": [
+        1210,
+        537,
+        1277,
+        592
+      ],
+      "size": [
+        67,
+        55
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Nature\\ggm_nature_083.png",
+      "source_box": [
+        1052,
+        547,
+        1108,
+        588
+      ],
+      "size": [
+        56,
+        41
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Village_Buildings\\ggm_village_buildings_085.png",
+      "source_box": [
+        552,
+        556,
+        797,
+        744
+      ],
+      "size": [
+        245,
+        188
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Village_Buildings\\ggm_village_buildings_086.png",
+      "source_box": [
+        150,
+        560,
+        333,
+        722
+      ],
+      "size": [
+        183,
+        162
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Village_Buildings\\ggm_village_buildings_087.png",
+      "source_box": [
+        795,
+        567,
+        995,
+        741
+      ],
+      "size": [
+        200,
+        174
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Village_Buildings\\ggm_village_buildings_088.png",
+      "source_box": [
+        335,
+        570,
+        550,
+        739
+      ],
+      "size": [
+        215,
+        169
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Village_Buildings\\ggm_village_buildings_089.png",
+      "source_box": [
+        9,
+        571,
+        151,
+        716
+      ],
+      "size": [
+        142,
+        145
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Village_Buildings\\ggm_village_buildings_090.png",
+      "source_box": [
+        1149,
+        571,
+        1291,
+        742
+      ],
+      "size": [
+        142,
+        171
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Village_Buildings\\ggm_village_buildings_091.png",
+      "source_box": [
+        995,
+        587,
+        1149,
+        741
+      ],
+      "size": [
+        154,
+        154
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Sacred_Buildings\\ggm_sacred_buildings_092.png",
+      "source_box": [
+        8,
+        698,
+        522,
+        1003
+      ],
+      "size": [
+        514,
+        305
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Shrines\\ggm_shrines_093.png",
+      "source_box": [
+        519,
+        757,
+        674,
+        996
+      ],
+      "size": [
+        155,
+        239
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Shrines\\ggm_shrines_094.png",
+      "source_box": [
+        665,
+        762,
+        797,
+        995
+      ],
+      "size": [
+        132,
+        233
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Props\\ggm_props_095.png",
+      "source_box": [
+        1361,
+        766,
+        1413,
+        871
+      ],
+      "size": [
+        52,
+        105
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Props\\ggm_props_096.png",
+      "source_box": [
+        1416,
+        768,
+        1460,
+        872
+      ],
+      "size": [
+        44,
+        104
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Shrines\\ggm_shrines_097.png",
+      "source_box": [
+        789,
+        770,
+        922,
+        994
+      ],
+      "size": [
+        133,
+        224
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Shrines\\ggm_shrines_098.png",
+      "source_box": [
+        917,
+        771,
+        1052,
+        996
+      ],
+      "size": [
+        135,
+        225
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Shrines\\ggm_shrines_099.png",
+      "source_box": [
+        1045,
+        771,
+        1164,
+        995
+      ],
+      "size": [
+        119,
+        224
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Shrines\\ggm_shrines_100.png",
+      "source_box": [
+        1158,
+        771,
+        1308,
+        995
+      ],
+      "size": [
+        150,
+        224
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Props\\ggm_props_101.png",
+      "source_box": [
+        1306,
+        772,
+        1360,
+        982
+      ],
+      "size": [
+        54,
+        210
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Props\\ggm_props_102.png",
+      "source_box": [
+        1465,
+        782,
+        1514,
+        872
+      ],
+      "size": [
+        49,
+        90
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Props\\ggm_props_108.png",
+      "source_box": [
+        1360,
+        865,
+        1417,
+        982
+      ],
+      "size": [
+        57,
+        117
+      ]
+    },
+    {
+      "file": "sprites\\symbols\\GGM_Props\\ggm_props_109.png",
+      "source_box": [
+        1434,
+        868,
+        1496,
+        982
+      ],
+      "size": [
+        62,
+        114
+      ]
+    }
+  ]
+}

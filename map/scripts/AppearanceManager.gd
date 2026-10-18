@@ -64,9 +64,9 @@ func update_skin(job_name: String) -> void:
 			sprite.hframes = columns
 			sprite.vframes = rows
 		var desired := CoordinateConverter.vector(CoordinateConverter.config().player.sprite_size)
-		sprite.scale = desired / Vector2(sprite.texture.get_width() / sprite.hframes, sprite.texture.get_height() / sprite.vframes)
+		sprite.scale = desired / Vector2(float(sprite.texture.get_width()) / sprite.hframes, float(sprite.texture.get_height()) / sprite.vframes)
 		if texture != null and texture.resource_path.begins_with("res://assets/characters/player/"):
-			var factor := desired.y / float(texture.get_height() / sprite.vframes)
+			var factor := desired.y / (float(texture.get_height()) / sprite.vframes)
 			sprite.scale = Vector2.ONE * factor
 	_build_animations()
 	set_motion(Vector2.ZERO)

@@ -1,0 +1,198 @@
+{
+  "ggm_nature_053": {
+    "name": "ggm nature 053",
+    "radius": 27,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_054": {
+    "name": "ggm nature 054",
+    "radius": 25,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_055": {
+    "name": "ggm nature 055",
+    "radius": 24,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_056": {
+    "name": "ggm nature 056",
+    "radius": 33,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_057": {
+    "name": "ggm nature 057",
+    "radius": 33,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_058": {
+    "name": "ggm nature 058",
+    "radius": 27,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_060": {
+    "name": "ggm nature 060",
+    "radius": 18,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_061": {
+    "name": "ggm nature 061",
+    "radius": 27,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_062": {
+    "name": "ggm nature 062",
+    "radius": 19,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_063": {
+    "name": "ggm nature 063",
+    "radius": 42,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_064": {
+    "name": "ggm nature 064",
+    "radius": 32,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_065": {
+    "name": "ggm nature 065",
+    "radius": 18,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_066": {
+    "name": "ggm nature 066",
+    "radius": 24,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_068": {
+    "name": "ggm nature 068",
+    "radius": 28,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_069": {
+    "name": "ggm nature 069",
+    "radius": 30,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_070": {
+    "name": "ggm nature 070",
+    "radius": 21,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_071": {
+    "name": "ggm nature 071",
+    "radius": 31,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_072": {
+    "name": "ggm nature 072",
+    "radius": 15,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_073": {
+    "name": "ggm nature 073",
+    "radius": 30,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_074": {
+    "name": "ggm nature 074",
+    "radius": 21,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_075": {
+    "name": "ggm nature 075",
+    "radius": 28,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_076": {
+    "name": "ggm nature 076",
+    "radius": 26,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_077": {
+    "name": "ggm nature 077",
+    "radius": 21,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_079": {
+    "name": "ggm nature 079",
+    "radius": 14,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_080": {
+    "name": "ggm nature 080",
+    "radius": 15,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_081": {
+    "name": "ggm nature 081",
+    "radius": 18,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_082": {
+    "name": "ggm nature 082",
+    "radius": 21,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_nature_083": {
+    "name": "ggm nature 083",
+    "radius": 15,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  }
+}

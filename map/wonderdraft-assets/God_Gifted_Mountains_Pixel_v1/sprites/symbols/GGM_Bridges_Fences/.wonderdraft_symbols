@@ -1,0 +1,121 @@
+{
+  "ggm_bridges_fences_035": {
+    "name": "ggm bridges fences 035",
+    "radius": 52,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_036": {
+    "name": "ggm bridges fences 036",
+    "radius": 38,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_037": {
+    "name": "ggm bridges fences 037",
+    "radius": 29,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_038": {
+    "name": "ggm bridges fences 038",
+    "radius": 40,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_039": {
+    "name": "ggm bridges fences 039",
+    "radius": 38,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_040": {
+    "name": "ggm bridges fences 040",
+    "radius": 28,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_042": {
+    "name": "ggm bridges fences 042",
+    "radius": 26,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_043": {
+    "name": "ggm bridges fences 043",
+    "radius": 15,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_044": {
+    "name": "ggm bridges fences 044",
+    "radius": 11,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_045": {
+    "name": "ggm bridges fences 045",
+    "radius": 11,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_046": {
+    "name": "ggm bridges fences 046",
+    "radius": 11,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_047": {
+    "name": "ggm bridges fences 047",
+    "radius": 11,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_048": {
+    "name": "ggm bridges fences 048",
+    "radius": 23,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_049": {
+    "name": "ggm bridges fences 049",
+    "radius": 21,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_050": {
+    "name": "ggm bridges fences 050",
+    "radius": 9,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_051": {
+    "name": "ggm bridges fences 051",
+    "radius": 20,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_bridges_fences_052": {
+    "name": "ggm bridges fences 052",
+    "radius": 21,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  }
+}

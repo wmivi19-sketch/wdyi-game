@@ -1,0 +1,16 @@
+{
+  "ggm_sacred_buildings_067": {
+    "name": "ggm sacred buildings 067",
+    "radius": 88,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  },
+  "ggm_sacred_buildings_092": {
+    "name": "ggm sacred buildings 092",
+    "radius": 114,
+    "offset_x": 0,
+    "offset_y": 0,
+    "draw_mode": "normal"
+  }
+}

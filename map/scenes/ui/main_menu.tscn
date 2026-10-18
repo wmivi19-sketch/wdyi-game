@@ -38,7 +38,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_override_colors/font_color = Color(0.13, 0.07, 0.19, 1)
+theme_override_colors/font_color = Color(0.96, 0.9, 0.72, 1)
+theme_override_colors/font_shadow_color = Color(0.04, 0.04, 0.05, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 38
 mouse_filter = 2
 [node name="SubtitleLabel" type="Label" parent="UILayer/ContentScroll/Center/MainStack/LogoSection"]

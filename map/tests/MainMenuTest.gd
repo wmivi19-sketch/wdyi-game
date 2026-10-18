@@ -55,6 +55,11 @@ func run() -> void:
  for name in ["save.json","settings.cfg"]:
   if FileAccess.file_exists(PROFILE+name): DirAccess.remove_absolute(ProjectSettings.globalize_path(PROFILE+name))
  menu = load("res://scenes/ui/main_menu.tscn").instantiate()
+ var no_art_config := MenuResources.read_config(MenuResources.CONFIG_PATH)
+ no_art_config.visual.background_image = PROFILE + "missing-cover.png"
+ no_art_config.visual.logo_image = PROFILE + "missing-logo.png"
+ write_text(PROFILE + "no-art-menu.json", JSON.stringify(no_art_config))
+ menu.config_path = PROFILE + "no-art-menu.json"
  root.add_child(menu)
  current_scene = menu
  for frame in 5: await process_frame
