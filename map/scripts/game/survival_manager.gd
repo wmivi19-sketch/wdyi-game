@@ -288,7 +288,7 @@ func _configure_loadout(player_id: int, profession: Profession) -> void:
 	var pool := actor.resources
 	pool.max_stamina = 100.0
 	pool.max_mana = 100.0
-	pool.stamina_regen = 30.0
+	pool.stamina_regen = 8.0
 	pool.mana_regen = 5.0
 	actor.tint = Color.GRAY
 	if profession in [Profession.WARRIOR, Profession.MAGE]:

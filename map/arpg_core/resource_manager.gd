@@ -6,9 +6,9 @@ signal depleted
 @export var max_hp: float = 100.0
 @export var max_stamina: float = 100.0
 @export var max_mana: float = 100.0
-@export var stamina_regen: float = 30.0
+@export var stamina_regen: float = 8.0
 @export var mana_regen: float = 5.0
-@export var stamina_delay: float = 0.6
+@export var stamina_delay: float = 0.0 # 保留旧配置字段，停步恢复不再等待。
 @export var movement_stamina_drain: float = 12.0
 var hp: float = 100.0
 var stamina: float = 100.0
@@ -66,12 +66,12 @@ func tick(delta: float, stamina_multiplier: float = 1.0, mana_bonus: float = 0.0
 	if not enabled:
 		return
 	if moving:
-		# 移动帧只消耗、不恢复；耗尽不禁止基础走路，避免恢复后反复启停。
+		# 移动帧只消耗、不恢复。
 		stamina = maxf(0.0, stamina - maxf(0.0, movement_stamina_drain) * delta)
-		delay_left = maxf(0.0, stamina_delay)
+		delay_left = 0.0
 	else:
-		var recovery_time := maxf(0.0, delta - delay_left)
-		delay_left = maxf(0.0, delay_left - delta)
-		stamina = minf(max_stamina, stamina + maxf(0.0, stamina_regen * stamina_multiplier) * recovery_time)
+		# 也清除旧存档中的延迟，停步第一帧就缓慢恢复。
+		delay_left = 0.0
+		stamina = minf(max_stamina, stamina + maxf(0.0, stamina_regen * stamina_multiplier) * delta)
 	mana = minf(max_mana, mana + maxf(0.0, mana_regen + mana_bonus) * delta)
 	publish()

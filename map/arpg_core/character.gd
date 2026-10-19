@@ -17,6 +17,7 @@ var cooldowns: Dictionary = {}
 var effects: Dictionary = {}
 var dash_left: float = 0.0
 var dash_velocity: Vector2 = Vector2.ZERO
+var movement_exhausted: bool = false
 
 func _ready() -> void:
 	resources = get_node_or_null("Resources") as ARPGResources
@@ -69,6 +70,10 @@ func start_dash(direction: Vector2, speed: float, duration: float) -> void:
 	dash_velocity = direction.normalized() * speed
 	dash_left = duration
 
+func can_start_movement(stamina_cost: float = 0.0) -> bool:
+	# 位移技能扣费后仍需有体力；松开方向表示已解除力竭锁定。
+	return resources.stamina > maxf(0.0, stamina_cost) and (not movement_exhausted or move_input.is_zero_approx())
+
 func try_cast(slot: StringName, target = null) -> bool:
 	var skill: ARPGSkill = null
 	match slot:
@@ -81,6 +86,7 @@ func try_cast(slot: StringName, target = null) -> bool:
 	elif is_stunned(): reason = "眩晕中"
 	elif skill == null: reason = "技能槽为空"
 	elif float(cooldowns.get(slot, 0.0)) > 0.0: reason = "冷却中"
+	elif skill is ARPGUtilitySkill and not can_start_movement(skill.stamina_cost): reason = "体力不足或力竭中，无法位移"
 	elif not skill.can_execute(self, target): reason = "目标无效或超出距离"
 	elif not resources.can_pay(skill.mana_cost, skill.stamina_cost): reason = "资源不足"
 	if not reason.is_empty():
@@ -109,18 +115,26 @@ func tick(delta: float, movement_body: Node2D = null) -> void:
 	var mana_bonus := modifier(&"mana_regen_bonus")
 	var previous_position := movement_body.global_position
 	var stunned := is_stunned()
+	# 耗尽后按住方向也保持停步并恢复；松开再按才能重新移动。
+	if move_input.is_zero_approx():
+		movement_exhausted = false
+	elif resources.stamina <= 0.0:
+		movement_exhausted = true
 	for id in effects.keys():
 		effects[id].remaining -= delta
 		if effects[id].remaining <= 0.0:
 			effects.erase(id)
 	velocity = Vector2.ZERO
-	if stunned:
+	if stunned or movement_exhausted or resources.stamina <= 0.0:
 		dash_left = 0.0
 	elif dash_left > 0.0:
 		velocity = dash_velocity * minf(1.0, dash_left / delta)
 		dash_left = maxf(0.0, dash_left - delta)
 	else:
 		velocity = move_input.limit_length() * move_speed * maxf(0.0, 1.0 + modifier(&"speed_bonus"))
+	var movement_cost := maxf(0.0, resources.movement_stamina_drain) * delta
+	if movement_cost > 0.0:
+		velocity *= minf(1.0, resources.stamina / movement_cost)
 	if velocity.length_squared() > 0.0:
 		facing = velocity.normalized()
 	var attempted_movement := velocity.length_squared() > 0.0
@@ -136,6 +150,12 @@ func tick(delta: float, movement_body: Node2D = null) -> void:
 	# 按碰撞后的实际位移结算：顶墙、眩晕、停止输入均可恢复体力。
 	var moving := attempted_movement and movement_body.global_position.distance_squared_to(previous_position) > 0.000001
 	resources.tick(delta, stamina_multiplier, mana_bonus, moving)
+	if resources.stamina <= 0.0:
+		movement_exhausted = true
+		velocity = Vector2.ZERO
+		dash_left = 0.0
+		if movement_body is CharacterBody2D:
+			movement_body.velocity = Vector2.ZERO
 	queue_redraw()
 
 func _die() -> void:
@@ -147,6 +167,7 @@ func _die() -> void:
 
 func revive() -> void:
 	dead = false
+	movement_exhausted = false
 	effects.clear()
 	cooldowns.clear()
 	dash_left = 0.0

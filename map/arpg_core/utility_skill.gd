@@ -5,6 +5,10 @@ extends ARPGSkill
 @export var dash_duration: float = 0.15
 
 func can_execute(caster, target) -> bool:
+	if not is_instance_valid(caster) or not caster is ARPGCharacter:
+		return false
+	if not caster.can_start_movement(stamina_cost):
+		return false
 	# 无目标按朝向冲刺；提供目标时遵守角色类型、距离和存活检查。
 	# 已释放对象可能与 null 比较相等，但其 Variant 类型仍为 OBJECT。
 	return typeof(target) == TYPE_NIL or valid_target(caster, target)

@@ -21,7 +21,7 @@ func run() -> void:
 	var before := a.resources.hp
 	a.resources.tick(1.0)
 	assert(a.resources.hp == before) # HP 不自动恢复。
-	assert(is_equal_approx(a.resources.stamina, 127.0))
+	assert(is_equal_approx(a.resources.stamina, 123.0))
 	a.resources.mana = 0.0
 	before = a.resources.stamina
 	assert(not a.resources.spend(1.0, 10.0))
