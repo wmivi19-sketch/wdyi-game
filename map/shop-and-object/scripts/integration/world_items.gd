@@ -187,6 +187,12 @@ func build_ui() -> void:
  add_button(body, "保存游戏 [F5]", GameSession.quick_save_feedback)
  add_button(body, "保存并返回主菜单 [F10]", GameSession.return_to_menu)
  world.character_info_ui.setup(self)
+ # Mount inside the existing PlayerPanel so movement/combat/map guards and
+ # Tab/B/Esc remain bound to the same window and shared inventory.
+ var radial := preload("res://shop-and-object/scenes/ui/game_radial_ui.tscn").instantiate()
+ radial.name = "RadialUI"
+ radial.bind(self)
+ panel.add_child(radial)
 ## 添加按钮；parent 为容器，text 为标题，action 为回调。
 func add_button(parent: Node, text: String, action: Callable) -> void:
  var button := Button.new()

@@ -1,5 +1,17 @@
 # 已接入六大陆地图的物品、合成与商店
 
+## 环形像素玩家界面
+
+正式游戏现在使用环形玩家窗口：从上级 `map/project.godot` 运行，经过原封面和菜单进入地图，按 **Tab/B** 打开，**Esc/Tab/B** 关闭。悬停四个入口切换背包、合成、人物、职业；窗口内 **1–4** 切换模块、**T** 切换森林/熔岩/冰雪主题，关闭窗口后原地图快捷键照常生效。
+
+背包直接读取角色共享 Inventory；合成走原 CraftingSystem，职业印记走原 progression_world.craft。人物显示真实生命、体力、法力和减伤；职业显示已完成仪式的职业及当前战斗技能。正式游戏尚无自由加点、通用装备或药剂使用接口，环形窗口不会套用演示中的虚拟加点、装备和回血规则。职业获取继续要求印记、地点、日期与时段校验。
+
+环形左下角 **商店 / 存档 / 原职业面板** 保留原界面，点击右下角 **返回环形界面** 返回；F5/F10 沿用原保存和返回菜单逻辑。地图查看与窗口互斥，玩家移动/战斗输入仍遵循原窗口阻断逻辑。存档格式未变；主题仅在当前地图场景保留。
+
+正式适配场景为 `scenes/ui/game_radial_ui.tscn`，脚本为 `scripts/ui/game_radial_ui.gd`，由 `world_items.gd` 在原 PlayerPanel 内绑定。`radial_ui_demo/` 继续作为独立演示，不能作为完整游戏入口。
+
+接入回归：在 map 目录执行 `godot --headless --path . --script res://shop-and-object/tests/test_game_radial.gd`，另运行原 `ProgressionIntegrationTest.gd`、`MainMenuTest.gd` 和 `ItemWorldIntegrationTest.tscn`。
+
 请打开上一级 `map/project.godot`，按 F5 运行原来的地图主场景。不要把本目录作为独立 Godot 项目导入。
 
 - WASD / 方向键：原有移动。

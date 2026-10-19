@@ -1,0 +1,18 @@
+config_version=5
+
+[application]
+config/name="遗迹旅人 · 环形像素界面"
+run/main_scene="res://radial_ui.tscn"
+config/features=PackedStringArray("4.0", "GL Compatibility")
+
+[display]
+window/size/viewport_width=1120
+window/size/viewport_height=760
+window/size/window_width_override=1120
+window/size/window_height_override=760
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/canvas_textures/default_texture_filter=0
