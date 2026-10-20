@@ -126,8 +126,17 @@ func run() -> void:
  menu._on_button_pressed("start_new_game")
  check(menu.is_transitioning and menu.transition_overlay.visible,"新游戏执行淡出遮罩")
  menu._on_button_pressed("start_new_game")
+ if not await wait_scene("res://scenes/TutorialCandleWell.tscn"):
+  check(false,"新游戏进入独立新手关")
+  finish()
+  return
+ check(current_scene.get_script().resource_path.ends_with("tutorial.gd"),"正式菜单先进入烛井新手关")
+ current_scene.returned_via_sky = true
+ current_scene.opened["G4"] = true
+ current_scene.load_level(0,[60,16])
+ current_scene.finish_tutorial()
  if not await wait_scene("res://scenes/MapDemo.tscn"):
-  check(false,"新游戏进入真实地图场景")
+  check(false,"新游戏完成教学后进入真实地图场景")
   finish()
   return
  var world: Node = current_scene
@@ -192,6 +201,11 @@ func run() -> void:
  await wait_scene("res://scenes/ui/main_menu.tscn")
  menu = current_scene
  menu._on_button_pressed("start_new_game")
+ await wait_scene("res://scenes/TutorialCandleWell.tscn")
+ current_scene.returned_via_sky = true
+ current_scene.opened["G4"] = true
+ current_scene.load_level(0,[60,16])
+ current_scene.finish_tutorial()
  await wait_scene("res://scenes/MapDemo.tscn")
  world = current_scene
  check(world.get_node("WorldItems").inventory.get_item_count("ore") == 0 and classes.players[1].class_ids == ["warrior"],"重新开始不继承旧背包和职业")

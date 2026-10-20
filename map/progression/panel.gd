@@ -28,7 +28,7 @@ func setup(progression_world: Node) -> void:
 	_button("合成游侠印记：木材3 + 药草2", func(): world.craft("ranger_recipe"))
 	_button("附近交互 / 发起祭坛仪式（E）", func(): world.interact())
 	_button("释放神力：太阳爆发（Q）", func(): world.cast_sun_burst())
-	_button("推进一个时段（空格）", func(): GameManager.next_time_period())
+	_button("推进一个时段（N）", func(): GameManager.next_time_period())
 	_button("推进一天", func():
 		for i in range(3): GameManager.next_time_period())
 	_button("调试：模拟敌方命中，打断仪式", func():

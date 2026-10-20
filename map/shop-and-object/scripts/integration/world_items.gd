@@ -47,6 +47,9 @@ func _ready() -> void:
  ItemDatabase.database_reloaded.connect(refresh)
  inventory.inventory_changed.connect(refresh)
  build_ui()
+ var vitals := preload("res://shop-and-object/scripts/integration/fluid_vitals.gd").new()
+ vitals.name = "FluidVitals"
+ add_child(vitals)
  sync_time()
  on_job_changed(world.player.appearance.current_job)
  refresh()

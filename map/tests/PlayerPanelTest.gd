@@ -127,7 +127,7 @@ func run() -> void:
  check(panel.visible and panel.profession_page.profession_list.get_child(1).profession_id == "mage", "B 打开同一面板并刷新职业")
  var old_day := GameManager.current_day
  var old_period := GameManager.current_period
- key(KEY_SPACE)
+ key(KEY_N)
  check(GameManager.current_day == old_day and GameManager.current_period == old_period, "面板内按键不穿透至游戏时钟")
  panel.switch_to_page(0)
  get_window().size = Vector2i(480, 800)

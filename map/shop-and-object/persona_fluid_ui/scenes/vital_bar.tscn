@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="../scripts/vital_bar.gd" id="1"]
+
+[node name="VitalBar" type="Control"]
+custom_minimum_size = Vector2(200, 22)
+layout_mode = 0
+offset_right = 340.0
+offset_bottom = 22.0
+mouse_filter = 2
+script = ExtResource("1")

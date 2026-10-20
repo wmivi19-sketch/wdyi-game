@@ -24,10 +24,11 @@ func run() -> void:
 	Input.parse_input_event(click)
 	await create_timer(2.0).timeout
 	print("SMOKE current scene: ", current_scene.scene_file_path)
-	if current_scene.scene_file_path != "res://scenes/MapDemo.tscn":
+	if current_scene.scene_file_path != "res://scenes/TutorialCandleWell.tscn":
 		quit(1)
 		return
-	print("SMOKE map: ", current_scene.loader.current_data.get("id"), " player: ", current_scene.player.global_position)
+	print("SMOKE independent tutorial floor: ", current_scene.current_level, " player: ", current_scene.player.position)
 	await RenderingServer.frame_post_draw
-	root.get_texture().get_image().save_png("res://../.validation/new-game-screen.png")
+	DirAccess.make_dir_recursive_absolute("res://.validation")
+	root.get_texture().get_image().save_png("res://.validation/new-game-screen.png")
 	quit(0)

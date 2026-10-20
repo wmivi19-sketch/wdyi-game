@@ -22,7 +22,7 @@ func _ready() -> void:
 	var ui: CanvasLayer = character_info_ui
 	add_child(ui)
 	var title := Label.new()
-	title.text = "逐神终焉 · WASD移动 · Tab/B面板 · Y/M地图 · E交互 · Q神力 · Shift+QWER技能 · T选目标"
+	title.text = "逐神终焉 · WASD移动 · 空格跳跃 · Tab/B面板 · Y/M地图 · E交互 · Q神力 · Shift+QWER技能 · T选目标"
 	title.position = Vector2(60, 12)
 	ui.add_child(title)
 	var selector := OptionButton.new()
@@ -92,7 +92,7 @@ func _on_location_exited(id: String, _kind: String, body: Node2D) -> void:
 	_update_status()
 
 func _update_status() -> void:
-	status.text = "大陆 %d · 第 %d 天 · %s · 1–6 切换，空格推进时间" % [
+	status.text = "大陆 %d · 第 %d 天 · %s · 1–6 切换，N推进时间" % [
 		GameManager.current_continent_id, GameManager.current_day,
 		GameManager.PERIOD_NAMES[GameManager.current_period]]
 	if not nearby_locations.is_empty():
@@ -118,7 +118,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		GameSession.quick_save_feedback()
 	elif event.keycode == KEY_F10:
 		GameSession.return_to_menu()
-	elif event.keycode == KEY_SPACE:
+	elif event.keycode == KEY_N:
 		GameManager.next_time_period()
 	elif event.keycode == KEY_E:
 		progression_world.interact()

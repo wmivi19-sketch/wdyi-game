@@ -1,0 +1,15 @@
+config_version=5
+
+[application]
+config/name="Rebel / Fluid Vitals Demo"
+run/main_scene="res://scenes/demo.tscn"
+config/features=PackedStringArray("4.0", "GL Compatibility")
+
+[display]
+window/size/viewport_width=1100
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

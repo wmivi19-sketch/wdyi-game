@@ -135,7 +135,7 @@ func run() -> void:
  await capture("local")
  var day := GameManager.current_day
  var period := GameManager.current_period
- key(KEY_SPACE)
+ key(KEY_N)
  await get_tree().process_frame
  check(day == GameManager.current_day and period == GameManager.current_period, "地图窗口阻止时间热键穿透")
  key(KEY_M, true)

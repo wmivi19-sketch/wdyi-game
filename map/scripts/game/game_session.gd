@@ -6,6 +6,10 @@ var storage_override: Dictionary = {}
 var pending: Dictionary = {}
 var world_ref: WeakRef
 var last_error: String = ""
+const TUTORIAL_SCENE := "res://scenes/TutorialCandleWell.tscn"
+var tutorial_pending: Dictionary = {}
+var tutorial_ref: WeakRef
+var tutorial_completed: bool = false
 ## 配置启动与偏好读取；无参数。
 func _ready() -> void:
  var config := MenuResources.read_config()
@@ -42,6 +46,9 @@ func save_preferences() -> bool:
  return file.save(path) == OK
 ## 新开一局，清理旧局运行态，不删除既有磁盘存档；无参数。
 func initialize_new_game() -> void:
+ tutorial_pending.clear()
+ tutorial_ref = null
+ tutorial_completed = false
  pending.clear()
  GameManager.start_new_game()
  for id in ClassManager.players.keys(): ClassManager.unregister_player(id)
@@ -95,6 +102,7 @@ func valid_flags(flags: Variant) -> bool:
  return true
 ## 验证完整单机存档；拒绝半份数据、失效物品/职业、非法位置和数值。
 func valid_snapshot(data: Variant) -> bool:
+ if data is Dictionary and data.get("stage", "") == "tutorial_candle_well": return valid_tutorial_snapshot(data)
  if not data is Dictionary or data.get("version") != 1: return false
  if not whole(data.get("day"),1) or data.day > options.storage.max_day or not whole(data.get("period")) or data.period >= GameManager.PERIOD_NAMES.size(): return false
  if not whole(data.get("continent")) or not MapDatabase.continent_configs.has("continent_%d" % int(data.continent)): return false
@@ -193,6 +201,13 @@ func has_valid_save(path: String = "") -> bool:
 func load_game(path: String = "") -> bool:
  var data := read_snapshot(path)
  if data.is_empty(): return false
+ if data.get("stage", "") == "tutorial_candle_well":
+  initialize_new_game()
+  tutorial_pending = data
+  return true
+ tutorial_pending.clear()
+ tutorial_ref = null
+ tutorial_completed = true
  GameManager.start_new_game()
  pending = data
  GameManager.current_day = mini(int(data.day), GameManager.TOTAL_DAYS)
@@ -201,6 +216,8 @@ func load_game(path: String = "") -> bool:
  return true
 ## 保存真实游戏状态；进行中的合成/仪式/交易必须先结束。
 func save_game(path: String = "") -> bool:
+ var tutorial: Node = tutorial_ref.get_ref() if tutorial_ref != null else null
+ if is_instance_valid(tutorial): return write_tutorial_snapshot(tutorial.tutorial_snapshot(), path)
  var world := world_node()
  if world == null:
   last_error = "当前没有运行中的游戏"
@@ -297,3 +314,78 @@ func return_to_menu(save_first: bool = true) -> bool:
 func quick_error_feedback() -> void:
  var world := world_node()
  if world != null: world.get_node("WorldItems").feedback.text = last_error
+
+## Independent tutorial save branch; continent saves and continent IDs stay unchanged.
+func valid_tutorial_snapshot(data: Dictionary) -> bool:
+ if data.has("glass_broken"):
+  if not data.glass_broken is Dictionary: return false
+  for key in data.glass_broken:
+   if key not in ["GL1","GL2","GL3"] or not data.glass_broken[key] is bool or not data.glass_broken[key]: return false
+ if data.get("version") != 1 or data.get("stage") != "tutorial_candle_well": return false
+ if not whole(data.get("level")) or data.level > 2: return false
+ if not data.get("position") is Array or data.position.size()!=2: return false
+ for value in data.position:
+  if not MenuResources.numeric(value) or value<5 or value>1019: return false
+ var compact: bool = data.get("layout_revision","")=="reference-compact-v1"
+ var definitions := Config.read_json("res://tutorial/candle_well/assets/dungeon.json" if compact else "res://tutorial/candle_well/assets/dungeon_legacy64.json")
+ if definitions.is_empty(): return false
+ var walkable: Dictionary = {}
+ for p in definitions.levels[int(data.level)].walkable: walkable[Vector2i(int(p[0]),int(p[1]))] = true
+ var point := Vector2(float(data.position[0]),float(data.position[1]))
+ for offset in [Vector2(-5,-5),Vector2(5,-5),Vector2(-5,5),Vector2(5,5)]:
+  var p: Vector2 = point+offset
+  if not walkable.has(Vector2i(floori(p.x/16.0),floori(p.y/16.0))): return false
+ for entry in [["opened",["G1","G2","G3","G4"]],["broken",["B1","B2","B3","B4"]],["collected",["C1","C2","C3","C4","C5"]]]:
+  if not data.get(entry[0]) is Dictionary: return false
+  for key in data[entry[0]]:
+   if key not in entry[1] or not data[entry[0]][key] is bool or not data[entry[0]][key]: return false
+ if not data.get("hits") is Dictionary or not data.get("returned_via_sky") is bool: return false
+ for key in data.hits:
+  if key not in ["B1","B2","B3","B4"] or not whole(data.hits[key]) or data.hits[key]>3: return false
+ for key in data.broken:
+  if data.hits.get(key,0)!=3: return false
+ if data.has("continuous_height"):
+  if not MenuResources.numeric(data.continuous_height) or data.continuous_height<0 or data.continuous_height>256: return false
+  if not data.get("continuous_stairs") is bool: return false
+  if not data.continuous_stairs and absf(float(data.continuous_height)-float(data.level)*128)>0.1: return false
+ if data.has("spiral_route"):
+  var route = data.spiral_route
+  if not route is Dictionary or not route.get("tracking") is bool: return false
+  if not whole(route.get("direction"),-1) or route.direction>1: return false
+  for key in ["progress","last_angle"]:
+   if not MenuResources.numeric(route.get(key)) or route[key]<0 or route[key]>TAU: return false
+  if route.tracking:
+   var center := Vector2(512,256) if compact else Vector2(512,512)
+   if point.distance_to(center)<50 or point.distance_to(center)>116: return false
+   if route.direction==0 and route.progress!=0: return false
+   if absf(wrapf((point-center).angle()-float(route.last_angle),-PI,PI))>0.3: return false
+ for o in definitions.levels[int(data.level)].objects:
+  if o.type=="gate" and not data.opened.has(o.id):
+   var r: Array = o.rect
+   var gate := Rect2(float(r[0])*16,float(r[1])*16,float(r[2])*16,float(r[3])*16).grow(5)
+   if gate.has_point(point): return false
+ return true
+
+## Uses the existing save slot atomically; starting a new game still preserves its old disk save.
+func write_tutorial_snapshot(data: Dictionary, path: String = "") -> bool:
+ if not valid_tutorial_snapshot(data):
+  last_error = "新手关状态无效，未覆盖存档"
+  return false
+ if path.is_empty(): path = save_path()
+ if not safe_user_path(path): return false
+ var text := JSON.stringify(data,"  ")
+ if text.to_utf8_buffer().size()>int(options.storage.max_save_bytes): return false
+ DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(path.get_base_dir()))
+ var file := FileAccess.open(path+".tmp",FileAccess.WRITE)
+ if file==null:
+  last_error = "无法创建新手关存档"
+  return false
+ file.store_string(text)
+ file.flush()
+ var error := file.get_error()
+ file.close()
+ if error!=OK or DirAccess.rename_absolute(ProjectSettings.globalize_path(path+".tmp"),ProjectSettings.globalize_path(path))!=OK:
+  last_error = "新手关存档写入失败，原存档保留"
+  return false
+ last_error = ""
+ return true

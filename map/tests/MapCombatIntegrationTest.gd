@@ -33,6 +33,11 @@ func run() -> void:
 	check(current_scene.bg_sprite.texture != null, "original cover loads")
 	await capture("integrated-cover")
 	current_scene._start_new_game()
+	await wait_scene("res://scenes/TutorialCandleWell.tscn")
+	current_scene.returned_via_sky = true
+	current_scene.opened["G4"] = true
+	current_scene.load_level(0,[60,16])
+	current_scene.finish_tutorial()
 	await wait_scene("res://scenes/MapDemo.tscn")
 	var world = current_scene
 	var hero = clock.get_combatant(0)

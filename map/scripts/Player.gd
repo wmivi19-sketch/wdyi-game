@@ -23,12 +23,74 @@ var stats: Dictionary = {"max_hp": 100.0}
 var skill_ids: Array[String] = []
 var can_interact: bool = true
 var deity_active: bool = false
+@export var jump_height: float = 28.0
+@export var jump_duration: float = 0.55
+var jump_elapsed: float = 0.0
+var jumping: bool = false
+var landing_left: float = 0.0
+
+func _input(event: InputEvent) -> void:
+	if not event is InputEventKey or not event.pressed or event.echo:
+		return
+	if event.physical_keycode != KEY_SPACE and event.keycode != KEY_SPACE:
+		return
+	if _controls_blocked():
+		return
+	try_jump()
+	get_viewport().set_input_as_handled()
+
+func try_jump() -> bool:
+	if jumping or hp <= 0.0 or _controls_blocked():
+		return false
+	if combat_managed and combat_manager.get_combatant(0).is_stunned():
+		return false
+	jumping = true
+	jump_elapsed = 0.0
+	landing_left = 0.0
+	return true
+
+func _controls_blocked() -> bool:
+	var ui := get_parent().get_node_or_null("GameUI/PlayerPanel")
+	var maps := get_parent().get_node_or_null("MapUI/MapSystem")
+	return (ui != null and ui.visible) or (maps != null and maps.any_open())
+
+func _update_jump(delta: float) -> void:
+	var height := 0.0
+	var stretch := Vector2.ONE
+	var landing_delta := delta
+	if jumping:
+		jump_elapsed += delta
+		var progress := clampf(jump_elapsed / maxf(jump_duration, 0.01), 0.0, 1.0)
+		height = sin(progress * PI) * jump_height
+		stretch = Vector2(0.92, 1.08)
+		if progress >= 1.0:
+			jumping = false
+			landing_left = 0.12
+			landing_delta = maxf(0.0, jump_elapsed - maxf(jump_duration, 0.01))
+			height = 0.0
+	if not jumping and landing_left > 0.0:
+		landing_left = maxf(0.0, landing_left - landing_delta)
+		stretch = Vector2.ONE + Vector2(0.16, -0.16) * (landing_left / 0.12)
+	for sprite in appearance.layers:
+		sprite.position.y = -height
+		sprite.scale = stretch
+	queue_redraw()
+
+func _reset_jump() -> void:
+	jumping = false
+	jump_elapsed = 0.0
+	landing_left = 0.0
+	_update_jump(0.0)
 
 func set_deity_form(enabled: bool) -> void:
 	deity_active = enabled
 	queue_redraw()
 
 func _draw() -> void:
+	if jumping:
+		draw_set_transform(Vector2(0, 7), 0.0, Vector2(1.0, 0.35))
+		draw_circle(Vector2.ZERO, 9.0, Color(0, 0, 0, 0.3))
+		draw_set_transform(Vector2.ZERO)
 	if deity_active:
 		draw_circle(Vector2.ZERO, 15.0, Color(1.0, 0.75, 0.15, 0.2))
 		draw_arc(Vector2.ZERO, 18.0, 0.0, TAU, 40, Color("ffd166"), 2.0)
@@ -44,10 +106,12 @@ func apply_progression(new_stats: Dictionary, new_skills: Array[String]) -> void
 		combat_manager.get_combatant(0).resources.publish()
 	health_changed.emit(hp, float(stats["max_hp"]))
 
-func _physics_process(_delta: float) -> void:
-	var ui := get_parent().get_node_or_null("GameUI/PlayerPanel")
-	var maps := get_parent().get_node_or_null("MapUI/MapSystem")
-	if hp <= 0.0 or (ui != null and ui.visible) or (maps != null and maps.any_open()):
+func _physics_process(delta: float) -> void:
+	if hp <= 0.0:
+		_reset_jump()
+	else:
+		_update_jump(delta)
+	if hp <= 0.0 or _controls_blocked():
 		velocity = Vector2.ZERO
 		appearance.set_motion(Vector2.ZERO)
 		if combat_managed:
@@ -76,6 +140,7 @@ func complete_job_ritual(job_name: String) -> void:
 	update_skin(job_name)
 
 func teleport_to(world_position: Vector2) -> void:
+	_reset_jump()
 	global_position = world_position
 	velocity = Vector2.ZERO
 	if combat_managed:

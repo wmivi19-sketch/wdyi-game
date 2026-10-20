@@ -235,8 +235,12 @@ func _start_new_game() -> void:
  if packed == null:
   status.text = "游戏场景缺失或类型不正确"
   return
+ var tutorial := load(GameSession.TUTORIAL_SCENE) as PackedScene
+ if tutorial == null:
+  status.text = "新手关场景不可用"
+  return
  GameState.initialize_new_game()
- _fade_and_change_scene(packed)
+ _fade_and_change_scene(tutorial)
 ## 继续有效存档；失败保留菜单与当前状态。
 func _load_game() -> void:
  var packed := game_scene()
@@ -247,6 +251,8 @@ func _load_game() -> void:
   status.text = GameSession.last_error
   _update_continue_button()
   return
+ if not GameSession.tutorial_pending.is_empty():
+  packed = load(GameSession.TUTORIAL_SCENE) as PackedScene
  _fade_and_change_scene(packed)
 ## 单次淡出转场；packed为已验证场景，失败时恢复菜单交互。
 func _fade_and_change_scene(packed: PackedScene) -> void:

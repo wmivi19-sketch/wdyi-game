@@ -1,3 +1,7 @@
+# 逐神终焉：正式游戏工程
+
+从本目录project.godot运行主菜单（F5）；新游戏先进入独立的烛井新手关，完成后进入六大陆。新手关支持WASD/方向键按屏幕方向移动、空格跳跃、E交互、F5保存和F10保存回菜单。圆弧旋梯、玻璃与裂板说明见[tutorial/continuous_well/README.md](tutorial/continuous_well/README.md)。
+
 完整“逐神终焉”游戏从本目录 `project.godot` 启动：保留原封面、菜单、地图和背包，已接入六玩家、三资源和职业技能。操作、存档兼容和测试见 [ARPG_INTEGRATION.md](ARPG_INTEGRATION.md)。
 
 原全局管理与地图数据说明见 [INTEGRATION.md](INTEGRATION.md)。

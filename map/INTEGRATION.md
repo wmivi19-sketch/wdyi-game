@@ -17,7 +17,7 @@
 2. 项目 → 项目设置 → 全局/Autoload：路径选择 res://scripts/GameManager.gd，名称 GameManager，启用单例。本项目已经配置，不要重复添加。不要给脚本写 class_name GameManager，以免与单例名称冲突。
 3. 打开 scenes/MapDemo.tscn，项目设置 → 应用 → 运行中设置为主场景（本项目已配置），按 F5。
 4. 主场景脚本自动创建挂有 MapLoader.gd 的 Node2D 和玩家，无需手动创建 TileSet 或导入图片。
-5. 按主键盘 1–6 对应大陆 ID 0–5，按空格推进早→中→晚→次日早；WASD/方向键移动。六张地图底色和障碍位置不同，状态文字显示大陆和日期。
+5. 按主键盘 1–6 对应大陆 ID 0–5，按N键推进早→中→晚→次日早；WASD/方向键移动。六张地图底色和障碍位置不同，状态文字显示大陆和日期。
 6. 调试 → 可见碰撞形状可以查看墙壁碰撞。玩家 Layer=2、Mask=1；地形 Layer=1、Mask=2。
 7. 打开 tests/ContinentIntegrationTest.tscn，按 F6，成功时控制台输出六个 PASS 和时间验证结果并退出。
 
