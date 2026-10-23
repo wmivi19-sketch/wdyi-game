@@ -1,0 +1,27 @@
+{
+	"alpha_bounds_px": [
+		21,
+		9,
+		1739,
+		878
+	],
+	"asset": "assets/grape_trellis_v8.png",
+	"collision": "decorative vineyard; unchanged road navigation",
+	"columns": 9,
+	"generated_alpha_valid": true,
+	"orientation": "fixed vertical X/Y plane; no billboard rotation",
+	"origin_xz": [
+		-66.3,
+		-55
+	],
+	"reference_has_alpha": false,
+	"rows": 8,
+	"source": "user supplied atlas as style reference; generated isolated trellis asset",
+	"spacing_xz_m": [
+		4.3,
+		2.2
+	],
+	"version": 8,
+	"visible_height_m": 2.12052903967798,
+	"width_m": 4.2
+}

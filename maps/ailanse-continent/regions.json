@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "extent_m": [1000,1000],
+  "origin": "map southwest; Godot X=E-500,Y=designed height,Z=500-N",
+  "layout_status": "fictional designed layout; not geographically registered",
+  "regions": [
+    {"id":"foothill","name":"山麓葡萄镇","theme":"wine","center":[-250,-250],"scene":"res://town_editable.tscn","industry":"葡萄种植 · 陈酿","description":"弗罗林斯山脉前缘的葡萄与陈酿中心，向全艾兰瑟大陆供货。"},
+    {"id":"shore","name":"黄石滩酒港","theme":"wine","center":[250,-250],"scene":"res://town_editable.tscn","industry":"酿酒 · 装桶外运","description":"靠近黄石滩的酿酒与集散城镇，以仓储和外运联系大陆。"},
+    {"id":"grain","name":"麦穗磨坊镇","theme":"wheat","center":[-250,250],"scene":"res://town_wheat.tscn","industry":"麦作 · 磨粉","description":"麦田、磨坊与粮食仓库相连，为城镇提供面粉与主粮。"},
+    {"id":"linen","name":"蓝花纺织镇","theme":"flax","center":[250,250],"scene":"res://town_flax.tscn","industry":"亚麻 · 纺织","description":"亚麻种植、晾晒、纺织与布匹集散构成当地产业。"}
+  ]
+}

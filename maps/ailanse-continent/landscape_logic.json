@@ -1,0 +1,80 @@
+{
+  "version": 4,
+  "units": "metres",
+  "extent_assumption": [
+    1000,
+    1000
+  ],
+  "terrain": "designed flat plain, not DEM",
+  "tree_sprite": {
+    "anchor": "alpha bounds bottom",
+    "path": "assets/elm_tree_v4.png",
+    "rural_count": 132,
+    "collider": {
+      "height_m": 3,
+      "radius_m": 0.3,
+      "shape": "cylinder"
+    },
+    "active_town_count": 10,
+    "height_m": 7
+  },
+  "quay": {
+    "size": [
+      34,
+      0.16,
+      28
+    ],
+    "center": [
+      397,
+      0.08,
+      -270
+    ]
+  },
+  "cargo_crates": {
+    "x": [
+      385,
+      391,
+      397
+    ],
+    "z": [
+      -279,
+      -274
+    ],
+    "collision": true,
+    "size": [
+      2,
+      1.6,
+      2
+    ]
+  },
+  "crane": {
+    "collision": true,
+    "size": [
+      0.6,
+      10,
+      0.6
+    ],
+    "center": [
+      408,
+      5,
+      -275
+    ]
+  },
+  "boat": {
+    "boarding": false,
+    "decoration_only": true,
+    "center": [
+      432,
+      0,
+      -270
+    ]
+  },
+  "water_barrier": {
+    "x": [
+      420,
+      500
+    ],
+    "collision": true
+  },
+  "rural_crops": "decorative instances; road navigation only"
+}

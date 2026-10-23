@@ -1,0 +1,11 @@
+config_version=5
+[application]
+config/name="艾兰瑟大陆地图 · 四镇平原"
+run/main_scene="res://world.tscn"
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+[rendering]
+renderer/rendering_method="forward_plus"
+environment/defaults/default_clear_color=Color(0.36,0.39,0.4,1)

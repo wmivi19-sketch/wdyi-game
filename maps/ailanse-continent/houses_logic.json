@@ -1,0 +1,21 @@
+{
+  "version": 9,
+  "units": "metres",
+  "generator": "houses_v9.gd",
+  "houses_per_town": 18,
+  "detailed_windows_per_town": 364,
+  "pixel_material": {
+    "warehouse_stone": true,
+    "brick_color_variants": 5,
+    "texels_per_metre": 64,
+    "brick_palette_steps": 5,
+    "shader": "pixel_brick_v9.gdshader"
+  },
+  "landmarks": {
+    "wine_merchant": "four-sided mansard roof and two ornate gables",
+    "winery": "central raised gable"
+  },
+  "collision": "original building walls retained; ornaments decorative",
+  "camera_key": "H",
+  "reference": "assets/reference_houses_v9.png"
+}

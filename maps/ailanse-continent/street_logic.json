@@ -1,0 +1,27 @@
+{
+  "version": 5,
+  "units": "metres",
+  "source": "procedural design; original 1000 x 1000 m extent assumption retained",
+  "generator": "street_v5.gd",
+  "regions": [
+    "foothill",
+    "shore",
+    "grain",
+    "linen"
+  ],
+  "storefronts_per_region": 6,
+  "storefront_building_ids": [
+    "wine_merchant",
+    "row_-42",
+    "row_-30",
+    "row_30",
+    "row_43",
+    "row_56"
+  ],
+  "front_transform": "local Z = building.z - building.depth / 2 - 0.14",
+  "awnings": "decorative; above pedestrian height",
+  "new_collision": "none; retain building shells, road navigation and v4 tree collisions",
+  "leaf_geometry": "32 deterministic folded leaf quads per cluster; original instance transforms retained",
+  "view_key": "V",
+  "reset_view_key": "Home"
+}

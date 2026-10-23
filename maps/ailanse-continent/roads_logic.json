@@ -1,0 +1,20 @@
+{
+  "units": "metres",
+  "source": "assets/reference_roads_v10.png",
+  "version": 10,
+  "scale_assumed": true,
+  "extent_m": [
+    1000,
+    1000
+  ],
+  "road": "concrete with wet patches",
+  "per_town": {
+    "manholes": 3,
+    "corner_radius_m": 2,
+    "rounded_corners": 4,
+    "drains": 10
+  },
+  "implementation": "native geometry and procedural materials",
+  "collision": "existing continuous ground retained; details visual only",
+  "sidewalk": "staggered warm stone slabs"
+}

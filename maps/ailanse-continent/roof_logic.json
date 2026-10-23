@@ -1,0 +1,26 @@
+{
+  "version": 6,
+  "units": "metres",
+  "generator": "roof_v6.gd",
+  "roof_count_per_town": 18,
+  "total_layout_roofs": 72,
+  "horizontal_eave_overhang_m": 0.4,
+  "ridge_rise_m": 3,
+  "normal_strategy": "explicit outward per-slope normals",
+  "roof_collision": "not added; building shell collision retained",
+  "chimneys_per_town": 36,
+  "pots_per_chimney": 2,
+  "smoke": {
+    "simulation": "decorative transparent planes",
+    "rise_metres_per_second": 0.68,
+    "blocks_navigation": false,
+    "emitters_per_active_town": 6,
+    "lifetime_seconds": 9.8,
+    "wind_metres_per_second": [
+      0.35,
+      0,
+      0.13
+    ],
+    "puffs_per_emitter": 7
+  }
+}
