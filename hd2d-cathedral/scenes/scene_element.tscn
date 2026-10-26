@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/scene_element.gd" id="1_script"]
+
+[node name="SceneElement" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="Visual" type="Sprite3D" parent="."]
+alpha_cut = 1
+texture_filter = 3
+shaded = true
+double_sided = true
+
+[node name="Body" type="StaticBody3D" parent="."]

@@ -1,0 +1,452 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/scene_element.tscn" id="1_element"]
+[ext_resource type="Texture2D" uid="uid://c6qbgoi5at4pi" path="res://assets/ground/G01_完整无透视地面贴图-20261025.png" id="2_ground"]
+[ext_resource type="Texture2D" uid="uid://cd6vx87blh3c8" path="res://assets/ground/G01_完整无透视地面贴图-v1.png" id="3_2f3dj"]
+[ext_resource type="Texture2D" uid="uid://dsy2r6pxd7s1t" path="res://assets/building/A05_前景左石柱-v2.png" id="3_column"]
+[ext_resource type="Texture2D" uid="uid://ddjcgbe1x0uyc" path="res://assets/building/A20_祭坛完整石阶-v2.png" id="5_yq6so"]
+[ext_resource type="Texture2D" uid="uid://dylvupt5or41g" path="res://assets/building/家具陈设/F48_白石祭坛桌.png" id="6_fv21b"]
+[ext_resource type="Texture2D" uid="uid://kus2yb7wxqu" path="res://assets/building/家具陈设/F49_中央白石尖顶圣龛.png" id="7_tel4y"]
+[ext_resource type="Texture2D" uid="uid://6m1i3mokg32f" path="res://assets/building/家具陈设/F47_中央红袍圣像.png" id="8_fuf3a"]
+[ext_resource type="Texture2D" uid="uid://lbcw1eynpow3" path="res://assets/building/A20_祭坛完整石阶.png" id="8_qkpxi"]
+[ext_resource type="Texture2D" uid="uid://de26q6a0u2ys8" path="res://assets/building/家具陈设/F01_左区第1排长椅-v1.png" id="10_5q0nq"]
+[ext_resource type="Texture2D" uid="uid://dmcqrmk2w0ups" path="res://assets/building/家具陈设/F02_左区第2排长椅.png" id="11_dgi5k"]
+[ext_resource type="Texture2D" uid="uid://dl6ctffqhx1rj" path="res://assets/building/家具陈设/F03_左区第3排长椅.png" id="12_j8jky"]
+[ext_resource type="Texture2D" uid="uid://n0j4ktrvmyht" path="res://assets/building/家具陈设/F04_左区第4排长椅.png" id="13_kmb1v"]
+[ext_resource type="Texture2D" uid="uid://dd5sx1x0vpitm" path="res://assets/building/家具陈设/F05_左区第5排长椅.png" id="14_fuf3a"]
+[ext_resource type="Texture2D" uid="uid://dnbhgh6abnw2q" path="res://assets/building/家具陈设/F06_左区第6排长椅-v1.png" id="15_pibwh"]
+[ext_resource type="Texture2D" uid="uid://br2gr0boavvbp" path="res://assets/building/家具陈设/F07_左区第7排长椅.png" id="16_c6pm6"]
+[ext_resource type="Texture2D" uid="uid://j6a7twjeomyu" path="res://assets/building/家具陈设/F10_右区第3排长椅.png" id="17_5he1u"]
+[ext_resource type="Texture2D" uid="uid://di4ljapypyxvy" path="res://assets/building/家具陈设/F11_右区第4排长椅.png" id="18_5poiv"]
+[ext_resource type="Texture2D" uid="uid://fudpg6kyyoi2" path="res://assets/building/家具陈设/F13_右区第6排长椅.png" id="19_2cjbq"]
+[ext_resource type="Texture2D" uid="uid://8sukjpys0nko" path="res://assets/building/家具陈设/F14_右区第7排长椅.png" id="20_chjal"]
+[ext_resource type="Texture2D" uid="uid://bpx2nfmroucfo" path="res://assets/building/家具陈设/F09_右区第2排长椅.png" id="21_cjqg0"]
+[ext_resource type="Texture2D" uid="uid://bksw05melmghi" path="res://assets/building/家具陈设/F08_右区第1排长椅.png" id="22_vchkt"]
+[ext_resource type="Texture2D" uid="uid://ctdjst5841dno" path="res://assets/building/A16_后墙左深色壁龛框.png" id="23_txyw0"]
+[ext_resource type="Texture2D" uid="uid://fxxoounihv1m" path="res://assets/building/A01_后方主墙-v2.png" id="24_vc5cj"]
+[ext_resource type="Texture2D" uid="uid://vdjmiq06wkkv" path="res://assets/building/A18_中景左白石壁龛框.png" id="25_nvyfr"]
+[ext_resource type="Texture2D" uid="uid://cm0hgipxrroeg" path="res://assets/building/A14_左侧边缘彩窗.png" id="25_pibwh"]
+[ext_resource type="Texture2D" uid="uid://c4toqtq2eklou" path="res://assets/building/A09_后景左石柱-v2.png" id="26_c6pm6"]
+[ext_resource type="Texture2D" uid="uid://da4kvuxngo8cf" path="res://assets/building/植物花艺/P03_左白像下垂花饰.png" id="26_ty1g6"]
+[ext_resource type="Texture2D" uid="uid://c377x34xhxdjp" path="res://assets/building/A02_左侧廊墙-v2.png" id="27_j2jfr"]
+[ext_resource type="Texture2D" uid="uid://mn28gcpn1uo5" path="res://assets/building/A12_后墙中央彩窗.png" id="28_5poiv"]
+[ext_resource type="Texture2D" uid="uid://chghk47iw6wdj" path="res://assets/building/A02_左侧廊墙.png" id="28_bjg73"]
+[ext_resource type="Texture2D" uid="uid://dwl85r25f7fkq" path="res://assets/building/家具陈设/F45_中景左白石像.png" id="29_2cjbq"]
+[ext_resource type="Texture2D" uid="uid://bobsb42d5klrt" path="res://assets/building/家具陈设/F44_后墙右白石像.png" id="31_chjal"]
+[ext_resource type="Texture2D" uid="uid://cy7smd7sgi01b" path="res://assets/building/家具陈设/F38_左后墙蓝金旗.png" id="33_kmb1v"]
+[ext_resource type="Texture2D" uid="uid://clyy5dg27oaml" path="res://assets/building/家具陈设/F46_中景右白石像.png" id="34_cjqg0"]
+[ext_resource type="Texture2D" uid="uid://brj2bnugsaf4y" path="res://assets/building/A11_后墙左彩窗-v2.png" id="36_vchkt"]
+
+[sub_resource type="StandardMaterial3D" id="Material_ground"]
+transparency = 2
+alpha_scissor_threshold = 0.1
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_ground")
+roughness = 0.95
+
+[sub_resource type="PlaneMesh" id="Mesh_ground"]
+material = SubResource("Material_ground")
+size = Vector2(12, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bu4jf"]
+albedo_texture = ExtResource("3_2f3dj")
+
+[sub_resource type="BoxShape3D" id="Shape_ground"]
+size = Vector3(11.17, 0.3, 15.82)
+
+[node name="Main" type="Node3D" unique_id=973317793]
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1106786905]
+transform = Transform3D(0.8829476, 0.3488854, -0.3141378, 0, 0.66913056, 0.74314487, 0.4694716, -0.656158, 0.5908072, -4.543825, 11.020628, 0)
+light_color = Color(1, 0.91, 0.76, 1)
+light_energy = 0.55
+shadow_enabled = true
+directional_shadow_max_distance = 60.0
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1322568422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009507179, 0, 0)
+
+[node name="Surface2" type="MeshInstance3D" parent="Ground" unique_id=1228629253]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, -1.2474637, 0, 14.957106)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface6" type="MeshInstance3D" parent="Ground" unique_id=457351001]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, 9.353997, 0, 15.904488)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface10" type="MeshInstance3D" parent="Ground" unique_id=1739541574]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, 10.459461, 0, 0.6415348)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface5" type="MeshInstance3D" parent="Ground" unique_id=1314125601]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, -11.975623, 0, 14.160155)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface9" type="MeshInstance3D" parent="Ground" unique_id=939464222]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, -10.7766905, 0, -0.9027386)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface4" type="MeshInstance3D" parent="Ground" unique_id=1370749250]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, -0.1818583, -0.03626728, -0.22332859)
+material_override = SubResource("StandardMaterial3D_bu4jf")
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface3" type="MeshInstance3D" parent="Ground" unique_id=926744041]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, -2.3546, 0, 30.242)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface14" type="MeshInstance3D" parent="Ground" unique_id=1089343593]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, 0.4915862, 2.4846783, -1.3696547)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface8" type="MeshInstance3D" parent="Ground" unique_id=1709714006]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, 8.311456, 0, 31.08855)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface11" type="MeshInstance3D" parent="Ground" unique_id=730247378]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, 7.212081, 0, 45.938267)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface12" type="MeshInstance3D" parent="Ground" unique_id=1747975501]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, -3.2962904, 0, 45.301315)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface13" type="MeshInstance3D" parent="Ground" unique_id=439400591]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, -14.107783, 0, 44.502575)
+mesh = SubResource("Mesh_ground")
+
+[node name="Surface7" type="MeshInstance3D" parent="Ground" unique_id=43962119]
+transform = Transform3D(0.9970547, 0, -0.07669347, 0, 1, 0, 0.07669347, 0, 0.9970547, -13.024169, 0, 29.369808)
+mesh = SubResource("Mesh_ground")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1789222395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.083, -0.15, -0.088)
+shape = SubResource("Shape_ground")
+
+[node name="Elements" type="Node3D" parent="." unique_id=1292654013]
+
+[node name="ExampleColumn" parent="Elements" unique_id=591285812 instance=ExtResource("1_element")]
+transform = Transform3D(0.9973376, 0, -0.07292339, 0, 1, 0, 0.07292339, 0, 0.9973376, 0.41478324, -0.04669082, 7.1919036)
+texture = ExtResource("5_yq6so")
+pixel_size = 0.0075
+collision_depth = 0.75
+
+[node name="ExampleColumn54" parent="Elements" unique_id=1031851512 instance=ExtResource("1_element")]
+transform = Transform3D(0.9973376, 0, -0.07292339, 0, 1, 0, 0.07292339, 0, 0.9973376, 0.41478324, -0.04669082, 6.3506403)
+texture = ExtResource("5_yq6so")
+pixel_size = 0.0075
+collision_depth = 0.75
+
+[node name="ExampleColumn41" parent="Elements" unique_id=1759686817 instance=ExtResource("1_element")]
+transform = Transform3D(-0.07454355, 0, -0.9972177, 0, 1, 0, 0.9972177, 0, -0.07454355, -5.612147, -0.036712766, -1.2956907)
+texture = ExtResource("5_yq6so")
+pixel_size = 0.0075
+collision_depth = 0.75
+
+[node name="ExampleColumn15" parent="Elements" unique_id=525824485 instance=ExtResource("1_element")]
+transform = Transform3D(0.9973376, 0, -0.07292339, 0, 1, 0, 0.07292339, 0, 0.9973376, 0.4652946, 2.3857956, -6.809184)
+texture = ExtResource("6_fv21b")
+pixel_size = 0.007500000000000001
+collision_depth = 0.75
+
+[node name="ExampleColumn23" parent="Elements" unique_id=1276093090 instance=ExtResource("1_element")]
+transform = Transform3D(0.9973376, 0, -0.07292339, 0, 1, 0, 0.07292339, 0, 0.9973376, 0.11016536, 7.1035867, -6.8467827)
+texture = ExtResource("7_tel4y")
+pixel_size = 0.0075
+collision_depth = 0.75
+
+[node name="ExampleColumn31" parent="Elements" unique_id=1402841468 instance=ExtResource("1_element")]
+transform = Transform3D(0.9973376, 0, -0.07292339, 0, 1, 0, 0.07292339, 0, 0.9973376, 0.3998466, 10.697261, -6.8154817)
+texture = ExtResource("8_fuf3a")
+pixel_size = 0.002
+collision_depth = 0.75
+
+[node name="ExampleColumn16" parent="Elements" unique_id=1831178991 instance=ExtResource("1_element")]
+transform = Transform3D(0.9973376, 0, -0.07292339, 0, 1, 0, 0.07292339, 0, 0.9973376, -0.09073484, 1.5549402, 6.325698)
+texture = ExtResource("8_qkpxi")
+pixel_size = 0.0075
+collision_depth = 0.75
+
+[node name="ExampleColumn53" parent="Elements" unique_id=1774020073 instance=ExtResource("1_element")]
+transform = Transform3D(-0.06849688, 0.00776793, -0.9976211, 0.00053209515, 0.99996984, 0.007749686, 0.9976512, 0, -0.06849895, -5.1938443, 1.6074877, -3.413631)
+texture = ExtResource("8_qkpxi")
+pixel_size = 0.0069
+collision_depth = 0.75
+
+[node name="ExampleColumn3" parent="Elements" unique_id=1718168 instance=ExtResource("1_element")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.663359, -0.051068425, 23.636724)
+texture = ExtResource("3_column")
+collision_depth = 0.75
+
+[node name="ExampleColumn21" parent="Elements" unique_id=980406111 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, -5.5154533, -0.051068425, 9.211203)
+texture = ExtResource("10_5q0nq")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn25" parent="Elements" unique_id=1346762570 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, -5.2867513, -0.051068425, 12.003231)
+texture = ExtResource("11_dgi5k")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn27" parent="Elements" unique_id=1001916784 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, -5.6962895, -0.05227077, 15.086321)
+texture = ExtResource("12_j8jky")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn28" parent="Elements" unique_id=1430314672 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, -5.596002, -0.055736184, 16.886717)
+texture = ExtResource("13_kmb1v")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn30" parent="Elements" unique_id=1208462412 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, -5.5154533, -0.051068425, 18.614668)
+texture = ExtResource("14_fuf3a")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn34" parent="Elements" unique_id=656533205 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, -6.0345974, -0.20069349, 20.242012)
+texture = ExtResource("15_pibwh")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn35" parent="Elements" unique_id=1686202460 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, -6.4353514, -0.051068425, 22.420101)
+texture = ExtResource("16_c6pm6")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn26" parent="Elements" unique_id=424465837 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, 3.047383, -0.051068425, 15.515276)
+texture = ExtResource("17_5he1u")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn29" parent="Elements" unique_id=1865627535 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, 2.8296537, -0.051068425, 17.463736)
+texture = ExtResource("18_5poiv")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn33" parent="Elements" unique_id=1882788995 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, 2.8296537, -0.051068425, 19.247803)
+texture = ExtResource("19_2cjbq")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn36" parent="Elements" unique_id=1394820355 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, 2.619938, -0.051068425, 20.768993)
+texture = ExtResource("20_chjal")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn37" parent="Elements" unique_id=1712064460 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, 2.8296537, -0.051068425, 23.004572)
+texture = ExtResource("20_chjal")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn22" parent="Elements" unique_id=693766060 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, 3.138732, -0.07106507, 12.64351)
+texture = ExtResource("21_cjqg0")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn24" parent="Elements" unique_id=1547800185 instance=ExtResource("1_element")]
+transform = Transform3D(0.99694103, 0, -0.078157395, 0, 1, 0, 0.078157395, 0, 0.99694103, 3.3891425, -0.051068425, 9.794967)
+texture = ExtResource("22_vchkt")
+pixel_size = 0.0044
+collision_depth = 0.75
+
+[node name="ExampleColumn5" parent="Elements" unique_id=254970297 instance=ExtResource("1_element")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.978567, -0.049806, 40.335915)
+texture = ExtResource("3_column")
+collision_depth = 0.75
+
+[node name="ExampleColumn11" parent="Elements" unique_id=1813574913 instance=ExtResource("1_element")]
+transform = Transform3D(0.9551106, 0, 0.29624957, 0, 1, 0, -0.29624957, 0, 0.9551106, -8.133692, 7.324221, -6.775283)
+texture = ExtResource("23_txyw0")
+pixel_size = 0.0075
+collision_depth = 0.75
+
+[node name="ExampleColumn43" parent="Elements" unique_id=1242963204 instance=ExtResource("1_element")]
+transform = Transform3D(0.9976165, 0, 0.06900275, 0, 1, 0, -0.06900275, 0, 0.9976165, -5.986277, 17.938192, -8.190871)
+texture = ExtResource("25_pibwh")
+pixel_size = 0.0167
+collision_depth = 0.75
+
+[node name="ExampleColumn45" parent="Elements" unique_id=819844021 instance=ExtResource("1_element")]
+transform = Transform3D(0.9976165, 0, 0.06900275, 0, 1, 0, -0.06900275, 0, 0.9976165, -11.506118, -0.24395943, -2.1812315)
+texture = ExtResource("26_c6pm6")
+pixel_size = 0.0167
+collision_depth = 0.75
+
+[node name="ExampleColumn46" parent="Elements" unique_id=1658660402 instance=ExtResource("1_element")]
+transform = Transform3D(0.93172103, 0, -0.36317503, 0, 1, 0, 0.36317503, 0, 0.93172103, 11.590161, -0.24395943, -0.8511076)
+texture = ExtResource("26_c6pm6")
+pixel_size = 0.0167
+collision_depth = 0.75
+
+[node name="ExampleColumn44" parent="Elements" unique_id=350004518 instance=ExtResource("1_element")]
+transform = Transform3D(0.94154024, 0, -0.33690062, 0, 1, 0, 0.33690062, 0, 0.94154024, 6.797499, 18.176601, -6.6286736)
+texture = ExtResource("25_pibwh")
+pixel_size = 0.0167
+collision_depth = 0.75
+
+[node name="ExampleColumn42" parent="Elements" unique_id=238994423 instance=ExtResource("1_element")]
+transform = Transform3D(0.99668944, 0.00058720424, -0.081301436, -0.00063802535, 0.99999976, -0.0005990235, 0.08130103, 0.0006488944, 0.9966893, 0.415282, 17.799551, -7.708421)
+texture = ExtResource("28_5poiv")
+pixel_size = 0.0174
+collision_depth = 0.75
+
+[node name="ExampleColumn32" parent="Elements" unique_id=290300733 instance=ExtResource("1_element")]
+transform = Transform3D(0.95509887, 0.00014588001, 0.29628682, -0.000160194, 0.99999994, 2.3968518e-05, -0.29628676, -7.0378184e-05, 0.95509905, -8.133692, 9.985987, -6.75853)
+texture = ExtResource("29_2cjbq")
+pixel_size = 0.002
+collision_depth = 0.75
+
+[node name="ExampleColumn13" parent="Elements" unique_id=517976031 instance=ExtResource("1_element")]
+transform = Transform3D(0.9961776, 0, -0.08735141, 0, 1, 0, 0.08735141, 0, 0.9961776, 0.4564638, -0.022410989, -7.618072)
+texture = ExtResource("24_vc5cj")
+pixel_size = 0.02159999999999999
+collision_depth = 0.75
+
+[node name="ExampleColumn12" parent="Elements" unique_id=286235730 instance=ExtResource("1_element")]
+transform = Transform3D(0.872089, -0.015027486, -0.48911637, 0.0067737633, 0.9998039, -0.0186402, 0.48930013, 0.012942771, 0.87201965, 9.299429, 7.303788, -5.495401)
+texture = ExtResource("23_txyw0")
+pixel_size = 0.0075
+collision_depth = 0.75
+
+[node name="ExampleColumn38" parent="Elements" unique_id=1366489928 instance=ExtResource("1_element")]
+transform = Transform3D(0.872089, -0.015027486, -0.48911637, 0.0067737633, 0.9998039, -0.0186402, 0.48930013, 0.012942771, 0.87201965, 9.290777, 10.035817, -5.3695526)
+texture = ExtResource("31_chjal")
+pixel_size = 0.002
+collision_depth = 0.75
+
+[node name="ExampleColumn7" parent="Elements" unique_id=1933466063 instance=ExtResource("1_element")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.784949, 2.6625464, 23.777056)
+texture = ExtResource("25_nvyfr")
+pixel_size = 0.004
+collision_depth = 0.75
+
+[node name="ExampleColumn9" parent="Elements" unique_id=1772286131 instance=ExtResource("1_element")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.723484, 3.0971923, 23.847198)
+texture = ExtResource("26_ty1g6")
+pixel_size = 0.0019
+collision_depth = 0.75
+
+[node name="ExampleColumn39" parent="Elements" unique_id=216871054 instance=ExtResource("1_element")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.770323, 4.501761, 24.016743)
+texture = ExtResource("29_2cjbq")
+pixel_size = 0.001
+collision_depth = 0.75
+
+[node name="ExampleColumn10" parent="Elements" unique_id=479888981 instance=ExtResource("1_element")]
+transform = Transform3D(0.99908835, 0, -0.042691067, 0, 1, 0, 0.042691067, 0, 0.99908835, 8.501507, 3.2294722, 24.193727)
+texture = ExtResource("26_ty1g6")
+pixel_size = 0.0019
+collision_depth = 0.75
+
+[node name="ExampleColumn8" parent="Elements" unique_id=1599043624 instance=ExtResource("1_element")]
+transform = Transform3D(0.9858853, 0, -0.16742215, 0, 1, 0, 0.16742215, 0, 0.9858853, 8.570159, 3.2313, 24.050999)
+texture = ExtResource("25_nvyfr")
+pixel_size = 0.004
+collision_depth = 0.75
+
+[node name="ExampleColumn40" parent="Elements" unique_id=1044851909 instance=ExtResource("1_element")]
+transform = Transform3D(0.9858853, 0, -0.16742215, 0, 1, 0, 0.16742215, 0, 0.9858853, 8.450419, 4.6529455, 24.115862)
+texture = ExtResource("34_cjqg0")
+pixel_size = 0.001
+collision_depth = 0.75
+
+[node name="ExampleColumn2" parent="Elements" unique_id=1741886969 instance=ExtResource("1_element")]
+transform = Transform3D(0.99766356, 0, -0.068319365, 0, 1, 0, 0.068319365, 0, 0.99766356, 9.71507, -0.08753693, 11.576839)
+texture = ExtResource("3_column")
+collision_depth = 0.75
+
+[node name="ExampleColumn14" parent="Elements" unique_id=1576680234 instance=ExtResource("1_element")]
+transform = Transform3D(0.99766356, 0, -0.068319365, 0, 1, 0, 0.068319365, 0, 0.99766356, -11.330181, -0.08753693, 9.797186)
+texture = ExtResource("3_column")
+collision_depth = 0.75
+
+[node name="ExampleColumn49" parent="Elements" unique_id=1104165303 instance=ExtResource("1_element")]
+transform = Transform3D(0.99766356, 0, -0.068319365, 0, 1, 0, 0.068319365, 0, 0.99766356, -11.330181, 9.096159, 10.007261)
+texture = ExtResource("33_kmb1v")
+pixel_size = 0.0038
+collision_depth = 0.75
+
+[node name="ExampleColumn50" parent="Elements" unique_id=800282071 instance=ExtResource("1_element")]
+transform = Transform3D(0.99766356, 0, -0.068319365, 0, 1, 0, 0.068319365, 0, 0.99766356, 9.926951, 9.096159, 11.743781)
+texture = ExtResource("33_kmb1v")
+pixel_size = 0.0038
+collision_depth = 0.75
+
+[node name="ExampleColumn51" parent="Elements" unique_id=614374347 instance=ExtResource("1_element")]
+transform = Transform3D(0.84508324, 0, -0.5346348, 0, 1, 0, 0.5346348, 0, 0.84508324, 11.465497, 15.76186, -0.36313057)
+texture = ExtResource("33_kmb1v")
+pixel_size = 0.0057
+collision_depth = 0.75
+
+[node name="ExampleColumn52" parent="Elements" unique_id=50483043 instance=ExtResource("1_element")]
+transform = Transform3D(0.99963725, 0, 0.02693063, 0, 1, 0, -0.02693063, 0, 0.99963725, -11.821896, 15.76186, -2.0712776)
+texture = ExtResource("33_kmb1v")
+pixel_size = 0.0057
+collision_depth = 0.75
+
+[node name="ExampleColumn17" parent="Elements" unique_id=270484631 instance=ExtResource("1_element")]
+transform = Transform3D(0.09646376, 0, 0.9953365, 0, 1, 0, -0.9953365, 0, 0.09646376, -15.273582, -0.110222936, 5.543124)
+texture = ExtResource("27_j2jfr")
+pixel_size = 0.0228
+collision_depth = 0.75
+
+[node name="ExampleColumn47" parent="Elements" unique_id=1658677208 instance=ExtResource("1_element")]
+transform = Transform3D(0.09646376, 0, 0.9953365, 0, 1, 0, -0.9953365, 0, 0.09646376, -16.329796, 0.7397884, 14.968805)
+texture = ExtResource("36_vchkt")
+pixel_size = 0.010499999999999999
+collision_depth = 0.75
+
+[node name="ExampleColumn48" parent="Elements" unique_id=605744894 instance=ExtResource("1_element")]
+transform = Transform3D(0.09646376, 0, 0.9953365, 0, 1, 0, -0.9953365, 0, 0.09646376, 13.424571, 0.7248696, 16.26139)
+texture = ExtResource("36_vchkt")
+pixel_size = 0.010499999999999999
+collision_depth = 0.75
+
+[node name="ExampleColumn18" parent="Elements" unique_id=1079786227 instance=ExtResource("1_element")]
+transform = Transform3D(0.09646376, 0, 0.9953365, 0, 1, 0, -0.9953365, 0, 0.09646376, -18.474876, -0.08753693, 35.14519)
+texture = ExtResource("28_bjg73")
+pixel_size = 0.0215
+collision_depth = 0.75
+
+[node name="ExampleColumn19" parent="Elements" unique_id=793144093 instance=ExtResource("1_element")]
+transform = Transform3D(0.09646376, 0, 0.9953365, 0, 1, 0, -0.9953365, 0, 0.09646376, 11.245445, -0.08753693, 36.680782)
+texture = ExtResource("28_bjg73")
+pixel_size = 0.0222
+collision_depth = 0.75
+
+[node name="ExampleColumn20" parent="Elements" unique_id=1435430909 instance=ExtResource("1_element")]
+transform = Transform3D(0.07833706, 0, 0.9969269, 0, 1, 0, -0.9969269, 0, 0.07833706, 14.031837, -0.08753693, 6.8321886)
+texture = ExtResource("27_j2jfr")
+pixel_size = 0.0228
+collision_depth = 0.75
+
+[node name="ExampleColumn4" parent="Elements" unique_id=1588840665 instance=ExtResource("1_element")]
+transform = Transform3D(0.98496896, 1.8523342e-09, -0.17273124, 0.00031674094, 0.99999833, 0.0018061548, 0.17273097, -0.0018337294, 0.9849674, 8.558205, -0.011300802, 23.837952)
+texture = ExtResource("3_column")
+collision_depth = 0.75
+
+[node name="ExampleColumn6" parent="Elements" unique_id=1526008655 instance=ExtResource("1_element")]
+transform = Transform3D(0.984969, 0, -0.17273125, 0, 1, 0, 0.17273125, 0, 0.984969, 7.4320726, 0.003664732, 41.87801)
+texture = ExtResource("3_column")
+collision_depth = 0.75
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=61254390]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 14, 22)
+current = true
+fov = 42.0
+near = 0.1
+far = 250.0

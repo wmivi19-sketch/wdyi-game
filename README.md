@@ -20,3 +20,7 @@ godot --path map
 [艾兰瑟大陆地图 · 四镇平原 v10](maps/ailanse-continent/README.md) 已保存为独立 Godot 4.5.2 地图工程，包含葡萄酿酒、酒港贸易、麦作磨坊与亚麻纺织四镇，以及素材、实机预览和验证记录。整图暂按 1000×1000 米制作。
 
 用 Godot 导入 `maps/ailanse-continent/project.godot` 后按 F5 运行。该地图尚未接入正式游戏菜单、战斗和存档。
+
+## HD-2D 教堂与人物测试
+
+[教堂场景项目](hd2d-cathedral/README.md)包含可复用元素模板、90个教堂场景元素，以及支持移动、跳跃和更换贴图的测试人物。使用 Godot 4.7.2 导入 `hd2d-cathedral/project.godot` 后按 F5 运行。

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/scene_element.tscn" id="element"]
+[ext_resource type="Texture2D" path="res://assets/building/A05_前景左石柱-v2.png" id="column"]
+
+[sub_resource type="BoxShape3D" id="ground_shape"]
+size = Vector3(12, 0.3, 16)
+
+[sub_resource type="Sky" id="sky"]
+
+[sub_resource type="Environment" id="environment"]
+sky = SubResource("sky")
+
+[node name="PhysicsFixture" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("environment")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+position = Vector3(0, -0.15, 0)
+shape = SubResource("ground_shape")
+
+[node name="Elements" type="Node3D" parent="."]
+
+[node name="ExampleColumn" parent="Elements" instance=ExtResource("element")]
+position = Vector3(-3.35, 0.015, -0.6)
+texture = ExtResource("column")
+pixel_size = 0.005
+collision_depth = 0.75

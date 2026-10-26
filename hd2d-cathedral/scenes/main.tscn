@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://skwf58nsrakr"]
+
+[ext_resource type="PackedScene" path="res://scenes/cathedral.tscn" id="cathedral"]
+[ext_resource type="PackedScene" path="res://scenes/test_player.tscn" id="player"]
+[ext_resource type="Script" path="res://scripts/playtest_ui.gd" id="ui"]
+
+[node name="Main" instance=ExtResource("cathedral")]
+
+[node name="TestPlayer" parent="." instance=ExtResource("player")]
+position = Vector3(0, 0.05, 11)
+
+[node name="PlaytestUI" type="CanvasLayer" parent="."]
+layer = 10
+script = ExtResource("ui")

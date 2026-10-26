@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="128" viewBox="0 0 96 128">
+<!-- Original vector test pawn. Replace through the player inspector or runtime picker. -->
+<g stroke="#302733" stroke-width="3" stroke-linejoin="round">
+<path fill="#243a59" d="M30 44 Q48 34 66 44 L78 108 Q48 125 18 108Z"/>
+<path fill="#465b76" d="M30 44 L19 88 30 95 39 61 M66 44 L77 88 66 95 57 61"/>
+<path fill="#d8ad79" d="M19 86 L17 98 26 101 31 90 M77 86 L79 98 70 101 65 90"/>
+<path fill="#604937" d="M33 96 L31 117 24 121 24 125 43 125 46 99 M50 99 L53 125 72 125 72 121 65 117 63 96"/>
+<path fill="#82949c" d="M32 49 L64 49 68 85 60 103 36 103 28 85Z"/>
+<path fill="#d3b06a" d="M29 79 L67 79 67 88 29 88Z"/>
+<rect fill="#886831" x="43" y="79" width="12" height="10"/>
+<path fill="#dec091" d="M32 22 Q48 12 64 22 L62 43 54 51 42 51 34 43Z"/>
+<path fill="#44372f" d="M31 29 L28 20 35 9 54 6 67 17 66 32 58 20 43 25 36 22 34 33Z"/>
+<path fill="#d9e0df" d="M30 48 L40 44 48 55 56 44 66 48 59 61 37 61Z"/>
+<path fill="#b8ced1" d="M69 66 L81 57 89 68 86 93 77 103 68 92Z"/>
+<path fill="none" stroke="#dfbd76" d="M77 67 L79 91 M72 77 L85 75"/>
+</g>
+<path stroke="#342733" stroke-width="3" d="M39 34h5m8 0h5"/>
+</svg>

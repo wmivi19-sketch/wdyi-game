@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Local editor data and temporary diagnostic artifacts
+/export_templates/
+/feature_profiles/
+/script_templates/
+/text_editor_themes/
+/docs/contact_*.jpg
+/docs/Godot启动排查_*.md
+__pycache__/
+*.pyc

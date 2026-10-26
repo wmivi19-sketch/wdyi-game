@@ -1,0 +1,1561 @@
+[gd_scene format=3]
+
+
+
+[ext_resource type="PackedScene" path="res://scenes/scene_element.tscn" id="element"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A01_后方主墙.png" id="tex_0"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A02_左侧廊墙.png" id="tex_1"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A03_右侧廊墙.png" id="tex_2"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A04_顶部尖拱框架-v2.png" id="tex_3"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A05_前景左石柱-v2.png" id="tex_4"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A06_前景右石柱.png" id="tex_5"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A07_中景左石柱-v2.png" id="tex_6"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A08_中景右石柱.png" id="tex_7"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A09_后景左石柱-v2.png" id="tex_8"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A10_后景右石柱.png" id="tex_9"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A11_后墙左彩窗.png" id="tex_10"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A12_后墙中央彩窗.png" id="tex_11"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A13_后墙右彩窗.png" id="tex_12"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A14_左侧边缘彩窗.png" id="tex_13"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A15_右侧边缘彩窗.png" id="tex_14"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A16_后墙左深色壁龛框.png" id="tex_15"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A17_后墙右深色壁龛框.png" id="tex_16"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A18_中景左白石壁龛框.png" id="tex_17"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A19_中景右白石壁龛框.png" id="tex_18"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A20_祭坛完整石阶-v2.png" id="tex_19"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A21_前景左木栏杆.png" id="tex_20"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A22_前景右木栏杆.png" id="tex_21"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A23_左侧廊木栏杆.png" id="tex_22"]
+
+[ext_resource type="Texture2D" path="res://assets/building/A24_右侧廊木栏杆.png" id="tex_23"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F01_左区第1排长椅.png" id="tex_24"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F02_左区第2排长椅.png" id="tex_25"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F03_左区第3排长椅.png" id="tex_26"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F04_左区第4排长椅.png" id="tex_27"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F05_左区第5排长椅.png" id="tex_28"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F06_左区第6排长椅.png" id="tex_29"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F07_左区第7排长椅.png" id="tex_30"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F08_右区第1排长椅.png" id="tex_31"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F09_右区第2排长椅.png" id="tex_32"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F10_右区第3排长椅.png" id="tex_33"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F11_右区第4排长椅.png" id="tex_34"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F12_右区第5排长椅.png" id="tex_35"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F13_右区第6排长椅.png" id="tex_36"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F14_右区第7排长椅.png" id="tex_37"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F15_左前走道落地烛台.png" id="tex_38"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F16_右前走道落地烛台.png" id="tex_39"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F17_左近景外侧落地烛台.png" id="tex_40"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F18_右近景外侧落地烛台.png" id="tex_41"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F19_左白像旁落地烛台.png" id="tex_42"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F20_右白像旁落地烛台.png" id="tex_43"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F21_左台上外侧落地烛台.png" id="tex_44"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F22_右台上外侧落地烛台.png" id="tex_45"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F23_左台上内侧落地烛台.png" id="tex_46"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F24_右台上内侧落地烛台.png" id="tex_47"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F25_祭坛左侧第1支台面烛台.png" id="tex_48"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F26_祭坛左侧第2支台面烛台.png" id="tex_49"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F27_祭坛左侧第3支台面烛台.png" id="tex_50"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F28_祭坛右侧第1支台面烛台.png" id="tex_51"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F29_祭坛右侧第2支台面烛台.png" id="tex_52"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F30_祭坛右侧第3支台面烛台.png" id="tex_53"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F31_左后上方壁烛灯.png" id="tex_54"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F32_右后上方壁烛灯.png" id="tex_55"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F35_左前景蓝金旗.png" id="tex_56"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F36_左中景蓝金旗.png" id="tex_57"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F37_左后景窄蓝金旗.png" id="tex_58"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F38_左后墙蓝金旗.png" id="tex_59"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F39_右前景蓝金旗.png" id="tex_60"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F40_右中景蓝金旗.png" id="tex_61"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F41_右后景窄蓝金旗.png" id="tex_62"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F42_右后墙蓝金旗.png" id="tex_63"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F43_后墙左白石像.png" id="tex_64"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F44_后墙右白石像.png" id="tex_65"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F45_中景左白石像.png" id="tex_66"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F46_中景右白石像.png" id="tex_67"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F47_中央红袍圣像.png" id="tex_68"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F48_白石祭坛桌-v1.png" id="tex_69"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F49_中央白石尖顶圣龛.png" id="tex_70"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F50_祭坛中央小金色圣器-v2.png" id="tex_71"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F51_祭坛前红金地毯.png" id="tex_72"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F52_左石质花台.png" id="tex_73"]
+
+[ext_resource type="Texture2D" path="res://assets/building/家具陈设/F53_右石质花台.png" id="tex_74"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P01_左前角大花盆.png" id="tex_75"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P02_右前角大花盆.png" id="tex_76"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P03_左白像下垂花饰.png" id="tex_77"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P04_右白像下垂花饰.png" id="tex_78"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P05_台阶左外侧花盆.png" id="tex_79"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P06_台阶右外侧花盆.png" id="tex_80"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P07_祭坛左前低花簇.png" id="tex_81"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P08_祭坛右前低花簇.png" id="tex_82"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P09_祭坛左后高花束.png" id="tex_83"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P10_祭坛右后高花束.png" id="tex_84"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P11_后墙左窗下小花.png" id="tex_85"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P12_后墙右窗下小花.png" id="tex_86"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P13_左边缘侧廊花盆.png" id="tex_87"]
+
+[ext_resource type="Texture2D" path="res://assets/building/植物花艺/P14_右边缘侧廊花盆.png" id="tex_88"]
+
+[ext_resource type="Texture2D" path="res://assets/ground/G01_完整无透视地面贴图-20261025.png" id="ground"]
+
+[ext_resource type="Texture2D" path="res://assets/sky.png" id="sky_texture"]
+
+[ext_resource type="Shader" path="res://shaders/cathedral_floor.gdshader" id="floor_shader"]
+
+[ext_resource type="Shader" path="res://shaders/sunbeam.gdshader" id="beam_shader"]
+
+[ext_resource type="Shader" path="res://shaders/cathedral_finish.gdshader" id="finish_shader"]
+
+[ext_resource type="Shader" path="res://shaders/stained_glass_light.gdshader" id="glass_shader"]
+
+[sub_resource type="PanoramaSkyMaterial" id="sky_mat"]
+panorama = ExtResource("sky_texture")
+energy_multiplier = 0.4
+
+[sub_resource type="Sky" id="sky"]
+sky_material = SubResource("sky_mat")
+
+[sub_resource type="Environment" id="environment"]
+background_mode = 2
+sky = SubResource("sky")
+ambient_light_source = 3
+ambient_light_color = Color(0.8, 0.72, 0.62, 1)
+ambient_light_energy = 0.6
+tonemap_mode = 0
+
+[sub_resource type="ShaderMaterial" id="floor_mat"]
+shader = ExtResource("floor_shader")
+shader_parameter/floor_texture = ExtResource("ground")
+
+[sub_resource type="PlaneMesh" id="floor_mesh"]
+material = SubResource("floor_mat")
+size = Vector2(48, 64)
+
+[sub_resource type="BoxShape3D" id="floor_collision"]
+size = Vector3(48, 0.4, 64)
+
+[sub_resource type="PlaneMesh" id="platform_mesh"]
+material = SubResource("floor_mat")
+size = Vector2(29, 8)
+
+[sub_resource type="BoxShape3D" id="platform_collision"]
+size = Vector3(29, 2.3, 8)
+
+[sub_resource type="ShaderMaterial" id="finish_mat"]
+shader = ExtResource("finish_shader")
+
+[sub_resource type="ShaderMaterial" id="beam_mat"]
+shader = ExtResource("beam_shader")
+shader_parameter/beam_color = Color(1, 0.86, 0.62, 0.26)
+
+[sub_resource type="QuadMesh" id="beam_mesh"]
+material = SubResource("beam_mat")
+size = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="glass_mat"]
+shader = ExtResource("glass_shader")
+shader_parameter/glass_texture = ExtResource("tex_10")
+
+[sub_resource type="PlaneMesh" id="glass_mesh"]
+material = SubResource("glass_mat")
+size = Vector2(3.5, 7)
+
+[node name="Cathedral" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-48, -25, 0)
+light_color = Color(1, 0.83, 0.58, 1)
+light_energy = 0.5
+
+[node name="Ground" type="StaticBody3D" parent="."]
+position = Vector3(0, 0, -10)
+
+[node name="Surface" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("floor_mesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+position = Vector3(0, -0.2, 0)
+shape = SubResource("floor_collision")
+
+[node name="SanctuaryPlatform" type="StaticBody3D" parent="."]
+position = Vector3(0, 2.3, -4.2)
+
+[node name="Surface" type="MeshInstance3D" parent="SanctuaryPlatform"]
+mesh = SubResource("platform_mesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SanctuaryPlatform"]
+position = Vector3(0, -1.15, 0)
+shape = SubResource("platform_collision")
+
+[node name="Elements" type="Node3D" parent="."]
+
+[node name="Architecture" type="Node3D" parent="Elements"]
+
+[node name="Apse_BackWall" parent="Elements/Architecture" instance=ExtResource("element")]
+position = Vector3(0.0000000, -0.0000000, -3.7673039)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_0")
+pixel_size = 0.023862410
+size_scale = Vector2(1, 0.9288621)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.70, 0.63, 0.55, 1)
+metadata/reference_rect = Rect2(360, -155, 952, 600)
+
+[node name="Left_AisleWall" parent="Elements/Architecture" instance=ExtResource("element")]
+position = Vector3(-27.1280289, -6.6690406, -1.3538822)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_1")
+pixel_size = 0.025424228
+size_scale = Vector2(1, 1.3458342)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.70, 0.63, 0.55, 1)
+metadata/reference_rect = Rect2(-420, -150, 1010, 790)
+
+[node name="Right_AisleWall" parent="Elements/Architecture" instance=ExtResource("element")]
+position = Vector3(27.1280289, -6.6690406, -1.3538822)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_2")
+pixel_size = 0.025692794
+size_scale = Vector2(1, 1.3113259)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.70, 0.63, 0.55, 1)
+metadata/reference_rect = Rect2(1082, -150, 1010, 790)
+
+[node name="Left_VaultArch" parent="Elements/Architecture" instance=ExtResource("element")]
+position = Vector3(-20.1360172, 6.3658860, -6.0195355)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_3")
+pixel_size = 0.015947465
+size_scale = Vector2(1, 1.2008248)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.70, 0.63, 0.55, 1)
+metadata/reference_rect = Rect2(-70, -280, 640, 530)
+
+[node name="Right_VaultArch" parent="Elements/Architecture" instance=ExtResource("element")]
+position = Vector3(20.1360172, 6.3658860, -6.0195355)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_3")
+pixel_size = 0.015947465
+size_scale = Vector2(1, 1.2008248)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.70, 0.63, 0.55, 1)
+metadata/reference_rect = Rect2(1102, -280, 640, 530)
+
+[node name="Windows" type="Node3D" parent="Elements"]
+
+[node name="ApseWindow_Left" parent="Elements/Windows" instance=ExtResource("element")]
+position = Vector3(-6.8207221, 8.3191009, -7.8508773)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_10")
+pixel_size = 0.010045919
+size_scale = Vector2(1, 0.5987579)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(586, -112, 110, 292)
+
+[node name="ApseWindow_Center" parent="Elements/Windows" instance=ExtResource("element")]
+position = Vector3(0.0000000, 8.3191009, -7.8508773)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_11")
+pixel_size = 0.008908818
+size_scale = Vector2(1, 0.7768972)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(775, -155, 122, 335)
+
+[node name="ApseWindow_Right" parent="Elements/Windows" instance=ExtResource("element")]
+position = Vector3(6.8207221, 8.3191009, -7.8508773)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_12")
+pixel_size = 0.009430360
+size_scale = Vector2(1, 0.6508741)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(976, -112, 110, 292)
+
+[node name="SideWindow_Left" parent="Elements/Windows" instance=ExtResource("element")]
+position = Vector3(-28.7464425, 2.0070682, -4.2681960)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_13")
+pixel_size = 0.006252840
+size_scale = Vector2(1, 0.8318974)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(-28, 135, 76, 252)
+
+[node name="SideWindow_Right" parent="Elements/Windows" instance=ExtResource("element")]
+position = Vector3(28.7464425, 2.0070682, -4.2681960)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_14")
+pixel_size = 0.005930384
+size_scale = Vector2(1, 0.8622986)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1624, 135, 76, 252)
+
+[node name="Columns" type="Node3D" parent="Elements"]
+
+[node name="Pillar_Rear_Left" parent="Elements/Columns" instance=ExtResource("element")]
+position = Vector3(-14.3829144, -0.0000000, -4.0036605)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_8")
+pixel_size = 0.009129363
+size_scale = Vector2(1, 1.2576809)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.88, 0.80, 0.68, 1)
+metadata/reference_rect = Rect2(384, -85, 92, 527)
+
+[node name="Pillar_Rear_Right" parent="Elements/Columns" instance=ExtResource("element")]
+position = Vector3(14.3829144, -0.0000000, -4.0036605)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_9")
+pixel_size = 0.009474368
+size_scale = Vector2(1, 1.2126288)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.88, 0.80, 0.68, 1)
+metadata/reference_rect = Rect2(1196, -85, 92, 527)
+
+[node name="Pillar_Middle_Left" parent="Elements/Columns" instance=ExtResource("element")]
+position = Vector3(-15.8705192, -0.0000000, 6.2472735)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_6")
+pixel_size = 0.010074898
+size_scale = Vector2(1, 1.3593965)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.88, 0.80, 0.68, 1)
+metadata/reference_rect = Rect2(187, -220, 142, 829)
+
+[node name="Pillar_Middle_Right" parent="Elements/Columns" instance=ExtResource("element")]
+position = Vector3(15.8705192, -0.0000000, 6.2472735)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_7")
+pixel_size = 0.009579817
+size_scale = Vector2(1, 1.3903320)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.88, 0.80, 0.68, 1)
+metadata/reference_rect = Rect2(1343, -220, 142, 829)
+
+[node name="Pillar_Front_Left" parent="Elements/Columns" instance=ExtResource("element")]
+position = Vector3(-16.8274534, 0.0000000, 12.8598280)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_4")
+pixel_size = 0.012063555
+size_scale = Vector2(1, 1.1208758)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.88, 0.80, 0.68, 1)
+metadata/reference_rect = Rect2(-28, -230, 220, 1010)
+
+[node name="Pillar_Front_Right" parent="Elements/Columns" instance=ExtResource("element")]
+position = Vector3(16.8274534, 0.0000000, 12.8598280)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_5")
+pixel_size = 0.011690160
+size_scale = Vector2(1, 1.1210359)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.88, 0.80, 0.68, 1)
+metadata/reference_rect = Rect2(1480, -230, 220, 1010)
+
+[node name="Altar" type="Node3D" parent="Elements"]
+
+[node name="Sanctuary_Steps" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(0.0000000, 0.0000000, 0.0380202)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_19")
+pixel_size = 0.014979086
+size_scale = Vector2(1, 0.5991875)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(382, 431, 908, 67)
+
+[node name="Altar_Rug" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(0.0000000, 2.0627048, -0.4467060)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_72")
+pixel_size = 0.004084270
+size_scale = Vector2(1, 0.3617397)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(744, 400, 184, 34)
+
+[node name="Central_Shrine" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(0.0000000, 4.0727681, -1.9685037)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_70")
+pixel_size = 0.005022344
+size_scale = Vector2(1, 0.9229491)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(779, 147, 114, 210)
+
+[node name="Red_Robed_Icon" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(0.0000000, 5.2786444, -2.3831655)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_68")
+pixel_size = 0.002697492
+size_scale = Vector2(1, 0.6659491)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(815, 235, 42, 82)
+
+[node name="Altar_Table" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(0.0000000, 2.8139648, -0.7895296)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_69")
+pixel_size = 0.004258921
+size_scale = Vector2(1, 0.9683153)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(740, 324, 192, 84)
+
+[node name="Gold_Monstrance" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(0.0000000, 5.1294135, -1.7941615)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_71")
+pixel_size = 0.001732266
+size_scale = Vector2(1, 0.6582496)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(819, 291, 34, 37)
+
+[node name="Altar_Candle_00" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(-2.3625259, 5.2487233, -1.7443426)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_48")
+pixel_size = 0.000709867
+size_scale = Vector2(1, 2.1356952)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(757, 262.0, 8, 63.0)
+
+[node name="Altar_Candle_01" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(-1.8900207, 5.2487233, -1.7443426)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_49")
+pixel_size = 0.000690419
+size_scale = Vector2(1, 1.9657029)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(772, 268.0, 8, 57.0)
+
+[node name="Altar_Candle_02" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(-1.4175155, 5.2487233, -1.7443426)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_50")
+pixel_size = 0.000651170
+size_scale = Vector2(1, 1.7826048)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(787, 274.0, 8, 51.0)
+
+[node name="Altar_Candle_03" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(1.3545148, 5.2487233, -1.7443426)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_51")
+pixel_size = 0.000649492
+size_scale = Vector2(1, 1.7885033)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(875, 274.0, 8, 51.0)
+
+[node name="Altar_Candle_04" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(1.8270200, 5.2487233, -1.7443426)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_52")
+pixel_size = 0.000656257
+size_scale = Vector2(1, 1.9797395)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(890, 268.0, 8, 57.0)
+
+[node name="Altar_Candle_05" parent="Elements/Altar" instance=ExtResource("element")]
+position = Vector3(2.2995252, 5.2487233, -1.7443426)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_53")
+pixel_size = 0.000641228
+size_scale = Vector2(1, 2.2524563)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(905, 262.0, 8, 63.0)
+
+[node name="Pews" type="Node3D" parent="Elements"]
+
+[node name="Pew_Left_01" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(-7.7365900, -0.0000000, 4.7081495)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_24")
+pixel_size = 0.005899939
+size_scale = Vector2(1, 0.6171861)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(416, 494, 300, 84)
+
+[node name="Pew_Right_01" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(7.7365900, -0.0000000, 4.7081495)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_31")
+pixel_size = 0.005765400
+size_scale = Vector2(1, 0.6139412)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(956, 494, 300, 84)
+
+[node name="Pew_Left_02" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(-7.7614506, -0.0000000, 6.9010128)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_25")
+pixel_size = 0.005829888
+size_scale = Vector2(1, 0.5809877)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(389, 531, 318, 92)
+
+[node name="Pew_Right_02" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(7.7614506, -0.0000000, 6.9010128)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_32")
+pixel_size = 0.005619630
+size_scale = Vector2(1, 0.6136230)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(965, 531, 318, 92)
+
+[node name="Pew_Left_03" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(-7.7835196, 0.0000000, 8.8476289)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_26")
+pixel_size = 0.005641327
+size_scale = Vector2(1, 0.6126262)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(362, 568, 336, 100)
+
+[node name="Pew_Right_03" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(7.7835196, 0.0000000, 8.8476289)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_33")
+pixel_size = 0.005660006
+size_scale = Vector2(1, 0.6560653)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(974, 568, 336, 100)
+
+[node name="Pew_Left_04" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(-7.8032420, -0.0000000, 10.5872713)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_27")
+pixel_size = 0.005768447
+size_scale = Vector2(1, 0.6324197)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(335, 605, 354, 108)
+
+[node name="Pew_Right_04" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(7.8032420, -0.0000000, 10.5872713)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_34")
+pixel_size = 0.005752877
+size_scale = Vector2(1, 0.6486881)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(983, 605, 354, 108)
+
+[node name="Pew_Left_05" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(-7.8209734, 0.0000000, 12.1512834)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_28")
+pixel_size = 0.005682715
+size_scale = Vector2(1, 0.6824656)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(308, 642, 372, 116)
+
+[node name="Pew_Right_05" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(7.8209734, 0.0000000, 12.1512834)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_35")
+pixel_size = 0.005604100
+size_scale = Vector2(1, 0.6752565)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(992, 642, 372, 116)
+
+[node name="Pew_Left_06" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(-7.8370006, -0.0000000, 13.5649838)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_29")
+pixel_size = 0.005648758
+size_scale = Vector2(1, 0.6618794)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(281, 679, 390, 124)
+
+[node name="Pew_Right_06" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(7.8370006, -0.0000000, 13.5649838)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_36")
+pixel_size = 0.005678986
+size_scale = Vector2(1, 0.6611034)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(1001, 679, 390, 124)
+
+[node name="Pew_Left_07" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(-7.8515581, -0.0000000, 14.8490481)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_30")
+pixel_size = 0.005668694
+size_scale = Vector2(1, 0.6959374)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(254, 716, 408, 132)
+
+[node name="Pew_Right_07" parent="Elements/Pews" instance=ExtResource("element")]
+position = Vector3(7.8515581, -0.0000000, 14.8490481)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_37")
+pixel_size = 0.005714563
+size_scale = Vector2(1, 0.7045435)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(0.84, 0.73, 0.61, 1)
+metadata/reference_rect = Rect2(1010, 716, 408, 132)
+
+[node name="Statues" type="Node3D" parent="Elements"]
+
+[node name="Dark_Niche_Left" parent="Elements/Statues" instance=ExtResource("element")]
+position = Vector3(-6.7176172, 2.4028940, -4.1388893)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_15")
+pixel_size = 0.003743267
+size_scale = Vector2(1, 1.2420513)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(604, 182, 75, 196)
+
+[node name="Rear_Statue_Left" parent="Elements/Statues" instance=ExtResource("element")]
+position = Vector3(-6.6832691, 4.6631215, -5.2274166)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_64")
+pixel_size = 0.002162124
+size_scale = Vector2(1, 0.8992764)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(627, 227, 30, 78)
+
+[node name="Dark_Niche_Right" parent="Elements/Statues" instance=ExtResource("element")]
+position = Vector3(6.7866930, 2.4028940, -4.1388893)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_16")
+pixel_size = 0.003684695
+size_scale = Vector2(1, 1.2566165)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(995, 182, 75, 196)
+
+[node name="Rear_Statue_Right" parent="Elements/Statues" instance=ExtResource("element")]
+position = Vector3(6.7866187, 4.6631215, -5.2274166)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_65")
+pixel_size = 0.002153115
+size_scale = Vector2(1, 0.8813559)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1018, 227, 30, 78)
+
+[node name="Stone_Platform_Left" parent="Elements/Statues" instance=ExtResource("element")]
+position = Vector3(-15.5830040, -0.1701640, 6.2423420)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_73")
+pixel_size = 0.003122164
+size_scale = Vector2(1, 0.7408424)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(226, 511, 88, 103)
+
+[node name="White_Niche_Left" parent="Elements/Statues" instance=ExtResource("element")]
+position = Vector3(-15.4945608, 1.9975475, 5.2596348)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_17")
+pixel_size = 0.003768048
+size_scale = Vector2(1, 0.8781387)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(230, 357, 81, 171)
+
+[node name="Middle_Statue_Left" parent="Elements/Statues" instance=ExtResource("element")]
+position = Vector3(-15.4198835, 2.8932549, 4.9532643)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_66")
+pixel_size = 0.001663974
+size_scale = Vector2(1, 0.9728029)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(255, 410, 31, 84)
+
+[node name="Stone_Platform_Right" parent="Elements/Statues" instance=ExtResource("element")]
+position = Vector3(15.5554722, -0.1701640, 6.2423420)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_74")
+pixel_size = 0.002850352
+size_scale = Vector2(1, 0.8141460)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1357, 511, 88, 103)
+
+[node name="White_Niche_Right" parent="Elements/Statues" instance=ExtResource("element")]
+position = Vector3(15.4945608, 1.9975475, 5.2596348)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_18")
+pixel_size = 0.003528426
+size_scale = Vector2(1, 0.9064088)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1361, 357, 81, 171)
+
+[node name="Middle_Statue_Right" parent="Elements/Statues" instance=ExtResource("element")]
+position = Vector3(15.4198835, 2.8932549, 4.9532643)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_67")
+pixel_size = 0.001613165
+size_scale = Vector2(1, 0.9860215)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1386, 410, 31, 84)
+
+[node name="Flowers" type="Node3D" parent="Elements"]
+
+[node name="Niche_Garland_Left" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(-15.3452062, 1.6965701, 5.7594384)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_77")
+pixel_size = 0.002136110
+size_scale = Vector2(1, 0.7076107)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(225, 505, 91, 42)
+
+[node name="Niche_Garland_Right" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(15.3452062, 1.6965701, 5.7594384)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_78")
+pixel_size = 0.002009230
+size_scale = Vector2(1, 0.6892233)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1356, 505, 91, 42)
+
+[node name="Flowers_Front_Left" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(-15.9853776, -0.0000000, 16.2914299)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_75")
+pixel_size = 0.003233301
+size_scale = Vector2(1, 1.0343660)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(-55, 655, 155, 249)
+
+[node name="Flowers_Front_Right" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(15.9853776, -0.0000000, 16.2914299)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_76")
+pixel_size = 0.003233301
+size_scale = Vector2(1, 1.0211049)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1572, 655, 155, 249)
+
+[node name="Flowers_Step_Left" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(-10.4641727, 1.9354079, 2.9387157)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_79")
+pixel_size = 0.002739225
+size_scale = Vector2(1, 0.9815586)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(437, 357, 82, 132)
+
+[node name="Flowers_Step_Right" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(10.4641727, 1.9354079, 2.9387157)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_80")
+pixel_size = 0.002563446
+size_scale = Vector2(1, 1.0372998)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1153, 357, 82, 132)
+
+[node name="Flowers_Altar_Low_Left" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(-4.5613025, 2.8000000, 0.5669086)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_81")
+pixel_size = 0.002337075
+size_scale = Vector2(1, 0.7805145)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(642, 365, 91, 62)
+
+[node name="Flowers_Altar_Low_Right" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(4.5613025, 2.8000000, 0.5669086)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_82")
+pixel_size = 0.002335122
+size_scale = Vector2(1, 0.7672046)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(939, 365, 91, 62)
+
+[node name="Flowers_Altar_Tall_Left" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(-4.0874417, 2.8000000, -1.9850558)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_83")
+pixel_size = 0.002430901
+size_scale = Vector2(1, 1.0481776)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(680, 279, 62, 114)
+
+[node name="Flowers_Altar_Tall_Right" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(4.0874417, 2.8000000, -1.9850558)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_84")
+pixel_size = 0.002260168
+size_scale = Vector2(1, 1.1219882)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(930, 279, 62, 114)
+
+[node name="Flowers_Window_Left" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(-6.9080764, 8.3308978, -7.5173788)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_85")
+pixel_size = 0.001928553
+size_scale = Vector2(1, 0.6171429)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(611, 146, 52, 36)
+
+[node name="Flowers_Window_Right" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(6.9080764, 8.3308978, -7.5173788)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_86")
+pixel_size = 0.001894151
+size_scale = Vector2(1, 0.5880296)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1009, 146, 52, 36)
+
+[node name="Flowers_Side_Left" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(-29.2005240, 0.0000000, -3.6890623)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_87")
+pixel_size = 0.002420914
+size_scale = Vector2(1, 0.9836909)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(-25, 349, 62, 97)
+
+[node name="Flowers_Side_Right" parent="Elements/Flowers" instance=ExtResource("element")]
+position = Vector3(29.2005240, 0.0000000, -3.6890623)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_88")
+pixel_size = 0.002318006
+size_scale = Vector2(1, 1.0287978)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1635, 349, 62, 97)
+
+[node name="Banners" type="Node3D" parent="Elements"]
+
+[node name="Banner_Front_Left" parent="Elements/Banners" instance=ExtResource("element")]
+position = Vector3(-16.4740725, 5.9083746, 10.1713176)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_56")
+pixel_size = 0.001812226
+size_scale = Vector2(1, 2.2833594)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(57, 224, 58, 266)
+
+[node name="Banner_Front_Right" parent="Elements/Banners" instance=ExtResource("element")]
+position = Vector3(16.4740725, 5.9083746, 10.1713176)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_60")
+pixel_size = 0.001812226
+size_scale = Vector2(1, 2.2769092)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1557, 224, 58, 266)
+
+[node name="Banner_Middle_Left" parent="Elements/Banners" instance=ExtResource("element")]
+position = Vector3(-15.7347417, 6.4294303, 3.2817128)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_57")
+pixel_size = 0.002322241
+size_scale = Vector2(1, 1.6946083)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(225, 145, 61, 205)
+
+[node name="Banner_Middle_Right" parent="Elements/Banners" instance=ExtResource("element")]
+position = Vector3(15.7347417, 6.4294303, 3.2817128)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_61")
+pixel_size = 0.002322241
+size_scale = Vector2(1, 1.7103552)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1386, 145, 61, 205)
+
+[node name="Banner_Rear_Left" parent="Elements/Banners" instance=ExtResource("element")]
+position = Vector3(-16.3092937, 6.3416155, -6.9225292)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_58")
+pixel_size = 0.002238750
+size_scale = Vector2(1, 1.8268551)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(350, 78, 42, 165)
+
+[node name="Banner_Rear_Right" parent="Elements/Banners" instance=ExtResource("element")]
+position = Vector3(16.3092937, 6.3416155, -6.9225292)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_62")
+pixel_size = 0.002110455
+size_scale = Vector2(1, 1.9283705)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1280, 78, 42, 165)
+
+[node name="Banner_Apse_Left" parent="Elements/Banners" instance=ExtResource("element")]
+position = Vector3(-11.1822531, 6.1870424, -6.6039847)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_59")
+pixel_size = 0.002332619
+size_scale = Vector2(1, 1.4408074)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(492, 111, 47, 139)
+
+[node name="Banner_Apse_Right" parent="Elements/Banners" instance=ExtResource("element")]
+position = Vector3(11.1822531, 6.1870424, -6.6039847)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_63")
+pixel_size = 0.002335942
+size_scale = Vector2(1, 1.4734760)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1133, 111, 47, 139)
+
+[node name="Candles" type="Node3D" parent="Elements"]
+
+[node name="Candelabrum_Aisle_Left" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(-4.1155928, -0.0000000, 17.0018815)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_38")
+pixel_size = 0.003259810
+size_scale = Vector2(1, 0.8253926)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(571, 740, 99, 194)
+
+[node name="Candelabrum_Aisle_Right" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(4.1155928, -0.0000000, 17.0018815)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_39")
+pixel_size = 0.002917731
+size_scale = Vector2(1, 0.8745304)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1002, 740, 99, 194)
+
+[node name="Candelabrum_Outer_Left" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(-14.9649207, 0.0000000, 10.8413945)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_40")
+pixel_size = 0.002771152
+size_scale = Vector2(1, 1.1141965)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(174, 538, 71, 182)
+
+[node name="Candelabrum_Outer_Right" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(14.9649207, 0.0000000, 10.8413945)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_41")
+pixel_size = 0.002735395
+size_scale = Vector2(1, 1.1090689)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1427, 538, 71, 182)
+
+[node name="Candelabrum_Statue_Left" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(-12.9885684, -0.0000000, 6.5771961)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_42")
+pixel_size = 0.002821892
+size_scale = Vector2(1, 0.9565247)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(328, 474, 61, 142)
+
+[node name="Candelabrum_Statue_Right" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(12.9885684, -0.0000000, 6.5771961)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_43")
+pixel_size = 0.002720119
+size_scale = Vector2(1, 0.9943978)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1283, 474, 61, 142)
+
+[node name="Candelabrum_Platform_Left" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(-13.7250131, 2.8000000, 1.5299157)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_44")
+pixel_size = 0.002821594
+size_scale = Vector2(1, 1.1987564)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(349, 277, 58, 164)
+
+[node name="Candelabrum_Platform_Right" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(13.7250131, 2.8000000, 1.5299157)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_45")
+pixel_size = 0.002728575
+size_scale = Vector2(1, 1.2684313)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1265, 277, 58, 164)
+
+[node name="Candelabrum_Altar_Left" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(-9.2169271, 2.8000000, 0.4253947)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_46")
+pixel_size = 0.002915958
+size_scale = Vector2(1, 1.1561319)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(509, 272, 56, 153)
+
+[node name="Candelabrum_Altar_Right" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(9.2169271, 2.8000000, 0.4253947)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_47")
+pixel_size = 0.002647618
+size_scale = Vector2(1, 1.2379132)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1107, 272, 56, 153)
+
+[node name="Wall_Sconce_Left" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(-17.3992450, 9.0910610, 1.9797557)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_54")
+pixel_size = 0.001253849
+size_scale = Vector2(1, 1.1774655)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(171, 170, 42, 70)
+
+[node name="Wall_Sconce_Right" parent="Elements/Candles" instance=ExtResource("element")]
+position = Vector3(17.4532800, 9.0910610, 1.9797557)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_55")
+pixel_size = 0.001191947
+size_scale = Vector2(1, 1.1497585)
+flip_h = false
+collision_mode = 2
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1461, 170, 42, 70)
+
+[node name="Railings" type="Node3D" parent="Elements"]
+
+[node name="Front_Rail_Left" parent="Elements/Railings" instance=ExtResource("element")]
+position = Vector3(-10.1305002, -0.0000000, 19.9757303)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_20")
+pixel_size = 0.007469424
+size_scale = Vector2(1, 0.7130945)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(-95, 883, 655, 198)
+
+[node name="Front_Rail_Right" parent="Elements/Railings" instance=ExtResource("element")]
+position = Vector3(10.1305002, -0.0000000, 19.9757303)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_21")
+pixel_size = 0.007295947
+size_scale = Vector2(1, 0.6719043)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1112, 883, 655, 198)
+
+[node name="Side_Rail_Left" parent="Elements/Railings" instance=ExtResource("element")]
+position = Vector3(-26.7480416, -0.0000000, 2.5121881)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_22")
+pixel_size = 0.005347339
+size_scale = Vector2(1, 0.9411950)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(-180, 415, 270, 123)
+
+[node name="Side_Rail_Right" parent="Elements/Railings" instance=ExtResource("element")]
+position = Vector3(26.7480416, -0.0000000, 2.5121881)
+rotation_degrees = Vector3(-28, 0, 0)
+texture = ExtResource("tex_23")
+pixel_size = 0.005340371
+size_scale = Vector2(1, 1.0134461)
+flip_h = false
+collision_mode = 1
+collision_depth = 0.35
+receive_lighting = false
+tint = Color(1, 0.97, 0.9, 1)
+metadata/reference_rect = Rect2(1582, 415, 270, 123)
+
+[node name="Atmosphere" type="Node3D" parent="."]
+
+[node name="WindowLightPool0" type="MeshInstance3D" parent="Atmosphere"]
+position = Vector3(-1.3330754, 0.0350000, 4.2889358)
+rotation_degrees = Vector3(0, -24, 0)
+cast_shadow = 0
+mesh = SubResource("glass_mesh")
+
+[node name="WindowLightPool1" type="MeshInstance3D" parent="Atmosphere"]
+position = Vector3(0.9261494, 0.0350000, 11.0203737)
+rotation_degrees = Vector3(0, -24, 0)
+cast_shadow = 0
+mesh = SubResource("glass_mesh")
+
+[node name="WindowLightPool2" type="MeshInstance3D" parent="Atmosphere"]
+position = Vector3(-0.2201838, 0.0350000, 15.8198291)
+rotation_degrees = Vector3(0, -24, 0)
+cast_shadow = 0
+mesh = SubResource("glass_mesh")
+
+[node name="WindowLightPool3" type="MeshInstance3D" parent="Atmosphere"]
+position = Vector3(9.3925378, 0.0350000, 10.1040034)
+rotation_degrees = Vector3(0, -24, 0)
+cast_shadow = 0
+mesh = SubResource("glass_mesh")
+
+[node name="WindowLightPool4" type="MeshInstance3D" parent="Atmosphere"]
+position = Vector3(-11.5581926, 0.0350000, 4.0220506)
+rotation_degrees = Vector3(0, -24, 0)
+cast_shadow = 0
+mesh = SubResource("glass_mesh")
+
+[node name="BeamPivot0" type="Node3D" parent="Atmosphere"]
+position = Vector3(-4.0884331, 12.9145284, 14.3177323)
+rotation_degrees = Vector3(-28, 0, 0)
+
+[node name="Sunbeam" type="MeshInstance3D" parent="Atmosphere/BeamPivot0"]
+rotation_degrees = Vector3(0, 0, 13.650419)
+scale = Vector3(1.267731, 9.132065, 1)
+cast_shadow = 0
+mesh = SubResource("beam_mesh")
+
+[node name="BeamPivot1" type="Node3D" parent="Atmosphere"]
+position = Vector3(-1.0458782, 12.4038294, 14.5892758)
+rotation_degrees = Vector3(-28, 0, 0)
+
+[node name="Sunbeam" type="MeshInstance3D" parent="Atmosphere/BeamPivot1"]
+rotation_degrees = Vector3(0, 0, 10.743346)
+scale = Vector3(1.663897, 10.371175, 1)
+cast_shadow = 0
+mesh = SubResource("beam_mesh")
+
+[node name="BeamPivot2" type="Node3D" parent="Atmosphere"]
+position = Vector3(4.2865161, 12.4877799, 14.5446385)
+rotation_degrees = Vector3(-28, 0, 0)
+
+[node name="Sunbeam" type="MeshInstance3D" parent="Atmosphere/BeamPivot2"]
+rotation_degrees = Vector3(0, 0, -12.280345)
+scale = Vector3(1.743130, 9.909030, 1)
+cast_shadow = 0
+mesh = SubResource("beam_mesh")
+
+[node name="BeamPivot3" type="Node3D" parent="Atmosphere"]
+position = Vector3(6.6635121, 11.4663820, 15.0877254)
+rotation_degrees = Vector3(-28, 0, 0)
+
+[node name="Sunbeam" type="MeshInstance3D" parent="Atmosphere/BeamPivot3"]
+rotation_degrees = Vector3(0, 0, -28.353866)
+scale = Vector3(0.824025, 11.578441, 1)
+cast_shadow = 0
+mesh = SubResource("beam_mesh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(0, 18, 32)
+rotation_degrees = Vector3(-28, 0, 0)
+current = true
+fov = 45.0
+near = 0.1
+far = 200.0
+
+[node name="ColorFinish" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="SoftGlowAndVignette" type="ColorRect" parent="ColorFinish"]
+material = SubResource("finish_mat")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
